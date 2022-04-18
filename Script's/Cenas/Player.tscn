@@ -1,0 +1,227 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Images/mainsprite/Void/Parado/VoidParado3.png" type="Texture" id=1]
+[ext_resource path="res://Images/mainsprite/Void/Parado/VoidParado2.png" type="Texture" id=2]
+[ext_resource path="res://Images/mainsprite/Void/Parado/VoidParado4.png" type="Texture" id=3]
+[ext_resource path="res://Images/mainsprite/Void/Andando/VoidAndando2.png" type="Texture" id=4]
+[ext_resource path="res://Images/mainsprite/Void/Parado/VoidParado1.png" type="Texture" id=5]
+[ext_resource path="res://Images/mainsprite/Void/Andando/VoidAndando4.png" type="Texture" id=6]
+[ext_resource path="res://Images/mainsprite/Void/Andando/VoidAndando3.png" type="Texture" id=7]
+[ext_resource path="res://Images/mainsprite/Void/Andando/VoidAndando1.png" type="Texture" id=8]
+[ext_resource path="res://Images/mainsprite/Void/VoidPulando.png" type="Texture" id=9]
+[ext_resource path="res://Images/mainsprite/Triangulo .png" type="Texture" id=10]
+[ext_resource path="res://Images/mainsprite/Void/Empurrando/Empurrando3.png" type="Texture" id=11]
+[ext_resource path="res://Images/mainsprite/Void/Empurrando/Empurrando2.png" type="Texture" id=12]
+[ext_resource path="res://Images/mainsprite/Void/Empurrando/Empurrando1.png" type="Texture" id=13]
+[ext_resource path="res://Images/mainsprite/Void/Empurrando/Empurrando4.png" type="Texture" id=14]
+[ext_resource path="res://Script's/Gui and Stuff/GUI.tscn" type="PackedScene" id=15]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends KinematicBody2D
+
+const NORMAL = Vector2(0,-1)
+var motion = Vector2()
+var GRAVITY = 30
+var AlturaPulo = -600
+var SPEED = 180
+
+var parede = false
+var empurrando = false
+
+func _physics_process(delta):
+	_move(delta)
+	
+func jump():
+	motion.y = AlturaPulo
+
+func jump_cut():
+	if motion.y < -100:
+		motion.y = -50
+
+func _move(_delta):
+	motion.y += GRAVITY
+	if Input.is_action_pressed(\"ui_right\") && parede == false:
+		motion.x = SPEED
+		$AnimatedSprite.flip_h = false
+	elif Input.is_action_pressed(\"ui_left\") && parede == false:
+		motion.x = -SPEED
+		$AnimatedSprite.flip_h = true
+	else: motion.x = 0
+	
+	if motion.x != 0 and is_on_floor() and empurrando==false:
+		$AnimatedSprite.play(\"Andando\")
+	elif !is_on_floor():
+		$AnimatedSprite.play(\"Pulando\")
+	elif empurrando==true:
+		$AnimatedSprite.play(\"Empurrando\")
+	
+	else:
+		$AnimatedSprite.play(\"Parado\")
+		
+	if !is_on_floor() && is_on_wall():
+		parede = true
+	else:
+		parede = false
+	if Input.is_action_just_pressed(\"ui_up\") and is_on_floor():
+		jump()
+	if Input.is_action_just_pressed(\"ui_up\") && parede == true:
+		jump()
+	elif Input.is_action_just_released(\"ui_up\"):
+		jump_cut()
+		
+	
+	motion = move_and_slide(motion, NORMAL)
+
+func _on_Area2D_area_entered(area):
+	if area.is_in_group(\"Dano\"):
+		Global.morto()
+
+	if area.is_in_group(\"Desce_dano\"):
+		Global.morto()
+
+	if area.is_in_group(\"Move\") and is_on_floor():
+		empurrando = true
+	
+	if area.is_in_group(\"Portal\"):
+		SPEED = 0
+		AlturaPulo = 0
+
+func _on_Area2D_area_exited(area):
+	if area.is_in_group(\"Move\") and is_on_floor():
+		empurrando = false
+	else:
+		empurrando = false
+
+func _on_VisibilityNotifier2D_screen_exited():
+	if Global.portal == false :
+		avisar_morte()
+
+func avisar_morte():
+	Global.add_morte()
+	Global.morto()
+"
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 9 ) ],
+"loop": false,
+"name": "Pulando",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Parado",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "Empurrando",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Andando",
+"speed": 11.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 2.66667, 13 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 4.66667, 13.3333 )
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0.0438596, 0.245614, 0.526316, 0.754386, 1 )
+colors = PoolColorArray( 0.896552, 0.896552, 0.896552, 0.103448, 0, 0, 0, 1, 0.058264, 0.058264, 0.058264, 0.941736, 0.12069, 0.12069, 0.12069, 0.87931, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+render_priority = 5
+lifetime_randomness = 1.0
+emission_shape = 2
+emission_box_extents = Vector3( 200, 200, 200 )
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 90.6
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 30.0
+initial_velocity_random = 0.41
+angular_velocity = 100.0
+angular_velocity_random = 0.75
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 53.33
+radial_accel = 40.0
+angle = 326.7
+angle_random = 0.43
+scale = 0.6
+scale_random = 1.0
+color_ramp = SubResource( 8 )
+
+[node name="Player" type="KinematicBody2D"]
+scale = Vector2( 1.5, 1.5 )
+collision_mask = 3
+script = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 3 )
+frames = SubResource( 3 )
+animation = "Parado"
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -1.19209e-07, 5.66667 )
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="." groups=["Player"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, 5.33332 )
+shape = SubResource( 7 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( -285.333, -141.333 )
+scale = Vector2( 0.587544, 0.587544 )
+anchor_mode = 0
+current = true
+zoom = Vector2( 0.6, 0.6 )
+smoothing_enabled = true
+smoothing_speed = 1.5
+
+[node name="Particles2D" type="Particles2D" parent="Camera2D"]
+modulate = Color( 0, 0, 0, 0.470588 )
+position = Vector2( 719.379, 367.632 )
+amount = 10
+lifetime = 5.0
+fixed_fps = 60
+local_coords = false
+draw_order = 1
+process_material = SubResource( 6 )
+texture = ExtResource( 10 )
+
+[node name="Particles2D2" type="Particles2D" parent="Camera2D"]
+modulate = Color( 0, 0, 0, 0.470588 )
+position = Vector2( 122.544, 110.063 )
+amount = 10
+lifetime = 5.0
+randomness = 0.11
+fixed_fps = 60
+local_coords = false
+draw_order = 1
+process_material = SubResource( 6 )
+texture = ExtResource( 10 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 7.10543e-15, -30.6667 )
+scale = Vector2( 0.466667, 0.316667 )
+
+[node name="Gui" parent="." instance=ExtResource( 15 )]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
