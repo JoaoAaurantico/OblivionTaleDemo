@@ -58,13 +58,7 @@ func _move(_delta):
 	else:
 		$AnimatedSprite.play(\"Parado\")
 		
-	if !is_on_floor() && is_on_wall():
-		parede = true
-	else:
-		parede = false
 	if Input.is_action_just_pressed(\"ui_up\") and is_on_floor():
-		jump()
-	if Input.is_action_just_pressed(\"ui_up\") && parede == true:
 		jump()
 	elif Input.is_action_just_released(\"ui_up\"):
 		jump_cut()
@@ -103,6 +97,11 @@ func avisar_morte():
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Andando",
+"speed": 11.0
+}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": false,
 "name": "Pulando",
@@ -117,15 +116,10 @@ animations = [ {
 "loop": true,
 "name": "Empurrando",
 "speed": 10.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "Andando",
-"speed": 11.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 2.66667, 13 )
+extents = Vector2( 4.66667, 13 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 4.66667, 13.3333 )
@@ -169,12 +163,11 @@ script = SubResource( 1 )
 position = Vector2( 0, 3 )
 frames = SubResource( 3 )
 animation = "Parado"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( -1.19209e-07, 5.66667 )
+position = Vector2( -0.666667, 5.66667 )
 shape = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="." groups=["Player"]]

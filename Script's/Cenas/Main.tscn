@@ -23,7 +23,7 @@ texture = SubResource( 2 )
 offset = Vector2( -29, 0.142483 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 423, 292 )
+position = Vector2( 672, 292 )
 
 [node name="Portal" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1227, 274 )
