@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Empurrando1.png-dd4161e6b4d4e842c3fe463c71b7efd5.stex"
+path="res://.import/Void SpriteSheet.png-519cbbb4816fb5a15643356997dedfda.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/mainsprite/Void/Empurrando/Empurrando1.png"
-dest_files=[ "res://.import/Empurrando1.png-dd4161e6b4d4e842c3fe463c71b7efd5.stex" ]
+source_file="res://Images/mainsprite/Void/Void SpriteSheet.png"
+dest_files=[ "res://.import/Void SpriteSheet.png-519cbbb4816fb5a15643356997dedfda.stex" ]
 
 [params]
 

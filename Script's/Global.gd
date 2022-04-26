@@ -1,4 +1,6 @@
 extends Node
+
+var slide = false
 var ingles = false
 var portal = false
 var espelho: int = 0

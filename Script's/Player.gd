@@ -1,16 +1,88 @@
-extends "res://Script's/Player.gd"
+extends KinematicBody2D
 
+const NORMAL = Vector2(0,-1)
+var motion = Vector2()
+var GRAVITY = 30
+var AlturaPulo = -600
+var SPEED = 180
+var SLIDE = 250
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var parede = false
+var empurrando = false
 
+func _physics_process(delta):
+	_move(delta)
+	
+func jump():
+	motion.y = AlturaPulo
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func jump_cut():
+	if motion.y < -100:
+		motion.y = -50
 
+func _move(_delta):
+	motion.y += GRAVITY
+	if Input.is_action_pressed("ui_right") && Global.slide == false:
+		motion.x = SPEED
+		$AnimatedSprite.flip_h = false
+	elif Input.is_action_pressed("ui_left") && Global.slide == false:
+		motion.x = -SPEED
+		$AnimatedSprite.flip_h = true
+	else: motion.x = 0
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	if Input.is_action_just_pressed("ui_up") and is_on_floor():
+		jump()
+	elif Input.is_action_just_released("ui_up"):
+		jump_cut()
+	if Input.is_action_pressed("ui_down") && $AnimatedSprite.flip_h == false:
+		motion.x = SLIDE
+		Global.slide = true
+		$AnimationPlayer.play("CaixaSlide")
+	elif Input.is_action_pressed("ui_down") && $AnimatedSprite.flip_h == true:
+		motion.x = -SLIDE
+		Global.slide = true
+		$AnimationPlayer.play("CaixaSlide")
+	else: 
+		Global.slide = false
+		$AnimationPlayer.play("CaixaPadrão")
+
+	if motion.x != 0 && is_on_floor() && empurrando==false && Global.slide == false:
+		$AnimatedSprite.play("Andando")
+	elif !is_on_floor():
+		$AnimatedSprite.play("Pulando")
+	elif empurrando==true:
+		$AnimatedSprite.play("Empurrando")
+	elif Global.slide ==true:
+		$AnimatedSprite.play("Deslizando")
+	else:
+		$AnimatedSprite.play("Parado")
+
+	motion = move_and_slide(motion, NORMAL)
+
+func _on_Area2D_area_entered(area):
+	if area.is_in_group("Dano"):
+		Global.morto()
+
+	if area.is_in_group("Desce_dano"):
+		Global.morto()
+
+	if area.is_in_group("Move") && is_on_floor() && Global.slide == false:
+		empurrando = true
+	
+	if area.is_in_group("Portal"):
+		SPEED = 0
+		AlturaPulo = 0
+
+func _on_Area2D_area_exited(area):
+	if area.is_in_group("Move") and is_on_floor():
+		empurrando = false
+	else:
+		empurrando = false
+
+func _on_VisibilityNotifier2D_screen_exited():
+	if Global.portal == false :
+		avisar_morte()
+
+func avisar_morte():
+	Global.add_morte()
+	Global.morto()
