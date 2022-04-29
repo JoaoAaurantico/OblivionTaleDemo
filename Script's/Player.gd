@@ -27,6 +27,10 @@ func jump_cut():
 
 func _move(_delta):
 	motion.y += GRAVITY
+	
+	if SPEED >= 500:
+		SPEED = 500
+	
 	if Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):
 		SPEED = 180
 	
