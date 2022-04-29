@@ -5,8 +5,10 @@ var motion = Vector2()
 var GRAVITY = 30
 var AlturaPulo = -600
 var SPEED = 180
+var Acc = 0
+
 var SLIDE = 250
-var PodeSlide =  true
+var PodeSlide =  false
 
 var parede = false
 var empurrando = false
@@ -16,6 +18,8 @@ func _physics_process(delta):
 	
 func jump():
 	motion.y = AlturaPulo
+	SPEED = SPEED + 20
+	print(SPEED)
 
 func jump_cut():
 	if motion.y < -100:
@@ -23,10 +27,13 @@ func jump_cut():
 
 func _move(_delta):
 	motion.y += GRAVITY
-	if Input.is_action_pressed("ui_right") && Global.slide == false:
+	if Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):
+		SPEED = 180
+	
+	if Input.is_action_pressed("ui_right") && PodeSlide == false:
 		motion.x = SPEED
 		$AnimatedSprite.flip_h = false
-	elif Input.is_action_pressed("ui_left") && Global.slide == false:
+	elif Input.is_action_pressed("ui_left") && PodeSlide == false:
 		motion.x = -SPEED
 		$AnimatedSprite.flip_h = true
 	else: motion.x = 0
@@ -39,26 +46,28 @@ func _move(_delta):
 	if Input.is_action_just_pressed("ui_down"):
 		$TimerSlide.start()
 		PodeSlide = true
+		SPEED = SPEED + 10
+		print(SPEED)
 
 	if Input.is_action_pressed("ui_down") && $AnimatedSprite.flip_h == false && PodeSlide == true:
 		motion.x = SLIDE
-		Global.slide = true
+		PodeSlide = true
 		$AnimationPlayer.play("CaixaSlide")
 	elif Input.is_action_pressed("ui_down") && $AnimatedSprite.flip_h == true && PodeSlide == true:
 		motion.x = -SLIDE
-		Global.slide = true
+		PodeSlide = true
 		$AnimationPlayer.play("CaixaSlide")
 	else: 
-		Global.slide = false
+		PodeSlide = false
 		$AnimationPlayer.play("CaixaPadrão")
 
-	if motion.x != 0 && is_on_floor() && empurrando==false && Global.slide == false:
+	if motion.x != 0 && is_on_floor() && empurrando==false && PodeSlide == false:
 		$AnimatedSprite.play("Andando")
 	elif !is_on_floor():
 		$AnimatedSprite.play("Pulando")
 	elif empurrando==true:
 		$AnimatedSprite.play("Empurrando")
-	elif Global.slide ==true:
+	elif PodeSlide ==true:
 		$AnimatedSprite.play("Deslizando")
 	else:
 		$AnimatedSprite.play("Parado")
@@ -74,6 +83,7 @@ func _on_Area2D_area_entered(area):
 
 	if area.is_in_group("Move") && is_on_floor():
 		empurrando = true
+		PodeSlide =  false
 	
 	if area.is_in_group("Portal"):
 		SPEED = 0

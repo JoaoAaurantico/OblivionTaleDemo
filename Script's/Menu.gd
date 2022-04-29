@@ -27,6 +27,7 @@ func _on_Quit_pressed():
 
 func _on_Continue_pressed():
 # warning-ignore:return_value_discarded
+	AudioGeral.emit_signal("parar")
 	$AnimatedSprite.play()
 	SceneChanger.change_scene("res://Script's/Cenas/Main.tscn")
 	
