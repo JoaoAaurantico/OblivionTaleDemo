@@ -14,32 +14,23 @@ func _move(_delta):
 	motion = move_and_slide(motion, NORMAL)
 	
 func _on_Area2D_area_entered(area):
-	if area.is_in_group("Player") && Global.slide == false:
+	if area.is_in_group("Player"):
 		motion.x = SPEED
-	elif Global.slide == true: 
-		 motion.x = 0
 	else:
 		 motion.x = 0
-
-
 func _on_Area2D_area_exited(area):
 	if area.is_in_group("Player") :
 		motion.x = 0
-	elif global_position.y > OS.window_size.y:
-		queue_free()
+
+
 
 
 func _on_Area2D2_area_entered(area):
-	if area.is_in_group("Player") && Global.slide == false:
+	if area.is_in_group("Player"):
 		motion.x = -SPEED
-	elif Global.slide == true: 
-		 motion.x = 0
 	else:
 		 motion.x = 0
-
-
 func _on_Area2D2_area_exited(area):
-	if area.is_in_group("Player"):
+	if area.is_in_group("Player") :
 		motion.x = 0
-	elif global_position.y > OS.window_size.y:
-		queue_free()
+

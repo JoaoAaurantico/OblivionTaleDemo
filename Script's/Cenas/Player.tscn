@@ -5,29 +5,9 @@
 [ext_resource path="res://Script's/Gui and Stuff/GUI.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Images/mainsprite/Void/Void SpriteSheet.png" type="Texture" id=16]
 
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 16 )
-region = Rect2( 0, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 16 )
-region = Rect2( 25, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 16 )
-region = Rect2( 50, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 16 )
-region = Rect2( 75, 0, 25, 32 )
-
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 16 )
 region = Rect2( 250, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 16 )
-region = Rect2( 400, 0, 25, 32 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 16 )
@@ -61,22 +41,32 @@ region = Rect2( 150, 0, 25, 32 )
 atlas = ExtResource( 16 )
 region = Rect2( 175, 0, 25, 32 )
 
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 16 )
+region = Rect2( 25, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 16 )
+region = Rect2( 50, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 16 )
+region = Rect2( 75, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 16 )
+region = Rect2( 400, 0, 25, 32 )
+
 [sub_resource type="SpriteFrames" id=27]
 animations = [ {
-"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
-"loop": true,
-"name": "Parado",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 16 ) ],
 "loop": false,
 "name": "Pulando",
 "speed": 2.0
-}, {
-"frames": [ SubResource( 25 ) ],
-"loop": true,
-"name": "Deslizando",
-"speed": 5.0
 }, {
 "frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
 "loop": true,
@@ -86,6 +76,16 @@ animations = [ {
 "frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
 "loop": true,
 "name": "Andando",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"loop": true,
+"name": "Parado",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 25 ) ],
+"loop": true,
+"name": "Deslizando",
 "speed": 5.0
 } ]
 
@@ -149,7 +149,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 6 ) ]
+"values": [ Vector2( -0.666667, 5.33333 ) ]
 }
 
 [sub_resource type="Animation" id=29]
@@ -233,6 +233,7 @@ position = Vector2( -0.666667, 5.66667 )
 shape = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="." groups=["Player"]]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, 5.33333 )
@@ -281,6 +282,11 @@ scale = Vector2( 0.466667, 0.316667 )
 anims/CaixaSlide = SubResource( 29 )
 anims/RESET = SubResource( 28 )
 
+[node name="TimerSlide" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="timeout" from="TimerSlide" to="." method="_on_Timer_timeout"]

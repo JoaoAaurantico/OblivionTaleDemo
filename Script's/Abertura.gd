@@ -3,6 +3,7 @@ extends Node2D
 var iniciado = 1
 
 func _ready():
+	AudioGeral.emit_signal("iniciar", "abertura")
 	SaveLoader.load_game()
 	$AnimationPlayer.play("Logo")
 

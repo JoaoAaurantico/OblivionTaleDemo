@@ -6,6 +6,7 @@ var GRAVITY = 30
 var AlturaPulo = -600
 var SPEED = 180
 var SLIDE = 250
+var PodeSlide =  true
 
 var parede = false
 var empurrando = false
@@ -34,11 +35,16 @@ func _move(_delta):
 		jump()
 	elif Input.is_action_just_released("ui_up"):
 		jump_cut()
-	if Input.is_action_pressed("ui_down") && $AnimatedSprite.flip_h == false:
+
+	if Input.is_action_just_pressed("ui_down"):
+		$TimerSlide.start()
+		PodeSlide = true
+
+	if Input.is_action_pressed("ui_down") && $AnimatedSprite.flip_h == false && PodeSlide == true:
 		motion.x = SLIDE
 		Global.slide = true
 		$AnimationPlayer.play("CaixaSlide")
-	elif Input.is_action_pressed("ui_down") && $AnimatedSprite.flip_h == true:
+	elif Input.is_action_pressed("ui_down") && $AnimatedSprite.flip_h == true && PodeSlide == true:
 		motion.x = -SLIDE
 		Global.slide = true
 		$AnimationPlayer.play("CaixaSlide")
@@ -66,7 +72,7 @@ func _on_Area2D_area_entered(area):
 	if area.is_in_group("Desce_dano"):
 		Global.morto()
 
-	if area.is_in_group("Move") && is_on_floor() && Global.slide == false:
+	if area.is_in_group("Move") && is_on_floor():
 		empurrando = true
 	
 	if area.is_in_group("Portal"):
@@ -86,3 +92,5 @@ func _on_VisibilityNotifier2D_screen_exited():
 func avisar_morte():
 	Global.add_morte()
 	Global.morto()
+func _on_Timer_timeout():
+	PodeSlide = false

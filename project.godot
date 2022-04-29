@@ -22,6 +22,7 @@ config/windows_native_icon="res://icon.ico"
 Global="*res://Script's/Global.gd"
 SaveLoader="*res://Script's/SaveLoader.gd"
 SceneChanger="*res://Script's/Gui and Stuff/SceneChanger.tscn"
+AudioGeral="*res://Script's/Gui and Stuff/AudioGeral.tscn"
 
 [debug]
 

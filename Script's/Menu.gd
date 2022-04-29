@@ -13,6 +13,7 @@ func _ready():
 		$Pause/HBoxContainer/CenterContainer/VBoxContainer/Quit.text = "Sair"
 
 func _on_Play_pressed():
+	AudioGeral.emit_signal("parar")
 	$AnimatedSprite.play()
 	Global.mortes = 0
 	Global.espelho = 0
