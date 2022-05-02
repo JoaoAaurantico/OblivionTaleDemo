@@ -33,6 +33,7 @@ color_ramp = SubResource( 5 )
 [node name="Bloco que desce(CIMA)" type="Node2D"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -6, -6 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 position = Vector2( -89, 2 )
