@@ -10,12 +10,7 @@ var MinVelocidade = 180
 var Velocidade = 180
 var Escorregar = 250
 
-var Escorregando =  false
-var Parede = false
-var Empurrando = false
-var Andando = false
-var Pulando = false
-var Parado = false
+var state = 0
 
 func _physics_process(delta):
 	states()
@@ -24,46 +19,38 @@ func _physics_process(delta):
 	motion.y += Gravidade
 	if Velocidade >= MaxVelocidade:
 		Velocidade = MaxVelocidade
+	if $RayCima.is_colliding():
+		print("work")
 
 func states():
 	if is_on_floor() && motion.x == 0 && !is_on_wall():
-		Parado = true
-	else:
-		Parado = false
+		state = 0
 	if is_on_floor() && motion.x == Velocidade:
-		Andando = true
+		state = 1
 	elif is_on_floor() && motion.x == -Velocidade:
-		Andando = true
-	else:
-		Andando = false
+		state = 1
 	if !is_on_floor() && motion.y != 0:
-		Pulando = true
-	else:
-		Pulando = false
+		state = 2
 	if is_on_floor() && motion.x == Escorregar && !is_on_wall():
-		Escorregando = true
+		state = 3
 	elif is_on_floor() && motion.x == -Escorregar && !is_on_wall():
-		Escorregando = true
-	else:
-		Escorregando = false
+		state = 3
 	if  motion.x == 0 && motion.y == 30 && is_on_wall():
-		Empurrando = true
-	else:
-		Empurrando = false
+		state = 4
 func animations():
-	if Parado == true:
+	if state == 0:
 		$AnimatedSprite.play("Parado")
 		$AnimationPlayer.play("CaixaPadrão")
-	elif Andando == true:
+	elif state == 1:
 		$AnimatedSprite.play("Andando")
 		$AnimationPlayer.play("CaixaPadrão")
-	elif Pulando == true:
+	elif state == 2:
 		$AnimatedSprite.play("Pulando")
 		$AnimationPlayer.play("CaixaPadrão")
-	elif Escorregando == true:
+	elif state == 3:
 		$AnimationPlayer.play("CaixaSlide")
 		$AnimatedSprite.play("Deslizando")
-	elif Empurrando == true:
+	elif state == 4:
 		$AnimatedSprite.play("Empurrando")
 		$AnimationPlayer.play("CaixaPadrão")
 
@@ -138,4 +125,4 @@ func avisar_morte():
 
 func _on_Timer_timeout():
 	if !is_on_ceiling() && is_on_floor():
-		Escorregando = false
+		state = 0

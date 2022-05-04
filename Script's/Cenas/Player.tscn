@@ -5,21 +5,21 @@
 [ext_resource path="res://Script's/Gui and Stuff/GUI.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Images/mainsprite/Void/Void SpriteSheet.png" type="Texture" id=16]
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 16 )
-region = Rect2( 300, 0, 25, 32 )
+region = Rect2( 0, 0, 25, 32 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 16 )
-region = Rect2( 325, 0, 25, 32 )
+region = Rect2( 25, 0, 25, 32 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 16 )
-region = Rect2( 350, 0, 25, 32 )
+region = Rect2( 50, 0, 25, 32 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 16 )
-region = Rect2( 375, 0, 25, 32 )
+region = Rect2( 75, 0, 25, 32 )
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 16 )
@@ -37,25 +37,25 @@ region = Rect2( 150, 0, 25, 32 )
 atlas = ExtResource( 16 )
 region = Rect2( 175, 0, 25, 32 )
 
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 16 )
+region = Rect2( 300, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 16 )
+region = Rect2( 325, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 16 )
+region = Rect2( 350, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 16 )
+region = Rect2( 375, 0, 25, 32 )
+
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 16 )
 region = Rect2( 250, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 16 )
-region = Rect2( 0, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 16 )
-region = Rect2( 25, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 16 )
-region = Rect2( 50, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 16 )
-region = Rect2( 75, 0, 25, 32 )
 
 [sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 16 )
@@ -63,9 +63,9 @@ region = Rect2( 400, 0, 25, 32 )
 
 [sub_resource type="SpriteFrames" id=27]
 animations = [ {
-"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
 "loop": true,
-"name": "Empurrando",
+"name": "Parado",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
@@ -73,15 +73,15 @@ animations = [ {
 "name": "Andando",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "Empurrando",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 16 ) ],
 "loop": false,
 "name": "Pulando",
 "speed": 2.0
-}, {
-"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
-"loop": true,
-"name": "Parado",
-"speed": 5.0
 }, {
 "frames": [ SubResource( 25 ) ],
 "loop": true,
@@ -175,6 +175,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( 6.33333, 13.3333 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("RayCima:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -8.5 ) ]
+}
 
 [sub_resource type="Animation" id=29]
 resource_name = "CaixaSlide"
@@ -237,6 +249,18 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 4, 7.83333 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("RayCima:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 2.5 ) ]
 }
 
 [sub_resource type="Animation" id=28]
@@ -301,6 +325,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [ Vector2( 4.33333, 13.3333 ) ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("RayCima:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -8.5 ) ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 1.5, 1.5 )
@@ -324,7 +360,7 @@ position = Vector2( -0.333333, 5.33333 )
 shape = SubResource( 7 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( -285.333, -141.333 )
+position = Vector2( -257.333, -156.667 )
 scale = Vector2( 0.587544, 0.587544 )
 anchor_mode = 0
 current = true
@@ -369,6 +405,12 @@ anims/RESET = SubResource( 28 )
 [node name="TimerSlide" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="RayCima" type="RayCast2D" parent="."]
+position = Vector2( 0, -8.5 )
+enabled = true
+cast_to = Vector2( 0, -10 )
+collide_with_areas = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
