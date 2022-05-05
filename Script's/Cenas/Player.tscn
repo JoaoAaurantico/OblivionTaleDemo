@@ -5,6 +5,22 @@
 [ext_resource path="res://Script's/Gui and Stuff/GUI.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Images/mainsprite/Void/Void SpriteSheet.png" type="Texture" id=16]
 
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 16 )
+region = Rect2( 100, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 16 )
+region = Rect2( 125, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 16 )
+region = Rect2( 150, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 16 )
+region = Rect2( 175, 0, 25, 32 )
+
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 16 )
 region = Rect2( 0, 0, 25, 32 )
@@ -21,21 +37,9 @@ region = Rect2( 50, 0, 25, 32 )
 atlas = ExtResource( 16 )
 region = Rect2( 75, 0, 25, 32 )
 
-[sub_resource type="AtlasTexture" id=21]
+[sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 16 )
-region = Rect2( 100, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 16 )
-region = Rect2( 125, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 16 )
-region = Rect2( 150, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 16 )
-region = Rect2( 175, 0, 25, 32 )
+region = Rect2( 250, 0, 25, 32 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 16 )
@@ -53,35 +57,31 @@ region = Rect2( 350, 0, 25, 32 )
 atlas = ExtResource( 16 )
 region = Rect2( 375, 0, 25, 32 )
 
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 16 )
-region = Rect2( 250, 0, 25, 32 )
-
 [sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 16 )
 region = Rect2( 400, 0, 25, 32 )
 
 [sub_resource type="SpriteFrames" id=27]
 animations = [ {
-"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
-"loop": true,
-"name": "Parado",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
 "loop": true,
 "name": "Andando",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
 "loop": true,
-"name": "Empurrando",
+"name": "Parado",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 16 ) ],
 "loop": false,
 "name": "Pulando",
 "speed": 2.0
+}, {
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "Empurrando",
+"speed": 5.0
 }, {
 "frames": [ SubResource( 25 ) ],
 "loop": true,
@@ -187,6 +187,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [ Vector2( 0, -8.5 ) ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("RayCima:enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=29]
 resource_name = "CaixaSlide"
@@ -261,6 +273,18 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 2.5 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("RayCima:enabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=28]
@@ -337,11 +361,26 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector2( 0, -8.5 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("RayCima:enabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 1.5, 1.5 )
 collision_mask = 3
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ 68.0 ]
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 2.66667 )
@@ -360,7 +399,7 @@ position = Vector2( -0.333333, 5.33333 )
 shape = SubResource( 7 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( -257.333, -156.667 )
+position = Vector2( -202.667, -155.333 )
 scale = Vector2( 0.587544, 0.587544 )
 anchor_mode = 0
 current = true
@@ -392,6 +431,7 @@ process_material = SubResource( 6 )
 texture = ExtResource( 10 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
 position = Vector2( 7.10543e-15, -30.6667 )
 scale = Vector2( 0.466667, 0.316667 )
 
@@ -408,9 +448,7 @@ one_shot = true
 
 [node name="RayCima" type="RayCast2D" parent="."]
 position = Vector2( 0, -8.5 )
-enabled = true
 cast_to = Vector2( 0, -10 )
-collide_with_areas = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

@@ -23,19 +23,19 @@ func _physics_process(delta):
 		print("work")
 
 func states():
-	if is_on_floor() && motion.x == 0 && !is_on_wall():
+	if motion.x == 0:
 		state = 0
-	if is_on_floor() && motion.x == Velocidade:
+	if motion.x == Velocidade:
 		state = 1
-	elif is_on_floor() && motion.x == -Velocidade:
+	elif motion.x == -Velocidade:
 		state = 1
-	if !is_on_floor() && motion.y != 0:
+	if !is_on_floor():
 		state = 2
-	if is_on_floor() && motion.x == Escorregar && !is_on_wall():
+	if motion.x == Escorregar or $RayCima.is_colliding():
 		state = 3
-	elif is_on_floor() && motion.x == -Escorregar && !is_on_wall():
+	elif motion.x == -Escorregar or $RayCima.is_colliding():
 		state = 3
-	if  motion.x == 0 && motion.y == 30 && is_on_wall():
+	if  is_on_wall():
 		state = 4
 func animations():
 	if state == 0:
