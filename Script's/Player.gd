@@ -19,8 +19,10 @@ func _physics_process(delta):
 	motion.y += Gravidade
 	if Velocidade >= MaxVelocidade:
 		Velocidade = MaxVelocidade
-	if $RayCima.is_colliding():
-		print("work")
+	if have_a_wall() && motion.y > 30:
+		Gravidade = 5
+	else:
+		Gravidade = 30
 
 func states():
 	if motion.x == 0:
@@ -35,8 +37,10 @@ func states():
 		state = 3
 	elif motion.x == -Escorregar or $RayCima.is_colliding():
 		state = 3
-	if  is_on_wall():
+	if  is_on_wall() && is_on_floor() && motion.x == 0:
 		state = 4
+	if have_a_wall():
+		state = 5
 func animations():
 	if state == 0:
 		$AnimatedSprite.play("Parado")
@@ -46,20 +50,25 @@ func animations():
 		$AnimationPlayer.play("CaixaPadrão")
 	elif state == 2:
 		$AnimatedSprite.play("Pulando")
-		$AnimationPlayer.play("CaixaPadrão")
+		$AnimationPlayer.play("CaixaPulo")
 	elif state == 3:
 		$AnimationPlayer.play("CaixaSlide")
 		$AnimatedSprite.play("Deslizando")
 	elif state == 4:
 		$AnimatedSprite.play("Empurrando")
 		$AnimationPlayer.play("CaixaPadrão")
+	elif state == 5:
+		$AnimationPlayer.play("CaixaSlide")
+		$AnimatedSprite.play("Parede")
 
 func _listener(_delta):
 	if Input.is_action_pressed("ui_right"):
-		move("right")
+		if !$RayDireita.is_colliding():
+			move("right")
 		$AnimatedSprite.flip_h = false
 	elif Input.is_action_pressed("ui_left"):
-		move("left")
+		if !$RayEsquerda.is_colliding():
+			move("left")
 		$AnimatedSprite.flip_h = true
 	else:
 		move("null")
@@ -67,8 +76,11 @@ func _listener(_delta):
 		move("slideCont")
 	if Input.is_action_just_pressed("ui_down"):
 		move("slidepress")
-	if Input.is_action_just_pressed("ui_up") && is_on_floor():
-		move("up")
+	if Input.is_action_just_pressed("ui_up"):
+		if is_on_floor():
+			move("up")
+		if have_a_wall():
+			move("wall")
 	if Input.is_action_just_released("ui_right") or Input.is_action_just_released("ui_left"):
 		move("drop")
 	
@@ -80,6 +92,8 @@ func move(direcao):
 		motion.x = -Velocidade 
 	elif direcao == "up":
 		jump()
+	elif direcao == "wall":
+		wall_jump()
 	elif direcao == "slideCont":
 		slide("pressionando")
 	elif direcao == "slidepress":
@@ -89,6 +103,15 @@ func move(direcao):
 	elif direcao == "drop":
 		Velocidade = MinVelocidade
 
+func have_a_wall():
+	return $RayDireita.is_colliding() or $RayEsquerda.is_colliding()
+func wall_jump():
+	if $RayDireita.is_colliding():
+		motion.y = Pulo
+		motion.x = -Velocidade
+	if $RayEsquerda.is_colliding():
+		motion.y = Pulo
+		motion.x = Velocidade 
 func jump():
 	motion.y = Pulo
 	Velocidade = Velocidade + impulso

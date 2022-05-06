@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ui_menu_hover.mp3-95aa08393b0bea781b7ccd233dad90fd.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/UI/Hover/ui_menu_hover.mp3"
+dest_files=[ "res://.import/ui_menu_hover.mp3-95aa08393b0bea781b7ccd233dad90fd.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
