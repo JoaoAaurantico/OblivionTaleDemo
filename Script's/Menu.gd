@@ -52,11 +52,5 @@ func _on_Idioma_pressed():
 		$Pause/HBoxContainer/CenterContainer/VBoxContainer/Quit.text = "Quit"
 
 
-func _on_Play_mouse_entered():
-	AudioGeral.emit_signal("iniciar", "hover")
-func _on_Continue_mouse_entered():
-	AudioGeral.emit_signal("iniciar", "hover")
-func _on_Quit_mouse_entered():
-	AudioGeral.emit_signal("iniciar", "hover")
-func _on_Idioma_mouse_entered():
+func _on_mouse_entered():
 	AudioGeral.emit_signal("iniciar", "hover")

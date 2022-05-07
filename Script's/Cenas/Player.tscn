@@ -1,6 +1,7 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Script's/player.gd" type="Script" id=1]
+[ext_resource path="res://Script's/Gui and Stuff/GUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Images/mainsprite/Triangulo .png" type="Texture" id=10]
 [ext_resource path="res://Images/mainsprite/Void/Void SpriteSheet.png" type="Texture" id=16]
 
@@ -20,13 +21,25 @@ region = Rect2( 275, 0, 25, 32 )
 atlas = ExtResource( 16 )
 region = Rect2( 300, 0, 25, 32 )
 
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 16 )
+region = Rect2( 100, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 16 )
+region = Rect2( 125, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 16 )
+region = Rect2( 150, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 16 )
+region = Rect2( 175, 0, 25, 32 )
+
 [sub_resource type="AtlasTexture" id=35]
 atlas = ExtResource( 16 )
 region = Rect2( 200, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 16 )
-region = Rect2( 350, 0, 25, 32 )
 
 [sub_resource type="AtlasTexture" id=37]
 atlas = ExtResource( 16 )
@@ -48,21 +61,9 @@ region = Rect2( 75, 0, 25, 32 )
 atlas = ExtResource( 16 )
 region = Rect2( 325, 0, 25, 32 )
 
-[sub_resource type="AtlasTexture" id=42]
+[sub_resource type="AtlasTexture" id=36]
 atlas = ExtResource( 16 )
-region = Rect2( 100, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=43]
-atlas = ExtResource( 16 )
-region = Rect2( 125, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=44]
-atlas = ExtResource( 16 )
-region = Rect2( 150, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=45]
-atlas = ExtResource( 16 )
-region = Rect2( 175, 0, 25, 32 )
+region = Rect2( 350, 0, 25, 32 )
 
 [sub_resource type="SpriteFrames" id=27]
 animations = [ {
@@ -71,15 +72,15 @@ animations = [ {
 "name": "Empurrando",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ) ],
+"loop": true,
+"name": "Andando",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 35 ) ],
 "loop": false,
 "name": "Pulando",
 "speed": 2.0
-}, {
-"frames": [ SubResource( 36 ) ],
-"loop": true,
-"name": "Parede",
-"speed": 5.0
 }, {
 "frames": [ SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
 "loop": true,
@@ -91,9 +92,9 @@ animations = [ {
 "name": "Deslizando",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ) ],
+"frames": [ SubResource( 36 ) ],
 "loop": true,
-"name": "Andando",
+"name": "Parede",
 "speed": 5.0
 } ]
 
@@ -295,7 +296,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("RayDireita:enabled")
+tracks/5/path = NodePath("RayCima:cast_to")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -303,11 +304,11 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"update": 0,
+"values": [ Vector2( 0, -10 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("RayEsquerda:enabled")
+tracks/6/path = NodePath("RayCima:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -315,11 +316,11 @@ tracks/6/enabled = true
 tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"update": 0,
+"values": [ Vector2( 0, -8.5 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("RayCima:cast_to")
+tracks/7/path = NodePath("RayEsquerda:enabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -327,11 +328,11 @@ tracks/7/enabled = true
 tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, -10 ) ]
+"update": 1,
+"values": [ true ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("RayCima:position")
+tracks/8/path = NodePath("RayDireita:enabled")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -339,8 +340,8 @@ tracks/8/enabled = true
 tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, -8.5 ) ]
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=29]
@@ -436,7 +437,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
@@ -448,7 +449,7 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
@@ -541,7 +542,7 @@ tracks/6/keys = {
 "values": [ false ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("RayDireita:enabled")
+tracks/7/path = NodePath("RayCima:cast_to")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -550,10 +551,10 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ Vector2( 0, -10 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("RayEsquerda:enabled")
+tracks/8/path = NodePath("RayDireita:enabled")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -562,10 +563,10 @@ tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("RayCima:cast_to")
+tracks/9/path = NodePath("RayEsquerda:enabled")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -574,10 +575,11 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -10 ) ]
+"values": [ false ]
 }
 
 [node name="Player" type="KinematicBody2D"]
+position = Vector2( 496, 343 )
 scale = Vector2( 1.5, 1.5 )
 collision_mask = 3
 script = ExtResource( 1 )
@@ -650,15 +652,19 @@ position = Vector2( 0, -8.5 )
 cast_to = Vector2( 0, -10 )
 
 [node name="RayDireita" type="RayCast2D" parent="."]
-position = Vector2( 2, 8 )
-enabled = true
-cast_to = Vector2( 5, 0 )
+position = Vector2( 1, 5 )
+cast_to = Vector2( 6, 0 )
 
 [node name="RayEsquerda" type="RayCast2D" parent="."]
-position = Vector2( -3, 8 )
-enabled = true
-cast_to = Vector2( -5, 0 )
+position = Vector2( -2, 5 )
+cast_to = Vector2( -6, 0 )
+
+[node name="TimerWallJump" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="Gui" parent="." instance=ExtResource( 2 )]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
-[connection signal="timeout" from="TimerSlide" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="TimerSlide" to="." method="_on_TimerSlide_timeout"]

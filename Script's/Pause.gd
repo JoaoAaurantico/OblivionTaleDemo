@@ -114,19 +114,7 @@ func _on_Tras_pressed():
 		$MenuMemorias/ImagensMemorias.set_frame(frameMemoria)
 
 
-func _on_Resume_mouse_entered():
+func _on_mouse_entered():
 	AudioGeral.emit_signal("iniciar", "hover")
-func _on_Save_mouse_entered():
-	AudioGeral.emit_signal("iniciar", "hover")
-func _on_Memories_mouse_entered():
-	AudioGeral.emit_signal("iniciar", "hover")
-func _on_Quit_mouse_entered():
-	AudioGeral.emit_signal("iniciar", "hover")
-
-
-func _on_Voltar_mouse_entered():
-	AudioGeral.emit_signal("iniciar", "memorieshover")
-func _on_Tras_mouse_entered():
-	AudioGeral.emit_signal("iniciar", "memorieshover")
-func _on_Frente_mouse_entered():
+func _on_memories_mouse_entered():
 	AudioGeral.emit_signal("iniciar", "memorieshover")
