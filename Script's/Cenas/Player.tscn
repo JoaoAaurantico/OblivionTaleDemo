@@ -587,7 +587,7 @@ script = ExtResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 2.66667 )
 frames = SubResource( 27 )
-animation = "Parede"
+animation = "Parado"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
