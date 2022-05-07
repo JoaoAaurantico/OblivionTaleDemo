@@ -71,4 +71,5 @@ func _on_mouse_entered():
 	AudioGeral.emit_signal("iniciar", "hover")
 
 func _on_Credits_pressed():
+	AudioGeral.emit_signal("iniciar", "click")
 	$Creditos.visible = true

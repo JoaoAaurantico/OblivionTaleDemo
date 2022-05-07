@@ -78,6 +78,8 @@ func _listener(_delta):
 			move("up")
 		elif have_wall():
 			walltimer()
+	elif Input.is_action_just_released("ui_up"):
+		move("jumpcut")
 	if $TimerWallJump.time_left:
 		move("walljump")
 
@@ -99,6 +101,8 @@ func move(direcao):
 		motion.x = max(motion.x - impulso, -Velocidade)
 	elif direcao == "up":
 		jump()
+	elif direcao == "jumpcut":
+		jump_cut()
 	elif direcao == "walljump":
 		wall_jump()
 	elif direcao == "slide":
@@ -141,6 +145,7 @@ func _on_Area2D_area_entered(area):
 		Global.morto()
 	
 	if area.is_in_group("Portal"):
+		Escorregar = 0
 		Velocidade = 0
 		Pulo = 0
 func _on_VisibilityNotifier2D_screen_exited():

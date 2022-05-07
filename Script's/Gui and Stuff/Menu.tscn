@@ -298,13 +298,13 @@ margin_bottom = 629.0
 margin_right = 510.0
 margin_bottom = 538.0
 
-[node name="Label" type="Label" parent="Creditos/CenterContainer/HBoxContainer/VBoxContainer"]
+[node name="Titulo" type="Label" parent="Creditos/CenterContainer/HBoxContainer/VBoxContainer"]
 margin_right = 510.0
 margin_bottom = 61.0
 custom_fonts/font = SubResource( 12 )
 text = "Creditos"
 
-[node name="Label2" type="Label" parent="Creditos/CenterContainer/HBoxContainer/VBoxContainer"]
+[node name="Pessoas" type="Label" parent="Creditos/CenterContainer/HBoxContainer/VBoxContainer"]
 margin_top = 65.0
 margin_right = 510.0
 margin_bottom = 538.0
@@ -320,9 +320,9 @@ Desing e Concept Art:
 Kayki Frota Vale
 
 Beta Testing: 
-Dérick Mira
-Lucas Souza Silva
-Marcos Vinicius"
+Dérick Mira (DrekDesu)
+Lucas Souza Silva (Sr.Lu)
+Marcos Vinicius Ribeiro de Matos"
 
 [node name="Idioma" type="Button" parent="."]
 margin_left = 25.0

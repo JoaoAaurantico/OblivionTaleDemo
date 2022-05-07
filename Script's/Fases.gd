@@ -8,4 +8,9 @@ func _ready():
 
 func _on_Area2D_area_entered(_area):
 	if get_tree().current_scene.name == "Fase01":
-		$AnimationPlayer.play("Mapa")
+		$AnimationPlayer.play("Boss")
+
+
+func _on_AnimationPlayer_animation_finished(_anim_name):
+	if get_tree().current_scene.name == "Fase01":
+		get_tree().quit()
