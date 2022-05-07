@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Script's/Gui and Stuff/unispace bd.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Script's/Menu.gd" type="Script" id=2]
@@ -57,13 +57,21 @@ font_data = ExtResource( 1 )
 size = 55
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=8]
-size = 40
-font_data = ExtResource( 1 )
-
 [sub_resource type="DynamicFont" id=7]
 size = 35
 outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 25
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 40
 font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=10]
@@ -243,19 +251,78 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Quit" type="Button" parent="Pause/HBoxContainer/CenterContainer/VBoxContainer"]
+[node name="Credits" type="Button" parent="Pause/HBoxContainer/CenterContainer/VBoxContainer"]
 margin_top = 321.0
 margin_right = 408.0
 margin_bottom = 388.0
 custom_fonts/font = SubResource( 3 )
-text = "Sair"
+text = "Creditos"
 
-[node name="Creditos" type="Button" parent="Pause/HBoxContainer/CenterContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="Pause/HBoxContainer/CenterContainer/VBoxContainer"]
 margin_top = 418.0
 margin_right = 408.0
 margin_bottom = 485.0
 custom_fonts/font = SubResource( 3 )
+text = "Sair"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 302.0
+margin_top = 612.0
+margin_right = 512.0
+margin_bottom = 673.0
+custom_fonts/font = SubResource( 7 )
+text = "Alpha 0.5"
+
+[node name="Creditos" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -495, 24 )
+
+[node name="ColorRect" type="ColorRect" parent="Creditos"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="Creditos"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Creditos/CenterContainer"]
+margin_left = 385.0
+margin_top = 91.0
+margin_right = 895.0
+margin_bottom = 629.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Creditos/CenterContainer/HBoxContainer"]
+margin_right = 510.0
+margin_bottom = 538.0
+
+[node name="Label" type="Label" parent="Creditos/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_right = 510.0
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 12 )
 text = "Creditos"
+
+[node name="Label2" type="Label" parent="Creditos/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_top = 65.0
+margin_right = 510.0
+margin_bottom = 538.0
+custom_fonts/font = SubResource( 13 )
+text = "Codigos por:
+João P.F.L Deus (VirusAurantico)
+Samuel Ferreira de Mello
+
+Musicas e SFX por:
+Guilherme Alexander (guigagliardo)
+
+Desing e Concept Art:
+Kayki Frota Vale
+
+Beta Testing: 
+Dérick Mira
+Lucas Souza Silva
+Marcos Vinicius"
 
 [node name="Idioma" type="Button" parent="."]
 margin_left = 25.0
@@ -265,14 +332,6 @@ margin_bottom = 73.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 8 )
 text = "PT-BR"
-
-[node name="Label" type="Label" parent="."]
-margin_left = 302.0
-margin_top = 612.0
-margin_right = 512.0
-margin_bottom = 673.0
-custom_fonts/font = SubResource( 7 )
-text = "Alpha 0.5"
 
 [node name="Fade" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -288,8 +347,9 @@ anims/RESET = SubResource( 11 )
 [connection signal="pressed" from="Pause/HBoxContainer/CenterContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="mouse_entered" from="Pause/HBoxContainer/CenterContainer/VBoxContainer/Continue" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="Pause/HBoxContainer/CenterContainer/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="mouse_entered" from="Pause/HBoxContainer/CenterContainer/VBoxContainer/Credits" to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="Pause/HBoxContainer/CenterContainer/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="mouse_entered" from="Pause/HBoxContainer/CenterContainer/VBoxContainer/Quit" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="Pause/HBoxContainer/CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
-[connection signal="mouse_entered" from="Pause/HBoxContainer/CenterContainer/VBoxContainer/Creditos" to="." method="_on_mouse_entered"]
-[connection signal="mouse_entered" from="Idioma" to="." method="_on_Idioma_mouse_entered"]
+[connection signal="mouse_entered" from="Idioma" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="Idioma" to="." method="_on_Idioma_pressed"]
