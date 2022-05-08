@@ -12,26 +12,28 @@ var Escorregar = 250
 
 var state = 0
 
-func _physics_process(delta):
+func _process(delta):
 	states()
 	animations()
 	_listener(delta)
+
+func _physics_process(_delta):
 	altergravity()
 func altergravity():
 	motion.y += Gravidade
 	if Velocidade >= MaxVelocidade:
 		Velocidade = MaxVelocidade
 	if have_wall() && motion.y >= 30:
-		Gravidade = 10
+		Gravidade = 5
 	else:
 		Gravidade = 30
 
 func states():
-	if motion.x == 0:
+	if motion.x == 0 && is_on_floor():
 		state = 0
-	if motion.x >= impulso:
+	if motion.x >= impulso && is_on_floor():
 		state = 1
-	elif motion.x <= -impulso:
+	elif motion.x <= -impulso && is_on_floor():
 		state = 1
 	if !is_on_floor():
 		state = 2
@@ -39,7 +41,7 @@ func states():
 		state = 3
 	elif $TimerSlide.time_left or $RayCima.is_colliding():
 		state = 3
-	if  is_on_wall() && is_on_floor() && motion.x == 0:
+	if  is_on_wall() && is_on_floor() && motion.x == 0 && !$TimerSlide.time_left:
 		state = 4
 	if !is_on_floor() && is_on_wall():
 		state = 5
@@ -78,7 +80,7 @@ func _listener(_delta):
 			move("up")
 		elif have_wall():
 			walltimer()
-	elif Input.is_action_just_released("ui_up"):
+	elif Input.is_action_just_released("ui_up") && !have_wall():
 		move("jumpcut")
 	if $TimerWallJump.time_left:
 		move("walljump")
@@ -114,19 +116,20 @@ func move(direcao):
 
 
 func have_wall():
-	return $RayDireita.is_colliding() or $RayEsquerda.is_colliding()
+	return $RayDireita.is_colliding() or $RayDireita2.is_colliding() or $RayEsquerda.is_colliding() or $RayEsquerda2.is_colliding()
 func wall_jump():
-	if $RayDireita.is_colliding() && $TimerWallJump.time_left:
+	if $RayDireita.is_colliding() && $TimerWallJump.time_left or $RayDireita2.is_colliding() && $TimerWallJump.time_left:
 		print("foi1")
 		motion.y = Pulo
 		motion.x = -Velocidade 
-	elif $RayEsquerda.is_colliding() && $TimerWallJump.time_left:
+	elif $RayEsquerda.is_colliding() && $TimerWallJump.time_left or $RayEsquerda2.is_colliding() && $TimerWallJump.time_left:
 		print("foi2")
 		motion.y = Pulo
 		motion.x = Velocidade 
 func jump():
 	motion.y = Pulo
-	Velocidade = Velocidade + impulso
+	if motion.x != 0:
+		Velocidade = Velocidade + impulso
 func jump_cut():
 	if motion.y < -100:
 		motion.y = -50
