@@ -780,8 +780,6 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
-[node name="TimerMorte" type="Timer" parent="."]
-
 [node name="RayCima" type="RayCast2D" parent="."]
 position = Vector2( 0, -8.5 )
 cast_to = Vector2( 0, -10 )

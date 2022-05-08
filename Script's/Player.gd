@@ -23,7 +23,7 @@ func altergravity():
 	motion.y += Gravidade
 	if Velocidade >= MaxVelocidade:
 		Velocidade = MaxVelocidade
-	if have_wall() && motion.y >= 30:
+	if have_wall() && motion.y > 0:
 		Gravidade = 5
 	else:
 		Gravidade = 30
@@ -43,7 +43,7 @@ func states():
 		state = 3
 	if  is_on_wall() && is_on_floor() && motion.x == 0 && !$TimerSlide.time_left:
 		state = 4
-	if !is_on_floor() && is_on_wall():
+	if !is_on_floor() && have_wall():
 		state = 5
 func animations():
 	if state == 0:
@@ -119,11 +119,9 @@ func have_wall():
 	return $RayDireita.is_colliding() or $RayDireita2.is_colliding() or $RayEsquerda.is_colliding() or $RayEsquerda2.is_colliding()
 func wall_jump():
 	if $RayDireita.is_colliding() && $TimerWallJump.time_left or $RayDireita2.is_colliding() && $TimerWallJump.time_left:
-		print("foi1")
 		motion.y = Pulo
 		motion.x = -Velocidade 
 	elif $RayEsquerda.is_colliding() && $TimerWallJump.time_left or $RayEsquerda2.is_colliding() && $TimerWallJump.time_left:
-		print("foi2")
 		motion.y = Pulo
 		motion.x = Velocidade 
 func jump():
@@ -160,6 +158,7 @@ func avisar_morte():
 
 func _on_TimerSlide_timeout():
 	if $RayCima.is_colliding():
+		$TimerSlide.wait_time = 0.05
 		$TimerSlide.start()
 	else:
-		state = 0
+		$TimerSlide.wait_time = 0.5
