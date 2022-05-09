@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ui_memories_hover.mp3-860738fe1f7dfb0fffb60c615bf96bba.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/UI/Button Memories Hover/ui_memories_hover.mp3"
+dest_files=[ "res://.import/ui_memories_hover.mp3-860738fe1f7dfb0fffb60c615bf96bba.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

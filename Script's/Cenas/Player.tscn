@@ -1,91 +1,125 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Script's/player.gd" type="Script" id=1]
+[ext_resource path="res://Script's/Gui and Stuff/GUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Images/Petalas.png" type="Texture" id=3]
 [ext_resource path="res://Images/mainsprite/Triangulo .png" type="Texture" id=10]
-[ext_resource path="res://Script's/Gui and Stuff/GUI.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Images/mainsprite/Void/Void SpriteSheet.png" type="Texture" id=16]
 
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 16 )
-region = Rect2( 100, 0, 25, 32 )
+[sub_resource type="Gradient" id=47]
+offsets = PoolRealArray( 0, 0.190476, 0.742857, 0.971429, 1 )
+colors = PoolColorArray( 0.597471, 0.597471, 0.597471, 0.402529, 0, 0, 0, 1, 0, 0, 0, 1, 0.863014, 0.863014, 0.863014, 0.136986, 1, 1, 1, 0 )
 
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 16 )
-region = Rect2( 125, 0, 25, 32 )
+[sub_resource type="GradientTexture" id=48]
+gradient = SubResource( 47 )
 
-[sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 16 )
-region = Rect2( 150, 0, 25, 32 )
+[sub_resource type="ParticlesMaterial" id=46]
+emission_shape = 2
+emission_box_extents = Vector3( 5, 10, 1 )
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+angular_velocity = 205.71
+angular_velocity_random = 0.87
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 205.7
+angle_random = 0.87
+scale = 0.1
+scale_random = 0.16
+color_ramp = SubResource( 48 )
 
-[sub_resource type="AtlasTexture" id=24]
+[sub_resource type="AtlasTexture" id=35]
 atlas = ExtResource( 16 )
-region = Rect2( 175, 0, 25, 32 )
+region = Rect2( 200, 0, 25, 32 )
 
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 16 )
-region = Rect2( 250, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 16 )
-region = Rect2( 0, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 16 )
-region = Rect2( 25, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 16 )
-region = Rect2( 50, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 16 )
-region = Rect2( 75, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 16 )
-region = Rect2( 300, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 16 )
-region = Rect2( 325, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=36]
 atlas = ExtResource( 16 )
 region = Rect2( 350, 0, 25, 32 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=37]
 atlas = ExtResource( 16 )
-region = Rect2( 375, 0, 25, 32 )
+region = Rect2( 0, 0, 25, 32 )
 
-[sub_resource type="AtlasTexture" id=25]
+[sub_resource type="AtlasTexture" id=38]
 atlas = ExtResource( 16 )
-region = Rect2( 400, 0, 25, 32 )
+region = Rect2( 25, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 16 )
+region = Rect2( 50, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 16 )
+region = Rect2( 75, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 16 )
+region = Rect2( 225, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 16 )
+region = Rect2( 250, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 16 )
+region = Rect2( 275, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 16 )
+region = Rect2( 300, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 16 )
+region = Rect2( 325, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 16 )
+region = Rect2( 100, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 16 )
+region = Rect2( 125, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 16 )
+region = Rect2( 150, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 16 )
+region = Rect2( 175, 0, 25, 32 )
 
 [sub_resource type="SpriteFrames" id=27]
 animations = [ {
-"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
-"loop": true,
-"name": "Andando",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 16 ) ],
+"frames": [ SubResource( 35 ) ],
 "loop": false,
 "name": "Pulando",
 "speed": 2.0
 }, {
-"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"frames": [ SubResource( 36 ) ],
+"loop": true,
+"name": "Parede",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
 "loop": true,
 "name": "Parado",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
 "loop": true,
 "name": "Empurrando",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 25 ) ],
+"frames": [ SubResource( 41 ) ],
 "loop": true,
 "name": "Deslizando",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ) ],
+"loop": true,
+"name": "Andando",
 "speed": 5.0
 } ]
 
@@ -199,6 +233,189 @@ tracks/5/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("RayDireita:enabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("RayEsquerda:enabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("RayDireita2:enabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("RayEsquerda2:enabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "CaixaPulo"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CollisionShape2D:shape:extents")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 4.66667, 13 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -0.666667, 5.33333 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Area2D/CollisionShape2D:shape:extents")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 6.33333, 13.3333 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -0.333333, 5.33333 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("RayCima:enabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("RayCima:cast_to")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -10 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("RayCima:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -8.5 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("RayEsquerda:enabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("RayDireita:enabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("RayEsquerda2:enabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("RayDireita2:enabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=29]
 resource_name = "CaixaSlide"
@@ -285,6 +502,54 @@ tracks/6/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("RayEsquerda:enabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("RayDireita:enabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("RayDireita2:enabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("RayEsquerda2:enabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=28]
@@ -373,14 +638,81 @@ tracks/6/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("RayCima:cast_to")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -10 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("RayDireita:enabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("RayEsquerda:enabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("RayDireita2:enabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("RayEsquerda2:enabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [node name="Player" type="KinematicBody2D"]
+position = Vector2( 496, 343 )
 scale = Vector2( 1.5, 1.5 )
 collision_mask = 3
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_vertical_guides_": [ 68.0 ]
-}
+
+[node name="Petalas" type="Particles2D" parent="."]
+position = Vector2( 0, 5.33333 )
+amount = 5
+lifetime = 0.3
+fixed_fps = 60
+local_coords = false
+process_material = SubResource( 46 )
+texture = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 2.66667 )
@@ -405,7 +737,7 @@ anchor_mode = 0
 current = true
 zoom = Vector2( 0.6, 0.6 )
 smoothing_enabled = true
-smoothing_speed = 1.5
+smoothing_speed = 3.0
 
 [node name="Particles2D" type="Particles2D" parent="Camera2D"]
 modulate = Color( 0, 0, 0, 0.470588 )
@@ -431,14 +763,12 @@ process_material = SubResource( 6 )
 texture = ExtResource( 10 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-visible = false
-position = Vector2( 7.10543e-15, -30.6667 )
-scale = Vector2( 0.466667, 0.316667 )
-
-[node name="Gui" parent="." instance=ExtResource( 15 )]
+position = Vector2( -0.666679, -3.33333 )
+rect = Rect2( -10, -10, 20, 35 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/CaixaPadrão" = SubResource( 9 )
+anims/CaixaPulo = SubResource( 30 )
 anims/CaixaSlide = SubResource( 29 )
 anims/RESET = SubResource( 28 )
 
@@ -446,10 +776,32 @@ anims/RESET = SubResource( 28 )
 wait_time = 0.5
 one_shot = true
 
+[node name="TimerWallJump" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [node name="RayCima" type="RayCast2D" parent="."]
 position = Vector2( 0, -8.5 )
 cast_to = Vector2( 0, -10 )
 
+[node name="RayDireita" type="RayCast2D" parent="."]
+position = Vector2( 1, 1.66667 )
+cast_to = Vector2( 6, 0 )
+
+[node name="RayDireita2" type="RayCast2D" parent="."]
+position = Vector2( 1, 12.3333 )
+cast_to = Vector2( 6, 0 )
+
+[node name="RayEsquerda" type="RayCast2D" parent="."]
+position = Vector2( -2, 1.66667 )
+cast_to = Vector2( -6, 0 )
+
+[node name="RayEsquerda2" type="RayCast2D" parent="."]
+position = Vector2( -2, 12.3333 )
+cast_to = Vector2( -6, 0 )
+
+[node name="Gui" parent="." instance=ExtResource( 2 )]
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
-[connection signal="timeout" from="TimerSlide" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="TimerSlide" to="." method="_on_TimerSlide_timeout"]

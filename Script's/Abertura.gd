@@ -4,6 +4,7 @@ var iniciado = 1
 
 func _ready():
 	AudioGeral.emit_signal("iniciar", "abertura")
+	AudioGeral.emit_signal("iniciar", "uiambience")
 	SaveLoader.load_game()
 	$AnimationPlayer.play("Logo")
 
