@@ -11,7 +11,8 @@ func save_game():
 	var data = {
 	"mortes": Global.mortes,
 	"espelhos": Global.espelho,
-	"idioma" : Global.ingles
+	"idioma" : Global.ingles,
+	"checkpoint": Global.checkpoint
 }
 	var dir = Directory.new()
 	if !dir.dir_exists(SAVE_DIR):
@@ -32,3 +33,4 @@ func load_game():
 			Global.mortes = player_data.mortes
 			Global.espelho = player_data.espelhos
 			Global.ingles = player_data.idioma
+			Global.checkpoint = player_data.checkpoint

@@ -5,7 +5,7 @@
 [ext_resource path="res://Images/mainsprite/Triangulo .png" type="Texture" id=3]
 [ext_resource path="res://Images/mainsprite/Espelhos/Espelho8.png" type="Texture" id=4]
 [ext_resource path="res://Images/mainsprite/Void/Mortes.png" type="Texture" id=5]
-[ext_resource path="res://Script's/Gui and Stuff/ContarMortes.gd" type="Script" id=6]
+[ext_resource path="res://Script's/ContarMortes.gd" type="Script" id=6]
 [ext_resource path="res://Images/mainsprite/Espelhos/Espelho7.png" type="Texture" id=7]
 [ext_resource path="res://Images/mainsprite/Espelhos/Espelho9.png" type="Texture" id=8]
 [ext_resource path="res://Images/mainsprite/Espelhos/Espelho4.png" type="Texture" id=9]
@@ -295,22 +295,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Teleporte" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -126.0
-margin_top = -62.0
-margin_right = 126.0
-margin_bottom = -688.0
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 7.0
+margin_bottom = 7.0
+
+[node name="Borda1" type="ColorRect" parent="Control"]
+margin_left = -120.0
+margin_top = -67.0
+margin_right = 1410.0
+margin_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 1280, 50 )
 color = Color( 0, 0, 0, 1 )
 
-[node name="ColorRect2" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -126.0
-margin_top = 672.0
-margin_right = 126.0
-margin_bottom = 48.0
+[node name="Borda2" type="ColorRect" parent="Control"]
+margin_left = -120.0
+margin_top = 657.0
+margin_right = 1410.0
+margin_bottom = 757.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 1280, 50 )
 color = Color( 0, 0, 0, 1 )
 
 [connection signal="mouse_entered" from="Pause/MenuPause/VBoxContainer/Resume" to="Pause" method="_on_mouse_entered"]

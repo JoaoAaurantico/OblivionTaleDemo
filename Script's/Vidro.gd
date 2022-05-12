@@ -1,9 +1,12 @@
 extends Node2D
 
+func _ready():
+	$Area2D/Vidro.frame = Global.espelho
+
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Player"):
+		Global.chave = false
 		Global.add_espelho()
-		print(Global.espelho)
 		$AnimationPlayer.play("VidroPego")
 		$Area2D/CollisionShape2D.queue_free()
 		if Global.checkpoint != Vector2(0,0):

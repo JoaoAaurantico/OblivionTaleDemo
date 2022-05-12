@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Petalas.png-c54732d2bd4a9cb01148db121498d5cb.stex"
+path="res://.import/Arvore.png-431f83fec8c5c54ef7a62b59bc7841de.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Petalas.png"
-dest_files=[ "res://.import/Petalas.png-c54732d2bd4a9cb01148db121498d5cb.stex" ]
+source_file="res://Images/mainsprite/Arvore.png"
+dest_files=[ "res://.import/Arvore.png-431f83fec8c5c54ef7a62b59bc7841de.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

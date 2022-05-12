@@ -75,7 +75,7 @@ func _listener(_delta):
 	else:
 		move("null")
 
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("ui_up") && !state == 3:
 		if is_on_floor():
 			move("up")
 		elif have_wall():
@@ -150,7 +150,7 @@ func _on_Area2D_area_entered(area):
 		Velocidade = 0
 		Pulo = 0
 func _on_VisibilityNotifier2D_screen_exited():
-	if Global.portal == false :
+	if Global.portal == false && Global.teleporte == false:
 		avisar_morte()
 func avisar_morte():
 	Global.add_morte()
