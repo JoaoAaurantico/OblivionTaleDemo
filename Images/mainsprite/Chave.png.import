@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Logo_TEMP.png-2467dc295d8560f34f9f26c78e0c30a8.stex"
+path="res://.import/Chave.png-2a512c00c516ce4cccb02c777b5c6173.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Logo_TEMP.png"
-dest_files=[ "res://.import/Logo_TEMP.png-2467dc295d8560f34f9f26c78e0c30a8.stex" ]
+source_file="res://Images/mainsprite/Chave.png"
+dest_files=[ "res://.import/Chave.png-2a512c00c516ce4cccb02c777b5c6173.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

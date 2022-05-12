@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Logo Aurantic Sky.png-ba1e73780eb08d87f71e1584daab0f66.stex"
+path="res://.import/Vortex2.png-10a51eeb23cabb48786f01d47eee1a03.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Logo Aurantic Sky.png"
-dest_files=[ "res://.import/Logo Aurantic Sky.png-ba1e73780eb08d87f71e1584daab0f66.stex" ]
+source_file="res://Images/mainsprite/Vortex2.png"
+dest_files=[ "res://.import/Vortex2.png-10a51eeb23cabb48786f01d47eee1a03.stex" ]
 
 [params]
 

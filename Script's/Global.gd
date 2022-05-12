@@ -2,9 +2,14 @@ extends Node
 
 var ingles = false
 var portal = false
+var inverse = false
+var chave = false
+var teleporte = false
 var espelho: int = 0
 var mortes: int = 0
 var checkpoint = Vector2(0,0)
+var teleposicao1 = Vector2(0,0)
+var teleposicao2 = Vector2(0,0)
 
 func add_espelho():
 	espelho += 1

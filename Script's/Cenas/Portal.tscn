@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Images/Petalas.png" type="Texture" id=1]
-[ext_resource path="res://Images/Portal.png" type="Texture" id=2]
+[ext_resource path="res://Images/mainsprite/Petalas.png" type="Texture" id=1]
+[ext_resource path="res://Images/mainsprite/Portal.png" type="Texture" id=2]
 [ext_resource path="res://Script's/Portal.gd" type="Script" id=3]
 
 [sub_resource type="Gradient" id=9]
