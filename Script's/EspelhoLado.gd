@@ -31,6 +31,7 @@ func _on_Area2D_area_entered(_area):
 	valoranterior = number
 	if Global.chave == true && proximoportal == true:
 		$Fades.play("Fade in")
+	
 func _on_Area2D_area_exited(_area):
 	number = valoranterior
 

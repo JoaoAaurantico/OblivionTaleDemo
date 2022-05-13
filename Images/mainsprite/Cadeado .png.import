@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Vortex2.png-10a51eeb23cabb48786f01d47eee1a03.stex"
+path="res://.import/Cadeado .png-17fedecc6ed8635ad0d752d95e5b5bc5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/mainsprite/Vortex2.png"
-dest_files=[ "res://.import/Vortex2.png-10a51eeb23cabb48786f01d47eee1a03.stex" ]
+source_file="res://Images/mainsprite/Cadeado .png"
+dest_files=[ "res://.import/Cadeado .png-17fedecc6ed8635ad0d752d95e5b5bc5.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

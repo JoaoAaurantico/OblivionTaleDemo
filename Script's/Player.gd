@@ -20,13 +20,14 @@ func _process(delta):
 func _physics_process(_delta):
 	altergravity()
 func altergravity():
-	motion.y += Gravidade
 	if Velocidade >= MaxVelocidade:
 		Velocidade = MaxVelocidade
 	if have_wall() && motion.y > 0:
-		Gravidade = 5
+		Gravidade = 100
+		motion.y = Gravidade
 	else:
 		Gravidade = 30
+		motion.y += Gravidade
 
 func states():
 	if motion.x == 0 && is_on_floor():

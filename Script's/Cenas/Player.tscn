@@ -76,9 +76,9 @@ region = Rect2( 150, 0, 25, 32 )
 atlas = ExtResource( 16 )
 region = Rect2( 175, 0, 25, 32 )
 
-[sub_resource type="AtlasTexture" id=35]
+[sub_resource type="AtlasTexture" id=41]
 atlas = ExtResource( 16 )
-region = Rect2( 200, 0, 25, 32 )
+region = Rect2( 325, 0, 25, 32 )
 
 [sub_resource type="AtlasTexture" id=31]
 atlas = ExtResource( 16 )
@@ -96,6 +96,14 @@ region = Rect2( 275, 0, 25, 32 )
 atlas = ExtResource( 16 )
 region = Rect2( 300, 0, 25, 32 )
 
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 16 )
+region = Rect2( 350, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 16 )
+region = Rect2( 200, 0, 25, 32 )
+
 [sub_resource type="AtlasTexture" id=37]
 atlas = ExtResource( 16 )
 region = Rect2( 0, 0, 25, 32 )
@@ -112,14 +120,6 @@ region = Rect2( 50, 0, 25, 32 )
 atlas = ExtResource( 16 )
 region = Rect2( 75, 0, 25, 32 )
 
-[sub_resource type="AtlasTexture" id=41]
-atlas = ExtResource( 16 )
-region = Rect2( 325, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 16 )
-region = Rect2( 350, 0, 25, 32 )
-
 [sub_resource type="SpriteFrames" id=27]
 animations = [ {
 "frames": [ SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ) ],
@@ -127,29 +127,29 @@ animations = [ {
 "name": "Andando",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 35 ) ],
-"loop": false,
-"name": "Pulando",
-"speed": 2.0
+"frames": [ SubResource( 41 ) ],
+"loop": true,
+"name": "Deslizando",
+"speed": 5.0
 }, {
 "frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
 "loop": true,
 "name": "Empurrando",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
-"loop": true,
-"name": "Parado",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 41 ) ],
-"loop": true,
-"name": "Deslizando",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 36 ) ],
 "loop": true,
 "name": "Parede",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 35 ) ],
+"loop": false,
+"name": "Pulando",
+"speed": 2.0
+}, {
+"frames": [ SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
+"loop": true,
+"name": "Parado",
 "speed": 5.0
 } ]
 
