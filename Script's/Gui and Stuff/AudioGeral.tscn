@@ -185,7 +185,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=12]
 resource_name = "FadeSoundtrack"
-length = 5.0
+length = 17.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Soundtrack:volume_db")
 tracks/0/interp = 1

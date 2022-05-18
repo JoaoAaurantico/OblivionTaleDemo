@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/transition.mp3-4dd208c9ea8da1e6b17deba7de31bd47.mp3str"
+
+[deps]
+
+source_file="res://Audio/Soundtrack/Transition/transition.mp3"
+dest_files=[ "res://.import/transition.mp3-4dd208c9ea8da1e6b17deba7de31bd47.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
