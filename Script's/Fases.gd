@@ -6,3 +6,4 @@ func _ready():
 		if Global.checkpoint != Vector2(0,0):
 			$Player.global_position = Global.checkpoint
 
+
