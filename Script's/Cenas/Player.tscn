@@ -76,25 +76,9 @@ region = Rect2( 150, 0, 25, 32 )
 atlas = ExtResource( 16 )
 region = Rect2( 175, 0, 25, 32 )
 
-[sub_resource type="AtlasTexture" id=31]
+[sub_resource type="AtlasTexture" id=41]
 atlas = ExtResource( 16 )
-region = Rect2( 225, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 16 )
-region = Rect2( 250, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 16 )
-region = Rect2( 275, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 16 )
-region = Rect2( 300, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 16 )
-region = Rect2( 350, 0, 25, 32 )
+region = Rect2( 325, 0, 25, 32 )
 
 [sub_resource type="AtlasTexture" id=37]
 atlas = ExtResource( 16 )
@@ -112,13 +96,29 @@ region = Rect2( 50, 0, 25, 32 )
 atlas = ExtResource( 16 )
 region = Rect2( 75, 0, 25, 32 )
 
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 16 )
+region = Rect2( 225, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 16 )
+region = Rect2( 250, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 16 )
+region = Rect2( 275, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 16 )
+region = Rect2( 300, 0, 25, 32 )
+
 [sub_resource type="AtlasTexture" id=35]
 atlas = ExtResource( 16 )
 region = Rect2( 200, 0, 25, 32 )
 
-[sub_resource type="AtlasTexture" id=41]
+[sub_resource type="AtlasTexture" id=36]
 atlas = ExtResource( 16 )
-region = Rect2( 325, 0, 25, 32 )
+region = Rect2( 350, 0, 25, 32 )
 
 [sub_resource type="SpriteFrames" id=27]
 animations = [ {
@@ -127,14 +127,9 @@ animations = [ {
 "name": "Andando",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
+"frames": [ SubResource( 41 ) ],
 "loop": true,
-"name": "Empurrando",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 36 ) ],
-"loop": true,
-"name": "Parede",
+"name": "Deslizando",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
@@ -142,14 +137,19 @@ animations = [ {
 "name": "Parado",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
+"loop": true,
+"name": "Empurrando",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 35 ) ],
 "loop": false,
 "name": "Pulando",
 "speed": 2.0
 }, {
-"frames": [ SubResource( 41 ) ],
+"frames": [ SubResource( 36 ) ],
 "loop": true,
-"name": "Deslizando",
+"name": "Parede",
 "speed": 5.0
 } ]
 
@@ -798,6 +798,9 @@ cast_to = Vector2( -6, 0 )
 [node name="Gui" parent="." instance=ExtResource( 2 )]
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
+position = Vector2( 0, -30 )
+scale = Vector2( 1, 4 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="TimerSlide" to="." method="_on_TimerSlide_timeout"]

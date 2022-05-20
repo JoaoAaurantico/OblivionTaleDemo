@@ -11,7 +11,7 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "Intro"
-length = 88.0
+length = 98.7
 tracks/0/type = "audio"
 tracks/0/path = NodePath("Soundtrack")
 tracks/0/interp = 1
@@ -33,7 +33,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "LoopMenu"
-length = 64.0
+length = 74.7
 loop = true
 tracks/0/type = "audio"
 tracks/0/path = NodePath("Soundtrack")

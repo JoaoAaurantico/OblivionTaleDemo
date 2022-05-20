@@ -22,7 +22,7 @@ func _physics_process(_delta):
 func altergravity():
 	if Velocidade >= MaxVelocidade:
 		Velocidade = MaxVelocidade
-	if have_wall() && motion.y > 0:
+	if have_wall() && motion.y > 0 && Input.is_action_pressed("ui_both"):
 		Gravidade = 100
 		motion.y = Gravidade
 	else:
@@ -44,7 +44,7 @@ func states():
 		state = 3
 	if  is_on_wall() && is_on_floor() && motion.x == 0 && !$TimerSlide.time_left:
 		state = 4
-	if !is_on_floor() && have_wall():
+	if !is_on_floor() && have_wall() && Gravidade == 100:
 		state = 5
 func animations():
 	if state == 0:
