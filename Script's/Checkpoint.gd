@@ -1,11 +1,16 @@
 extends Node2D
 
+var pegado = false
+
 func _on_Area2D_area_entered(area):
-	$AnimatedSprite.play()
-	if area.is_in_group("Player"):
-		Global.checkpoint = $AnimatedSprite/Area2D/CollisionShape2D.global_position
-
-
-func _on_AnimatedSprite_animation_finished():
-	$AnimatedSprite.set_frame(11)
+	if area.is_in_group("Player") && pegado == false:
+		$AnimationPlayer.play("Collected")
+		Global.checkpoint = $Sprite.global_position
 	
+
+
+func _on_AnimationPlayer_animation_finished(_anim_name):
+	pegado = true
+	$AnimationPlayer.play("Stand")
+
+
