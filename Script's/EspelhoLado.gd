@@ -1,9 +1,14 @@
 extends Node2D
 
 export (NodePath) onready var destino
-onready var node = get_node(destino)
+onready var node 
 
 var proximoportal = true
+
+func _ready():
+	if (destino): node = get_node(destino)
+
+
 
 func _process(_delta):
 	if Global.chave == true:

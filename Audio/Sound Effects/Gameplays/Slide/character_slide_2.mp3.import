@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/character_slide_2.mp3-d98e18736f82efbb50ef789487e207b9.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/Gameplays/Slide/character_slide_2.mp3"
+dest_files=[ "res://.import/character_slide_2.mp3-d98e18736f82efbb50ef789487e207b9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

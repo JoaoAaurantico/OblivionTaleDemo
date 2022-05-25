@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/portal_entrance.mp3-22fbb81fc30c65d5da98e393d86f2627.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/Gameplays/Portal Entrance/portal_entrance.mp3"
+dest_files=[ "res://.import/portal_entrance.mp3-22fbb81fc30c65d5da98e393d86f2627.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

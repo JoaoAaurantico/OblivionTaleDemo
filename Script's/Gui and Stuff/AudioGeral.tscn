@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Audio/Soundtrack/Menu/menu_intro.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Script's/AudioGeral.gd" type="Script" id=2]
@@ -8,6 +8,45 @@
 [ext_resource path="res://Audio/Sound Effects/UI/Button Memories Hover/ui_memories_hover.mp3" type="AudioStream" id=6]
 [ext_resource path="res://Audio/Sound Effects/UI/Button Memories Click/ui_memories_click.mp3" type="AudioStream" id=7]
 [ext_resource path="res://Audio/Sound Effects/UI/Ambience/ui_ambience_loop.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Audio/Soundtrack/Stage 1/stage1_intro.mp3" type="AudioStream" id=9]
+[ext_resource path="res://Audio/Soundtrack/Stage 1/stage1_loop.mp3" type="AudioStream" id=10]
+
+[sub_resource type="Animation" id=14]
+resource_name = "Fase 01"
+length = 120.01
+tracks/0/type = "audio"
+tracks/0/path = NodePath("Soundtrack")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "Fase 01 loop"
+length = 120.0
+loop = true
+tracks/0/type = "audio"
+tracks/0/path = NodePath("Soundtrack")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "Intro"
@@ -183,9 +222,9 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=12]
-resource_name = "FadeSoundtrack"
-length = 17.0
+[sub_resource type="Animation" id=16]
+resource_name = "Fade out Soundtrack"
+length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Soundtrack:volume_db")
 tracks/0/interp = 1
@@ -194,6 +233,22 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -80.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "FadeSoundtrack"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Soundtrack:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4.8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, -80.0 ]
@@ -213,12 +268,26 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0.0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("UI:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -30.0 ]
+}
 
 [node name="Audio" type="Node"]
 script = ExtResource( 2 )
 
 [node name="PlayerSoundtrack" type="AnimationPlayer" parent="."]
 pause_mode = 2
+"anims/Fase 01" = SubResource( 14 )
+"anims/Fase 01 loop" = SubResource( 15 )
 anims/Intro = SubResource( 1 )
 anims/LoopMenu = SubResource( 3 )
 anims/RESET = SubResource( 2 )
@@ -237,16 +306,18 @@ anims/UIAmbience = SubResource( 9 )
 
 [node name="PlayerFades" type="AnimationPlayer" parent="."]
 pause_mode = 2
+"anims/Fade out Soundtrack" = SubResource( 16 )
 anims/FadeSoundtrack = SubResource( 12 )
 anims/RESET = SubResource( 13 )
 
 [node name="Soundtrack" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
-stream = ExtResource( 3 )
+stream = ExtResource( 10 )
 
 [node name="UI" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 4 )
+volume_db = -30.0
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 pause_mode = 2

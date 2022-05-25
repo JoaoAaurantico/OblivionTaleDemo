@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/character_step_grass_2.mp3-54c785140bae7464932ef2e7a4bf6ddf.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/Gameplay/Step Grass/character_step_grass_2.mp3"
+dest_files=[ "res://.import/character_step_grass_2.mp3-54c785140bae7464932ef2e7a4bf6ddf.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
