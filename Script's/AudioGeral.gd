@@ -12,17 +12,20 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		$PlayerSoundtrack.play("LoopMenu")
 	if anim_name == "Hover":
 		$PlayerSoundtrack.stop()
+	
+	if anim_name == "Fase 01":
+		$PlayerSoundtrack.play("Fase 01 loop")
 
 func _on_Audio_parar():
 	$PlayerSoundtrack.stop()
 func _on_Audio_iniciar(musica):
-	if musica == "fadesoundtrack":
-		$PlayerFades.play("FadeSoundtrack")
-	
 	if musica == "abertura":
 		$PlayerSoundtrack.play("Intro")
 	if musica == "LoopMenu":
 		$PlayerSoundtrack.play("LoopMenu")
+		
+	if musica == "Fase01":
+		$PlayerSoundtrack.play("Fase 01")
 	
 	if musica == "hover":
 		$PlayerUI.play("Hover")

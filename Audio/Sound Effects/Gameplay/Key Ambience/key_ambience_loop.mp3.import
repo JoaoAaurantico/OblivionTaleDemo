@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/key_ambience_loop.mp3-122d891912b1acaa486dae47ead8243d.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/Gameplay/Key Ambience/key_ambience_loop.mp3"
+dest_files=[ "res://.import/key_ambience_loop.mp3-122d891912b1acaa486dae47ead8243d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

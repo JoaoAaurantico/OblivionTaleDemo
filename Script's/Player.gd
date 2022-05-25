@@ -22,7 +22,7 @@ func _physics_process(_delta):
 func altergravity():
 	if Velocidade >= MaxVelocidade:
 		Velocidade = MaxVelocidade
-	if have_wall() && motion.y > 0 && Input.is_action_pressed("ui_both"):
+	if have_wall() && motion.y > 0 && Input.is_action_pressed("ui_right") or have_wall() && motion.y > 0 && Input.is_action_pressed("ui_left") :
 		Gravidade = 100
 		motion.y = Gravidade
 	else:
@@ -48,31 +48,37 @@ func states():
 		state = 5
 func animations():
 	if state == 0:
-		$AnimatedSprite.play("Parado")
+		$AniPlayer.play("Respirando")
+		$SpritePlayer/AnimatedSprite.play("Parado")
 		$AnimationPlayer.play("CaixaPadrão")
 	elif state == 1:
-		$AnimatedSprite.play("Andando")
+		$AniPlayer.play("Caminhando")
+		$SpritePlayer/AnimatedSprite.play("Andando")
 		$AnimationPlayer.play("CaixaPadrão")
 	elif state == 2:
-		$AnimatedSprite.play("Pulando")
+		$AniPlayer.play("Saltando")
+		$SpritePlayer/AnimatedSprite.play("Pulando")
 		$AnimationPlayer.play("CaixaPulo")
 	elif state == 3:
+		$AniPlayer.play("Escorregando")
 		$AnimationPlayer.play("CaixaSlide")
-		$AnimatedSprite.play("Deslizando")
+		$SpritePlayer/AnimatedSprite.play("Deslizando")
 	elif state == 4:
-		$AnimatedSprite.play("Empurrando")
+		$AniPlayer.play("Caminhando")
+		$SpritePlayer/AnimatedSprite.play("Empurrando")
 		$AnimationPlayer.play("CaixaPadrão")
 	elif state == 5:
+		$AniPlayer.play("Parede")
 		$AnimationPlayer.play("CaixaPulo")
-		$AnimatedSprite.play("Parede")
+		$SpritePlayer/AnimatedSprite.play("Parede")
 
 func _listener(_delta):
 	if Input.is_action_pressed("ui_right") && !$TimerSlide.time_left:
 		move("right")
-		$AnimatedSprite.flip_h = false
+		$SpritePlayer/AnimatedSprite.flip_h = false
 	elif Input.is_action_pressed("ui_left") && !$TimerSlide.time_left:
 		move("left")
-		$AnimatedSprite.flip_h = true
+		$SpritePlayer/AnimatedSprite.flip_h = true
 	else:
 		move("null")
 
@@ -88,9 +94,9 @@ func _listener(_delta):
 
 	if Input.is_action_just_pressed("ui_down") && is_on_floor() && !$TimerSlide.time_left:
 		slidetimer()
-	if $TimerSlide.time_left && $AnimatedSprite.flip_h == false:
+	if $TimerSlide.time_left && $SpritePlayer/AnimatedSprite.flip_h == false:
 		motion.x = Escorregar
-	elif $TimerSlide.time_left && $AnimatedSprite.flip_h == true:
+	elif $TimerSlide.time_left && $SpritePlayer/AnimatedSprite.flip_h == true:
 		motion.x = -Escorregar
 
 	if Input.is_action_just_released("ui_right") or Input.is_action_just_released("ui_left"):

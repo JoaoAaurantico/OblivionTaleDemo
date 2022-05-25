@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/character_jump_impact_2.mp3-eefecc49f15319d6e0f08c20b35f5d2f.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/Gameplays/Jump Impact/character_jump_impact_2.mp3"
+dest_files=[ "res://.import/character_jump_impact_2.mp3-eefecc49f15319d6e0f08c20b35f5d2f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
