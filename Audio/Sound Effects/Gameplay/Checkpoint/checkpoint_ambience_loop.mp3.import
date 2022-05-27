@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/checkpoint_ambience_loop.mp3-1c72230bd5bf64fe4bf386b35353c64c.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/Gameplay/Checkpoint/checkpoint_ambience_loop.mp3"
+dest_files=[ "res://.import/checkpoint_ambience_loop.mp3-1c72230bd5bf64fe4bf386b35353c64c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

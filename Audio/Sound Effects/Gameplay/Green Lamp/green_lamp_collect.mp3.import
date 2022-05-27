@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/green_lamp_collect.mp3-ba642f38b1976cdf7bc3e003c2252b9b.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/Gameplay/Green Lamp/green_lamp_collect.mp3"
+dest_files=[ "res://.import/green_lamp_collect.mp3-ba642f38b1976cdf7bc3e003c2252b9b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
