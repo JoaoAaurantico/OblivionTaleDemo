@@ -11,5 +11,5 @@ dest_files=[ "res://.import/character_walljump_hold.mp3-8ce63b877d2249dc79497522
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

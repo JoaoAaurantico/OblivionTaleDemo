@@ -11,5 +11,5 @@ dest_files=[ "res://.import/green_lamp_collect.mp3-ba642f38b1976cdf7bc3e003c2252
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

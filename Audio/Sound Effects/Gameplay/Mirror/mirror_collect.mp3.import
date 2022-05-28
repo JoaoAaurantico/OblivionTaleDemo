@@ -11,5 +11,5 @@ dest_files=[ "res://.import/mirror_collect.mp3-fbe0bf25186886901f8c2dce3ee87f23.
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

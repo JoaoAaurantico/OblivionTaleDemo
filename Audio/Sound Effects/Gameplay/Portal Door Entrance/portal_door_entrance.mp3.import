@@ -11,5 +11,5 @@ dest_files=[ "res://.import/portal_door_entrance.mp3-4252f5aa980e1253fbed39d7e11
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

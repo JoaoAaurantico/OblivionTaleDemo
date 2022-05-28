@@ -12,6 +12,7 @@ var Escorregar = 250
 
 var state = 0
 
+
 func _process(delta):
 	states()
 	animations()
@@ -31,21 +32,19 @@ func altergravity():
 
 func states():
 	if motion.x == 0 && is_on_floor():
-		state = 0
+		state = 0 #parado
 	if motion.x >= impulso && is_on_floor():
-		state = 1
+		state = 1 #andando
 	elif motion.x <= -impulso && is_on_floor():
-		state = 1
+		state = 1 #andando 
 	if !is_on_floor():
-		state = 2
+		state = 2 #pulou 
 	if $TimerSlide.time_left or $RayCima.is_colliding():
-		state = 3
-	elif $TimerSlide.time_left or $RayCima.is_colliding():
-		state = 3
+		state = 3 #deslizando 
 	if  is_on_wall() && is_on_floor() && motion.x == 0 && !$TimerSlide.time_left:
-		state = 4
+		state = 4 #empurrando
 	if !is_on_floor() && have_wall() && Gravidade == 100:
-		state = 5
+		state = 5 #deslizando na parede
 func animations():
 	if state == 0:
 		$AniPlayer.play("Respirando")
@@ -71,6 +70,19 @@ func animations():
 		$AniPlayer.play("Parede")
 		$AnimationPlayer.play("CaixaPulo")
 		$SpritePlayer/AnimatedSprite.play("Parede")
+func sounds():
+	if state == 0:
+		$SoundPlayer.play("JumpImpact")
+	elif state == 1:
+		$SoundPlayer.play("GrassWalkSound")
+	elif state == 2:
+		$SoundPlayer.play("JumpSound")
+	elif state == 3:
+		$SoundPlayer.play("SlideIntroSound")
+	elif state == 4:
+		$SoundPlayer.play("GrassWalkSound")
+	elif state == 5:
+		$SoundPlayer.play("WallHoldSound")
 
 func _listener(_delta):
 	if Input.is_action_pressed("ui_right") && !$TimerSlide.time_left:

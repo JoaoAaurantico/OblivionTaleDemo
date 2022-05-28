@@ -11,5 +11,5 @@ dest_files=[ "res://.import/character_step_grass_1.mp3-58f0721c27bc75655e62ea245
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

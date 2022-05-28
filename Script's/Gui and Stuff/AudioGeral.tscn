@@ -222,24 +222,8 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=16]
-resource_name = "Fade out Soundtrack"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("Soundtrack:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -80.0, 0.0 ]
-}
-
 [sub_resource type="Animation" id=12]
-resource_name = "FadeSoundtrack"
+resource_name = "FadeinSoundtrack"
 length = 6.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Soundtrack:volume_db")
@@ -252,6 +236,22 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "FadeoutSoundtrack"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Soundtrack:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -80.0, 0.0 ]
 }
 
 [sub_resource type="Animation" id=13]
@@ -306,13 +306,13 @@ anims/UIAmbience = SubResource( 9 )
 
 [node name="PlayerFades" type="AnimationPlayer" parent="."]
 pause_mode = 2
-"anims/Fade out Soundtrack" = SubResource( 16 )
-anims/FadeSoundtrack = SubResource( 12 )
+anims/FadeinSoundtrack = SubResource( 12 )
+anims/FadeoutSoundtrack = SubResource( 16 )
 anims/RESET = SubResource( 13 )
 
 [node name="Soundtrack" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
-stream = ExtResource( 10 )
+stream = ExtResource( 9 )
 
 [node name="UI" type="AudioStreamPlayer" parent="."]
 pause_mode = 2

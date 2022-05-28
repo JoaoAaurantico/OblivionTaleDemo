@@ -39,3 +39,8 @@ func _on_Audio_iniciar(musica):
 	
 	if musica == "uiambience":
 		$PlayerAmbience.play("UIAmbience")
+	
+	if musica == "fadeout soundtrack":
+		$PlayerFades.play("FadeoutSoundtrack")
+	if musica == "fadein soundtrack":
+		$PlayerFades.play("FadeinSoundtrack")

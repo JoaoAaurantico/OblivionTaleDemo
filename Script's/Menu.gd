@@ -27,6 +27,7 @@ func _ready():
 
 func _on_Play_pressed():
 	$FadeM.play("FadeMenu")
+	AudioGeral.emit_signal("iniciar", "fadein soundtrack")
 	AudioGeral.emit_signal("iniciar", "click")
 	Global.mortes = 0
 	Global.espelho = 0
@@ -43,7 +44,9 @@ func _on_Quit_pressed():
 
 func _on_Continue_pressed():
 # warning-ignore:return_value_discarded
+	$FadeM.play("FadeMenu")
 	AudioGeral.emit_signal("iniciar", "click")
+	AudioGeral.emit_signal("iniciar", "fadein soundtrack")
 	SceneChanger.change_scene("res://Script's/Cenas/Main.tscn")
 	
 

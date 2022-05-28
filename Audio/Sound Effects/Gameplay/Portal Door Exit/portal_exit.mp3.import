@@ -11,5 +11,5 @@ dest_files=[ "res://.import/portal_exit.mp3-b3ee27c73872345adf4bb97f243d3235.mp3
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

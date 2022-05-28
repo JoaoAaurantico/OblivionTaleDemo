@@ -11,5 +11,5 @@ dest_files=[ "res://.import/key_collect.mp3-4cba88285d2aeac6453c3a005f7b23fa.mp3
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
