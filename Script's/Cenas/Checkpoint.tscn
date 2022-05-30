@@ -125,7 +125,7 @@ anims/RESET = SubResource( 5 )
 anims/Stand = SubResource( 7 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 2 )
+stream = ExtResource( 3 )
 max_distance = 500.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

@@ -1,16 +1,12 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://Script's/player.gd" type="Script" id=1]
 [ext_resource path="res://Script's/Gui and Stuff/GUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Images/mainsprite/Petalas.png" type="Texture" id=3]
 [ext_resource path="res://Images/mainsprite/Fire.png" type="Texture" id=4]
 [ext_resource path="res://Audio/Sound Effects/Gameplay/Wall Jump/character_walljump_loop.mp3" type="AudioStream" id=5]
-[ext_resource path="res://Audio/Sound Effects/Gameplay/Step Grass/character_step_grass_2.mp3" type="AudioStream" id=6]
-[ext_resource path="res://Audio/Sound Effects/Gameplay/Slide/character_slide_1.mp3" type="AudioStream" id=7]
 [ext_resource path="res://Audio/Sound Effects/Gameplay/Slide/character_slide_loop.mp3" type="AudioStream" id=8]
-[ext_resource path="res://Audio/Sound Effects/Gameplay/Wall Jump/character_walljump_hold.mp3" type="AudioStream" id=9]
 [ext_resource path="res://Images/mainsprite/Triangulo .png" type="Texture" id=10]
-[ext_resource path="res://Audio/Sound Effects/Gameplay/Step Grass/character_step_grass_3.mp3" type="AudioStream" id=11]
 [ext_resource path="res://Audio/Sound Effects/Gameplay/Jump/character_jump_1.mp3" type="AudioStream" id=12]
 [ext_resource path="res://Audio/Sound Effects/Gameplay/Jump Impact/character_jump_impact_1.mp3" type="AudioStream" id=13]
 [ext_resource path="res://Images/mainsprite/Void/Void SpriteSheet.png" type="Texture" id=16]
@@ -25,21 +21,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 6 )
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 11 )
-} ],
-"times": PoolRealArray( 0, 0.5 )
+"clips": [  ],
+"times": PoolRealArray(  )
 }
 
 [sub_resource type="Animation" id=66]
 resource_name = "JumpImpact"
-length = 0.3
+length = 300.0
 tracks/0/type = "audio"
 tracks/0/path = NodePath("AudioStreamPlayer2D")
 tracks/0/interp = 1
@@ -57,7 +45,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=65]
 resource_name = "JumpSound"
-length = 0.5
+length = 300.0
 tracks/0/type = "audio"
 tracks/0/path = NodePath("AudioStreamPlayer2D")
 tracks/0/interp = 1
@@ -75,40 +63,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=61]
 resource_name = "SlideIntroSound"
-length = 0.7
-tracks/0/type = "audio"
-tracks/0/path = NodePath("AudioStreamPlayer2D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 7 )
-} ],
-"times": PoolRealArray( 0 )
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("SoundPlayer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.7 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ "SlideLoopSound", -1, 1.0, false ],
-"method": "play"
-} ]
-}
-
-[sub_resource type="Animation" id=62]
-resource_name = "SlideLoopSound"
-length = 5.93
-loop = true
+length = 6.0
 tracks/0/type = "audio"
 tracks/0/path = NodePath("AudioStreamPlayer2D")
 tracks/0/interp = 1
@@ -121,45 +76,12 @@ tracks/0/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 8 )
 } ],
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0.1 )
 }
 
 [sub_resource type="Animation" id=63]
 resource_name = "WallHoldSound"
-length = 0.7
-tracks/0/type = "audio"
-tracks/0/path = NodePath("AudioStreamPlayer2D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 9 )
-} ],
-"times": PoolRealArray( 0 )
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("SoundPlayer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.7 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ "WallLoopSound", -1, 1.0, false ],
-"method": "play"
-} ]
-}
-
-[sub_resource type="Animation" id=64]
-resource_name = "WallLoopSound"
-length = 5.93
-loop = true
+length = 6.2
 tracks/0/type = "audio"
 tracks/0/path = NodePath("AudioStreamPlayer2D")
 tracks/0/interp = 1
@@ -172,7 +94,7 @@ tracks/0/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 5 )
 } ],
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0.1 )
 }
 
 [sub_resource type="Animation" id=9]
@@ -961,6 +883,14 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 16 )
+region = Rect2( 350, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 16 )
+region = Rect2( 325, 0, 25, 32 )
+
 [sub_resource type="AtlasTexture" id=42]
 atlas = ExtResource( 16 )
 region = Rect2( 100, 0, 25, 32 )
@@ -976,14 +906,6 @@ region = Rect2( 150, 0, 25, 32 )
 [sub_resource type="AtlasTexture" id=45]
 atlas = ExtResource( 16 )
 region = Rect2( 175, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=41]
-atlas = ExtResource( 16 )
-region = Rect2( 325, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 16 )
-region = Rect2( 350, 0, 25, 32 )
 
 [sub_resource type="AtlasTexture" id=37]
 atlas = ExtResource( 16 )
@@ -1023,9 +945,9 @@ region = Rect2( 300, 0, 25, 32 )
 
 [sub_resource type="SpriteFrames" id=27]
 animations = [ {
-"frames": [ SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ) ],
+"frames": [ SubResource( 36 ) ],
 "loop": true,
-"name": "Andando",
+"name": "Parede",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 41 ) ],
@@ -1033,9 +955,9 @@ animations = [ {
 "name": "Deslizando",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 36 ) ],
+"frames": [ SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ) ],
 "loop": true,
-"name": "Parede",
+"name": "Andando",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
@@ -1143,9 +1065,7 @@ anims/GrassWalkSound = SubResource( 60 )
 anims/JumpImpact = SubResource( 66 )
 anims/JumpSound = SubResource( 65 )
 anims/SlideIntroSound = SubResource( 61 )
-anims/SlideLoopSound = SubResource( 62 )
 anims/WallHoldSound = SubResource( 63 )
-anims/WallLoopSound = SubResource( 64 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/CaixaPadrão" = SubResource( 9 )
@@ -1168,7 +1088,7 @@ scale = Vector2( 1, 0.8 )
 position = Vector2( 0, -16 )
 frames = SubResource( 27 )
 animation = "Parado"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Petalas" type="Particles2D" parent="SpritePlayer/AnimatedSprite"]
@@ -1275,7 +1195,8 @@ process_material = SubResource( 52 )
 texture = ExtResource( 10 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 12 )
+stream = ExtResource( 5 )
+volume_db = -10.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="TimerSlide" to="." method="_on_TimerSlide_timeout"]

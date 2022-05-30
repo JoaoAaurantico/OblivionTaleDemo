@@ -14,6 +14,7 @@ var state = 0
 
 
 func _process(delta):
+	sounds()
 	states()
 	animations()
 	_listener(delta)
