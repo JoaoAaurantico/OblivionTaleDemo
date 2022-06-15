@@ -5,13 +5,7 @@ extends Control
 var pausado = false setget esta_pausado
 
 func trocaidioma():
-	if Global.ingles == true:
-		$MenuPause/VBoxContainer/Resume.text = "Resume"
-		$MenuPause/VBoxContainer/Save.text = "Save"
-		$MenuPause/VBoxContainer/Memories.text = "Memories"
-		$MenuPause/VBoxContainer/Quit.text = "Quit"
-	else:
-		pass
+	pass
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_end") && Global.chao == true:
@@ -30,19 +24,15 @@ func _process(_delta):
 	$MenuPause/Espelho.set_frame(Global.espelho)
 
 func _on_Resume_pressed():
-	AudioGeral.emit_signal("iniciar", "click")
 	self.pausado = false
 
 func _on_Quit_pressed():
-	AudioGeral.emit_signal("iniciar", "click")
 	get_tree().quit()
 
 func _on_Save_pressed():
-	AudioGeral.emit_signal("iniciar", "click")
 	SaveLoader.save_game()
 
 func _on_Memories_pressed():
-	AudioGeral.emit_signal("iniciar", "click")
 	move_to_next_menu("menu_memorias")
 
 
@@ -95,18 +85,15 @@ var frameMemoria = 0
 
 
 func _on_Voltar_pressed():
-	AudioGeral.emit_signal("iniciar", "memoriesclick")
 	move_to_previous_menu()
 
 func _on_Frente_pressed():
-	AudioGeral.emit_signal("iniciar", "memoriesclick")
 	frameMemoria += 1
 	if frameMemoria  > Global.espelho:
 		frameMemoria = Global.espelho
 	else:
 		$MenuMemorias/ImagensMemorias.set_frame(frameMemoria)
 func _on_Tras_pressed():
-	AudioGeral.emit_signal("iniciar", "memoriesclick")
 	frameMemoria -= 1
 	if frameMemoria <= 0:
 		frameMemoria = 0
@@ -115,6 +102,6 @@ func _on_Tras_pressed():
 
 
 func _on_mouse_entered():
-	AudioGeral.emit_signal("iniciar", "hover")
+	pass
 func _on_memories_mouse_entered():
-	AudioGeral.emit_signal("iniciar", "memorieshover")
+	pass

@@ -11,7 +11,6 @@ func save_game():
 	var data = {
 	"mortes": Global.mortes,
 	"espelhos": Global.espelho,
-	"idioma" : Global.ingles,
 	"checkpoint": Global.checkpoint,
 	"chave": Global.chave,
 	"lampiao": Global.lampiao,
@@ -35,7 +34,6 @@ func load_game():
 			file.close()
 			Global.mortes = player_data.mortes
 			Global.espelho = player_data.espelhos
-			Global.ingles = player_data.idioma
 			Global.checkpoint = player_data.checkpoint
 			Global.chave = player_data.chave
 			Global.lampiao = player_data.lampiao

@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://Languages/Tradução IV Godot.en.translation", "res://Languages/Tradução IV Godot.pt.translation" ]
+
+source_file="res://Languages/Tradução IV Godot.csv"
+dest_files=[ "res://Languages/Tradução IV Godot.en.translation", "res://Languages/Tradução IV Godot.pt.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

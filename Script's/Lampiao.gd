@@ -11,7 +11,6 @@ func _on_Area2D_area_entered(area):
 		$Area2D.queue_free()
 		Global.add_lampiao()
 		Global.dict_lamp[lampiaonumero] = lampiaonumero
-		print(Global.dict_lamp)
 		$AnimationPlayer.play("Collected")
 
 

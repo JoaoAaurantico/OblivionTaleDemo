@@ -1,10 +1,7 @@
 extends Control
 var iniciado = 1
 func _ready():
-	if Global.ingles == true:
-		textUS()
-	else: 
-		textoPT()
+	textoPT()
 	$CanvasLayer/AnimationPlayer.play("Teclando")
 
 func textoPT():

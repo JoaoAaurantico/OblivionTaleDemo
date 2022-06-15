@@ -4,21 +4,6 @@ onready var escrito = $AnimationPlayer/Label
 
 var iniciado = 1
 
-var ing = [
-	"Does not give up",
-	"You can't die, not here",
-	"Recover All",
-	"She wasn't fair to you",
-	"Be like me",
-	"Your memories are the key",
-	"Try a little harder",
-	"You just want to follow your dream",
-	"She raised you but never loved you",
-	"You had someone important because of her",
-	"I feel your anger and your anguish",
-	"I'm following your steps"
-]
-
 var pt = [
 	"Não desista",
 	"Você não pode morrer, não aqui",
@@ -39,19 +24,12 @@ var texto = [
 ]
 
 func _ready():
-	if Global.ingles == true:
-		$AnimationPlayer/Label.text = "I have expectations of you"
 	randomize()
 	if Global.mortes > 0:
 		alterarTexto()
 	$AnimationPlayer.play("Texto")
 
 func alterarTexto():
-	if Global.mortes > 0 and Global.ingles == true:
-		texto = ing
-		escrito.set_text(texto[randi()%texto.size()]) 
-
-	else:
 		texto = pt
 		escrito.set_text(texto[randi()%texto.size()]) 
 

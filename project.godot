@@ -22,8 +22,6 @@ config/windows_native_icon="res://roberto.ico"
 Global="*res://Script's/Global.gd"
 SaveLoader="*res://Script's/SaveLoader.gd"
 SceneChanger="*res://Script's/Gui and Stuff/SceneChanger.tscn"
-AudioGeral="*res://Script's/Gui and Stuff/AudioGeral.tscn"
-Idioma="*res://Script's/Idioma.gd"
 
 [debug]
 
@@ -125,6 +123,11 @@ ui_inverse={
 2d_render/layer_1="Padrão"
 2d_render/layer_2="Ambiente"
 2d_render/layer_3="Intege"
+
+[locale]
+
+translations=PoolStringArray( "res://Languages/Tradução IV Godot.en.translation", "res://Languages/Tradução IV Godot.pt.translation" )
+locale_filter=[ 0, [ "en", "pt_BR" ] ]
 
 [physics]
 

@@ -7,9 +7,7 @@ func _ready():
 	$AnimationPlayer.play("Entrada Shi")
 
 func alterartexto():
-	if Global.ingles == true:
-		$CanvasLayer/Voce1.text = "You are still incomplete, but do not worry... I will help you to evolve..."
-		$CanvasLayer/Voce2.text = "I promise..."
+	pass
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_end") && iniciado == 1:

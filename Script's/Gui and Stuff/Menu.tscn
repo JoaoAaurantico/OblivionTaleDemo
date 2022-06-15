@@ -183,16 +183,16 @@ position = Vector2( 1307, 763 )
 scale = Vector2( 70, 70 )
 frames = SubResource( 9 )
 
-[node name="Pause" type="Control" parent="."]
+[node name="Menu" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 4 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Pause"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Control" type="Control" parent="Pause/HBoxContainer"]
+[node name="Control" type="Control" parent="Menu/HBoxContainer"]
 margin_right = 200.0
 margin_bottom = 720.0
 rect_min_size = Vector2( 200, 0 )
@@ -200,7 +200,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="Pause/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="Menu/HBoxContainer"]
 margin_left = 204.0
 margin_right = 612.0
 margin_bottom = 720.0
@@ -208,7 +208,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Pause/HBoxContainer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/HBoxContainer/CenterContainer"]
 margin_top = 117.0
 margin_right = 408.0
 margin_bottom = 602.0
@@ -223,25 +223,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Pause/HBoxContainer/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Menu/HBoxContainer/CenterContainer/VBoxContainer"]
 margin_right = 408.0
 margin_bottom = 67.0
 custom_fonts/font = SubResource( 1 )
 text = "InfinityVoid"
 
-[node name="Control" type="Control" parent="Pause/HBoxContainer/CenterContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="Menu/HBoxContainer/CenterContainer/VBoxContainer"]
 margin_top = 97.0
 margin_right = 408.0
 margin_bottom = 97.0
 
-[node name="Play" type="Button" parent="Pause/HBoxContainer/CenterContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="Menu/HBoxContainer/CenterContainer/VBoxContainer"]
 margin_top = 127.0
 margin_right = 408.0
 margin_bottom = 194.0
 custom_fonts/font = SubResource( 2 )
 text = "Iniciar"
 
-[node name="Continue" type="Button" parent="Pause/HBoxContainer/CenterContainer/VBoxContainer"]
+[node name="Continue" type="Button" parent="Menu/HBoxContainer/CenterContainer/VBoxContainer"]
 margin_top = 224.0
 margin_right = 408.0
 margin_bottom = 291.0
@@ -251,14 +251,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Credits" type="Button" parent="Pause/HBoxContainer/CenterContainer/VBoxContainer"]
+[node name="Credits" type="Button" parent="Menu/HBoxContainer/CenterContainer/VBoxContainer"]
 margin_top = 321.0
 margin_right = 408.0
 margin_bottom = 388.0
 custom_fonts/font = SubResource( 3 )
 text = "Creditos"
 
-[node name="Quit" type="Button" parent="Pause/HBoxContainer/CenterContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="Menu/HBoxContainer/CenterContainer/VBoxContainer"]
 margin_top = 418.0
 margin_right = 408.0
 margin_bottom = 485.0
@@ -343,13 +343,13 @@ color = Color( 0, 0, 0, 0 )
 anims/FadeMenu = SubResource( 10 )
 anims/RESET = SubResource( 11 )
 
-[connection signal="mouse_entered" from="Pause/HBoxContainer/CenterContainer/VBoxContainer/Play" to="." method="_on_mouse_entered"]
-[connection signal="pressed" from="Pause/HBoxContainer/CenterContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]
-[connection signal="mouse_entered" from="Pause/HBoxContainer/CenterContainer/VBoxContainer/Continue" to="." method="_on_mouse_entered"]
-[connection signal="pressed" from="Pause/HBoxContainer/CenterContainer/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
-[connection signal="mouse_entered" from="Pause/HBoxContainer/CenterContainer/VBoxContainer/Credits" to="." method="_on_mouse_entered"]
-[connection signal="pressed" from="Pause/HBoxContainer/CenterContainer/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
-[connection signal="mouse_entered" from="Pause/HBoxContainer/CenterContainer/VBoxContainer/Quit" to="." method="_on_mouse_entered"]
-[connection signal="pressed" from="Pause/HBoxContainer/CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="mouse_entered" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/Play" to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="mouse_entered" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/Continue" to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="mouse_entered" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/Credits" to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
+[connection signal="mouse_entered" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/Quit" to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="mouse_entered" from="Idioma" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="Idioma" to="." method="_on_Idioma_pressed"]

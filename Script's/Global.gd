@@ -2,7 +2,6 @@ extends Node
 
 
 var chao = false
-var ingles = false
 var portal = false
 var inverse = false
 var chave = false
