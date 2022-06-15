@@ -14,10 +14,11 @@ var state = 0
 
 
 func _process(delta):
-	sounds()
 	states()
 	animations()
 	_listener(delta)
+	is_floor()
+	damage()
 
 func _physics_process(_delta):
 	altergravity()
@@ -30,6 +31,11 @@ func altergravity():
 	else:
 		Gravidade = 30
 		motion.y += Gravidade
+func is_floor():
+	if is_on_floor():
+		Global.chao = true
+	else:
+		Global.chao = false
 
 func states():
 	if motion.x == 0 && is_on_floor():
@@ -71,19 +77,6 @@ func animations():
 		$AniPlayer.play("Parede")
 		$AnimationPlayer.play("CaixaPulo")
 		$SpritePlayer/AnimatedSprite.play("Parede")
-func sounds():
-	if state == 0:
-		$SoundPlayer.play("JumpImpact")
-	elif state == 1:
-		$SoundPlayer.play("GrassWalkSound")
-	elif state == 2:
-		$SoundPlayer.play("JumpSound")
-	elif state == 3:
-		$SoundPlayer.play("SlideIntroSound")
-	elif state == 4:
-		$SoundPlayer.play("GrassWalkSound")
-	elif state == 5:
-		$SoundPlayer.play("WallHoldSound")
 
 func _listener(_delta):
 	if Input.is_action_pressed("ui_right") && !$TimerSlide.time_left:
@@ -175,6 +168,12 @@ func _on_VisibilityNotifier2D_screen_exited():
 func avisar_morte():
 	Global.add_morte()
 	Global.morto()
+
+func damage():
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.collider.is_in_group("Dano"):
+			Global.morto()
 
 func _on_TimerSlide_timeout():
 	if $RayCima.is_colliding():

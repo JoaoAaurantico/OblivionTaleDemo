@@ -167,7 +167,7 @@ anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.760784 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
-modulate = Color( 1, 1, 1, 0.784314 )
+modulate = Color( 0, 0, 0, 0.784314 )
 position = Vector2( 650, 753 )
 amount = 50
 lifetime = 5.0

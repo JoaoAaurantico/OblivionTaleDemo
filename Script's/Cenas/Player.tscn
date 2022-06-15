@@ -1,101 +1,13 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Script's/player.gd" type="Script" id=1]
 [ext_resource path="res://Script's/Gui and Stuff/GUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Images/mainsprite/Petalas.png" type="Texture" id=3]
 [ext_resource path="res://Images/mainsprite/Fire.png" type="Texture" id=4]
-[ext_resource path="res://Audio/Sound Effects/Gameplay/Wall Jump/character_walljump_loop.mp3" type="AudioStream" id=5]
-[ext_resource path="res://Audio/Sound Effects/Gameplay/Slide/character_slide_loop.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Script's/Gui and Stuff/GUI/Brilho 2.png" type="Texture" id=5]
+[ext_resource path="res://Script's/Gui and Stuff/GUI/Brilho1.png" type="Texture" id=6]
 [ext_resource path="res://Images/mainsprite/Triangulo .png" type="Texture" id=10]
-[ext_resource path="res://Audio/Sound Effects/Gameplay/Jump/character_jump_1.mp3" type="AudioStream" id=12]
-[ext_resource path="res://Audio/Sound Effects/Gameplay/Jump Impact/character_jump_impact_1.mp3" type="AudioStream" id=13]
 [ext_resource path="res://Images/mainsprite/Void/Void SpriteSheet.png" type="Texture" id=16]
-
-[sub_resource type="Animation" id=60]
-resource_name = "GrassWalkSound"
-loop = true
-tracks/0/type = "audio"
-tracks/0/path = NodePath("AudioStreamPlayer2D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"clips": [  ],
-"times": PoolRealArray(  )
-}
-
-[sub_resource type="Animation" id=66]
-resource_name = "JumpImpact"
-length = 300.0
-tracks/0/type = "audio"
-tracks/0/path = NodePath("AudioStreamPlayer2D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 13 )
-} ],
-"times": PoolRealArray( 0 )
-}
-
-[sub_resource type="Animation" id=65]
-resource_name = "JumpSound"
-length = 300.0
-tracks/0/type = "audio"
-tracks/0/path = NodePath("AudioStreamPlayer2D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 12 )
-} ],
-"times": PoolRealArray( 0 )
-}
-
-[sub_resource type="Animation" id=61]
-resource_name = "SlideIntroSound"
-length = 6.0
-tracks/0/type = "audio"
-tracks/0/path = NodePath("AudioStreamPlayer2D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 8 )
-} ],
-"times": PoolRealArray( 0.1 )
-}
-
-[sub_resource type="Animation" id=63]
-resource_name = "WallHoldSound"
-length = 6.2
-tracks/0/type = "audio"
-tracks/0/path = NodePath("AudioStreamPlayer2D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 5 )
-} ],
-"times": PoolRealArray( 0.1 )
-}
 
 [sub_resource type="Animation" id=9]
 resource_name = "CaixaPadrão"
@@ -883,14 +795,6 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 16 )
-region = Rect2( 350, 0, 25, 32 )
-
-[sub_resource type="AtlasTexture" id=41]
-atlas = ExtResource( 16 )
-region = Rect2( 325, 0, 25, 32 )
-
 [sub_resource type="AtlasTexture" id=42]
 atlas = ExtResource( 16 )
 region = Rect2( 100, 0, 25, 32 )
@@ -906,6 +810,10 @@ region = Rect2( 150, 0, 25, 32 )
 [sub_resource type="AtlasTexture" id=45]
 atlas = ExtResource( 16 )
 region = Rect2( 175, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 16 )
+region = Rect2( 200, 0, 25, 32 )
 
 [sub_resource type="AtlasTexture" id=37]
 atlas = ExtResource( 16 )
@@ -923,10 +831,6 @@ region = Rect2( 50, 0, 25, 32 )
 atlas = ExtResource( 16 )
 region = Rect2( 75, 0, 25, 32 )
 
-[sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 16 )
-region = Rect2( 200, 0, 25, 32 )
-
 [sub_resource type="AtlasTexture" id=31]
 atlas = ExtResource( 16 )
 region = Rect2( 225, 0, 25, 32 )
@@ -943,8 +847,36 @@ region = Rect2( 275, 0, 25, 32 )
 atlas = ExtResource( 16 )
 region = Rect2( 300, 0, 25, 32 )
 
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 16 )
+region = Rect2( 350, 0, 25, 32 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 16 )
+region = Rect2( 325, 0, 25, 32 )
+
 [sub_resource type="SpriteFrames" id=27]
 animations = [ {
+"frames": [ SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ) ],
+"loop": true,
+"name": "Andando",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 35 ) ],
+"loop": false,
+"name": "Pulando",
+"speed": 2.0
+}, {
+"frames": [ SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
+"loop": true,
+"name": "Parado",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
+"loop": true,
+"name": "Empurrando",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 36 ) ],
 "loop": true,
 "name": "Parede",
@@ -953,26 +885,6 @@ animations = [ {
 "frames": [ SubResource( 41 ) ],
 "loop": true,
 "name": "Deslizando",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ) ],
-"loop": true,
-"name": "Andando",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
-"loop": true,
-"name": "Parado",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 35 ) ],
-"loop": false,
-"name": "Pulando",
-"speed": 2.0
-}, {
-"frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
-"loop": true,
-"name": "Empurrando",
 "speed": 5.0
 } ]
 
@@ -1060,13 +972,6 @@ scale = Vector2( 1.5, 1.5 )
 collision_mask = 3
 script = ExtResource( 1 )
 
-[node name="SoundPlayer" type="AnimationPlayer" parent="."]
-anims/GrassWalkSound = SubResource( 60 )
-anims/JumpImpact = SubResource( 66 )
-anims/JumpSound = SubResource( 65 )
-anims/SlideIntroSound = SubResource( 61 )
-anims/WallHoldSound = SubResource( 63 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/CaixaPadrão" = SubResource( 9 )
 anims/CaixaPulo = SubResource( 30 )
@@ -1088,7 +993,7 @@ scale = Vector2( 1, 0.8 )
 position = Vector2( 0, -16 )
 frames = SubResource( 27 )
 animation = "Parado"
-frame = 2
+frame = 1
 playing = true
 
 [node name="Petalas" type="Particles2D" parent="SpritePlayer/AnimatedSprite"]
@@ -1162,12 +1067,29 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Shadow" type="Light2D" parent="."]
+position = Vector2( -3.05176e-05, -12.6667 )
+texture = ExtResource( 6 )
+mode = 3
+range_z_min = 0
+range_z_max = 0
+range_item_cull_mask = 4
+
+[node name="Inivisivel" type="Light2D" parent="."]
+light_mask = 2
+position = Vector2( -0.666718, -6.66667 )
+scale = Vector2( 0.764444, 0.802222 )
+texture = ExtResource( 5 )
+mode = 2
+range_item_cull_mask = 2
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( -132.667, -160.514 )
+position = Vector2( -198.667, -166 )
 scale = Vector2( 0.391696, 0.391696 )
 anchor_mode = 0
 current = true
 zoom = Vector2( 0.6, 0.6 )
+process_mode = 0
 smoothing_enabled = true
 smoothing_speed = 3.0
 
@@ -1193,10 +1115,6 @@ local_coords = false
 draw_order = 1
 process_material = SubResource( 52 )
 texture = ExtResource( 10 )
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 5 )
-volume_db = -10.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="TimerSlide" to="." method="_on_TimerSlide_timeout"]

@@ -23,6 +23,7 @@ Global="*res://Script's/Global.gd"
 SaveLoader="*res://Script's/SaveLoader.gd"
 SceneChanger="*res://Script's/Gui and Stuff/SceneChanger.tscn"
 AudioGeral="*res://Script's/Gui and Stuff/AudioGeral.tscn"
+Idioma="*res://Script's/Idioma.gd"
 
 [debug]
 
@@ -33,8 +34,15 @@ settings/stdout/print_fps=true
 
 window/size/width=1280
 window/size/height=720
+window/size/always_on_top=true
+window/size/test_width=640
+window/size/test_height=360
+mouse_cursor/custom_image="res://Script's/Gui and Stuff/GUI/Mouse.png"
 window/stretch/mode="2d"
-window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/sprite_mask/plugin.cfg" )
 
 [input]
 

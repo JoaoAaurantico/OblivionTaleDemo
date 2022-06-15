@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Script's/Projetil.gd" type="Script" id=1]
+[ext_resource path="res://Images/mainsprite/Fire.png" type="Texture" id=2]
+[ext_resource path="res://Images/mainsprite/Tile00.png" type="Texture" id=3]
+
+[sub_resource type="Gradient" id=9]
+offsets = PoolRealArray( 0, 0.497175, 1 )
+colors = PoolColorArray( 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=10]
+gradient = SubResource( 9 )
+
+[sub_resource type="Curve" id=11]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=12]
+curve = SubResource( 11 )
+
+[sub_resource type="ParticlesMaterial" id=13]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+direction = Vector3( 20, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = -90.0
+scale = 0.8
+scale_random = 0.1
+scale_curve = SubResource( 12 )
+color_ramp = SubResource( 10 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 250, 5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4.33333, 5 )
+
+[node name="Projetil" type="KinematicBody2D"]
+scale = Vector2( 1.5, 1.5 )
+script = ExtResource( 1 )
+dir = "+"
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 10, 0.333333 )
+rotation = -1.74846e-07
+scale = Vector2( 2, 2 )
+emitting = false
+amount = 15
+lifetime = 0.7
+process_material = SubResource( 13 )
+texture = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 128, 16, 16, 16 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -250, 0 )
+shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
+position = Vector2( -213, 0 )
+scale = Vector2( 29, 1 )
+
+[node name="Damage" type="Area2D" parent="." groups=["Dano"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage"]
+position = Vector2( -1, 0 )
+shape = SubResource( 2 )
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

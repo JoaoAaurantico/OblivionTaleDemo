@@ -1,5 +1,7 @@
 extends Node
 
+
+var chao = false
 var ingles = false
 var portal = false
 var inverse = false
@@ -9,15 +11,17 @@ var lampiao: int = 0
 var espelho: int = 0
 var mortes: int = 0
 var checkpoint = Vector2(0,0)
+var dict_lamp = {}
 
 func add_lampiao():
-	lampiao += 1
+	lampiao += 1 
 
 func add_espelho():
 	espelho += 1
 
 func add_morte():
 	mortes += 1
+	#lampfase = 0
 	
 
 func remove_morte():

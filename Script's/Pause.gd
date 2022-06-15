@@ -14,7 +14,7 @@ func trocaidioma():
 		pass
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_end"):
+	if event.is_action_pressed("ui_end") && Global.chao == true:
 		self.pausado = !pausado
 		move_to_previous_menu()
 	else:

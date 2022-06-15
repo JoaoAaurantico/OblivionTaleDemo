@@ -13,7 +13,6 @@ func alterartexto():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_end") && iniciado == 1:
-		AudioGeral.emit_signal("iniciar", "LoopMenu")
 		$AnimationPlayer.play("Entrada Shi", 0, 100)
 		iniciado -= 1
 

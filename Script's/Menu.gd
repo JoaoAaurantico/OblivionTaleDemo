@@ -31,8 +31,10 @@ func _on_Play_pressed():
 	AudioGeral.emit_signal("iniciar", "click")
 	Global.mortes = 0
 	Global.espelho = 0
+	Global.lampiao = 0
 	Global.checkpoint = Vector2(0,0)
 	Global.chave = false
+	Global.dict_lamp = {}
 # warning-ignore:return_value_discarded
 	SceneChanger.change_scene("res://Script's/Gui and Stuff/Telamorte.tscn")
 

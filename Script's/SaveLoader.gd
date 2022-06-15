@@ -14,7 +14,8 @@ func save_game():
 	"idioma" : Global.ingles,
 	"checkpoint": Global.checkpoint,
 	"chave": Global.chave,
-	"lampiao": Global.lampiao
+	"lampiao": Global.lampiao,
+	"dictlamp": Global.dict_lamp
 }
 	var dir = Directory.new()
 	if !dir.dir_exists(SAVE_DIR):
@@ -38,3 +39,4 @@ func load_game():
 			Global.checkpoint = player_data.checkpoint
 			Global.chave = player_data.chave
 			Global.lampiao = player_data.lampiao
+			Global.dict_lamp = player_data.dictlamp
