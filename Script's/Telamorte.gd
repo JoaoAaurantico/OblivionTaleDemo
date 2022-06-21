@@ -4,25 +4,6 @@ onready var escrito = $AnimationPlayer/Label
 
 var iniciado = 1
 
-var pt = [
-	"Não desista",
-	"Você não pode morrer, não aqui",
-	"Recupere todas",
-	"Ela não foi justa com você",
-	"Seja igual a mim",
-	"Suas memorias são a chave",
-	"Se esforce um pouco mais",
-	"Você só queria seguir seu sonho", 
-	"Ela te criou, mas nunca te amou", 
-	"Você perdeu alguém importante por conta dela", 
-	"Eu sinto sua raiva e sua angustia",
-	"Estou acompanhando seus passos"
-] 
-
-var texto = [
-	
-]
-
 func _ready():
 	randomize()
 	if Global.mortes > 0:
@@ -30,8 +11,7 @@ func _ready():
 	$AnimationPlayer.play("Texto")
 
 func alterarTexto():
-		texto = pt
-		escrito.set_text(texto[randi()%texto.size()]) 
+		escrito.set_text(Global.idioma.TelaMorte[randi()%Global.idioma.TelaMorte.size()]) 
 
 func _unhandled_input(event):
 	if iniciado == 1 && event.is_action_pressed("ui_end"):

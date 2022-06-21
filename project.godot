@@ -38,10 +38,6 @@ window/size/test_height=360
 mouse_cursor/custom_image="res://Script's/Gui and Stuff/GUI/Mouse.png"
 window/stretch/mode="2d"
 
-[editor_plugins]
-
-enabled=PoolStringArray( "res://addons/sprite_mask/plugin.cfg" )
-
 [input]
 
 ui_accept={
@@ -126,8 +122,8 @@ ui_inverse={
 
 [locale]
 
-translations=PoolStringArray( "res://Languages/Tradução IV Godot.en.translation", "res://Languages/Tradução IV Godot.pt.translation" )
-locale_filter=[ 0, [ "en", "pt_BR" ] ]
+translations=PoolStringArray(  )
+locale_filter=[ 0, [  ] ]
 
 [physics]
 

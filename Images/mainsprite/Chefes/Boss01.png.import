@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DefaultMask.png-1431690881308391fe2e07209c6ed976.stex"
+path="res://.import/Boss01.png-ef39558fece892b1ca81b5aa6aac9122.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/sprite_mask/DefaultMask.png"
-dest_files=[ "res://.import/DefaultMask.png-1431690881308391fe2e07209c6ed976.stex" ]
+source_file="res://Images/mainsprite/Chefes/Boss01.png"
+dest_files=[ "res://.import/Boss01.png-ef39558fece892b1ca81b5aa6aac9122.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

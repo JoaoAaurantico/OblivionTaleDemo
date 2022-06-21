@@ -4,9 +4,6 @@ extends Control
 
 var pausado = false setget esta_pausado
 
-func trocaidioma():
-	pass
-
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_end") && Global.chao == true:
 		self.pausado = !pausado
@@ -50,7 +47,7 @@ onready var menu_memorias = $MenuMemorias
 onready var tween = $Tween
 
 func _ready() -> void:
-	trocaidioma()
+	IdiomaPause()
 	menu_origin_position = Vector2(0,0)
 	menu_origin_size = get_viewport_rect().size
 	current_menu = menu_pausa
@@ -105,3 +102,9 @@ func _on_mouse_entered():
 	pass
 func _on_memories_mouse_entered():
 	pass
+
+func IdiomaPause():
+	$MenuPause/VBoxContainer/Resume.text = Global.idioma.Pause["resume"]
+	$MenuPause/VBoxContainer/Save.text = Global.idioma.Pause["save"]
+	$MenuPause/VBoxContainer/Memories.text = Global.idioma.Pause["memory"]
+	$MenuPause/VBoxContainer/Quit.text = Global.idioma.Pause["exit"]

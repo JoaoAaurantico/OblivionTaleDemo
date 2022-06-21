@@ -3,10 +3,6 @@ extends Node
 const SAVE_DIR = "user://saves/"
 var salvar_nomeArquivo = SAVE_DIR + "save_game.dat"
 
-
-func _ready():
-	pass # Replace with function body.
-
 func save_game():
 	var data = {
 	"mortes": Global.mortes,
@@ -14,7 +10,9 @@ func save_game():
 	"checkpoint": Global.checkpoint,
 	"chave": Global.chave,
 	"lampiao": Global.lampiao,
-	"dictlamp": Global.dict_lamp
+	"dictlamp": Global.dict_lamp,
+	"lingua": Global.linguagemAtual
+
 }
 	var dir = Directory.new()
 	if !dir.dir_exists(SAVE_DIR):
@@ -38,3 +36,4 @@ func load_game():
 			Global.chave = player_data.chave
 			Global.lampiao = player_data.lampiao
 			Global.dict_lamp = player_data.dictlamp
+			Global.linguagemAtual = player_data.lingua

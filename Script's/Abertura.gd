@@ -4,6 +4,7 @@ var iniciado = 1
 
 func _ready():
 	SaveLoader.load_game()
+	Global.idiomaAtual()
 	$AnimationPlayer.play("Logo")
 
 func _unhandled_input(event):

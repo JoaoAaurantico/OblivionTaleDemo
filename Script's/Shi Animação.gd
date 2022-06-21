@@ -3,11 +3,8 @@ extends Node2D
 var iniciado = 1
 
 func _ready():
-	alterartexto()
+	IdiomaShiAnm()
 	$AnimationPlayer.play("Entrada Shi")
-
-func alterartexto():
-	pass
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_end") && iniciado == 1:
@@ -16,3 +13,6 @@ func _unhandled_input(event):
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	SceneChanger.change_scene("res://Script's/Gui and Stuff/Menu.tscn")
+
+func IdiomaShiAnm():
+	$CanvasLayer/ShiText.text = Global.idioma.ShiAnimacao["animacao"]
