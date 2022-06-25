@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const NORMAL = Vector2(0,-1)
 var GRAVITY = 0
-var mov = 10
+export var mov = 5
 export var dir = "-"
 var motion = Vector2()
 
