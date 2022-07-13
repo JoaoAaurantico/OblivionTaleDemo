@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tile.png-4de97b20a69cefaf9500a1312b6e88f9.stex"
+path="res://.import/Tile01.png-c6c985b00b126157a4d3c58ff4ba987b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/mainsprite/Mundo Real/Tile.png"
-dest_files=[ "res://.import/Tile.png-4de97b20a69cefaf9500a1312b6e88f9.stex" ]
+source_file="res://Images/mainsprite/Mundo Real/Tile01.png"
+dest_files=[ "res://.import/Tile01.png-c6c985b00b126157a4d3c58ff4ba987b.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -22,6 +22,7 @@ func _process(delta):
 
 func _physics_process(_delta):
 	altergravity()
+	aumentosalto()
 func altergravity():
 	if Velocidade >= MaxVelocidade:
 		Velocidade = MaxVelocidade
@@ -169,11 +170,18 @@ func avisar_morte():
 	Global.add_morte()
 	Global.morto()
 
+func aumentosalto():
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.collider.is_in_group("Jump"):
+			Pulo = -1000
+		else:
+			Pulo = -600
+
 func damage():
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.is_in_group("Dano"):
-			#Global.morto()
 			avisar_morte()
 
 func _on_TimerSlide_timeout():

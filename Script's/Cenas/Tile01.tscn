@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Images/mainsprite/Mundo Real/Tile teste.png" type="Texture" id=2]
+[ext_resource path="res://Images/mainsprite/Mundo Real/Tile01.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 6.5 )
@@ -11,10 +11,7 @@ extents = Vector2( 6, 8 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 8 )
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 8, 6.5 )
-
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=26]
 extents = Vector2( 8, 6.5 )
 
 [sub_resource type="RectangleShape2D" id=6]
@@ -134,33 +131,7 @@ position = Vector2( -32, -16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tile09/StaticBody2D4"]
 position = Vector2( 32, 17.5 )
-shape = SubResource( 4 )
-
-[node name="Tile10" type="Sprite" parent="."]
-position = Vector2( 459, 134 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 64, 0, 16, 16 )
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="Tile10"]
-position = Vector2( -32, -16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile10/StaticBody2D4"]
-position = Vector2( 32, 17.5 )
-shape = SubResource( 4 )
-
-[node name="Tile11" type="Sprite" parent="."]
-position = Vector2( 475, 134 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 80, 0, 16, 16 )
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="Tile11"]
-position = Vector2( -32, -16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile11/StaticBody2D4"]
-position = Vector2( 32, 17.5 )
-shape = SubResource( 11 )
+shape = SubResource( 26 )
 
 [node name="Tile12" type="Sprite" parent="."]
 position = Vector2( 491, 134 )
