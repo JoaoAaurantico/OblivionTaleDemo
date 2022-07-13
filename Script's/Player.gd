@@ -145,7 +145,7 @@ func jump_cut():
 	if motion.y < -100:
 		motion.y = -50
 func slide():
-	motion.x = Velocidade
+	motion.x = Velocidade + impulso
 func slidetimer():
 	$TimerSlide.start()
 func walltimer():
@@ -173,7 +173,8 @@ func damage():
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.is_in_group("Dano"):
-			Global.morto()
+			#Global.morto()
+			avisar_morte()
 
 func _on_TimerSlide_timeout():
 	if $RayCima.is_colliding():
