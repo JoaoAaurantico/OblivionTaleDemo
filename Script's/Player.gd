@@ -182,7 +182,7 @@ func damage():
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.is_in_group("Dano"):
-			avisar_morte()
+			Global.morto()
 
 func _on_TimerSlide_timeout():
 	if $RayCima.is_colliding():
