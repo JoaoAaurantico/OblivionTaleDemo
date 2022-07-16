@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Script's/Cenas/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Script's/Cenas/Key.tscn" type="PackedScene" id=2]
@@ -7,11 +7,20 @@
 [ext_resource path="res://Script's/Cenas/EspelhoLado.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Script's/Gui and Stuff/Tile00.tres" type="TileSet" id=6]
 [ext_resource path="res://Script's/Gui and Stuff/Tile01.tres" type="TileSet" id=7]
+[ext_resource path="res://Script's/Cenas/NPC.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 light_mode = 2
 
 [node name="Testes" type="Node"]
+
+[node name="NPC" parent="." instance=ExtResource( 8 )]
+position = Vector2( 141, -2 )
+cor = Color( 1, 0.937255, 0, 1 )
+
+[node name="NPC2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 501, -15 )
+cor = Color( 0, 0.203922, 1, 1 )
 
 [node name="TileMap2" type="TileMap" parent="."]
 position = Vector2( -1, 0 )

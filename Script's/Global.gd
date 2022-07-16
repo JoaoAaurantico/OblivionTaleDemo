@@ -53,6 +53,11 @@ var idioma = {
 		0: "10",
 		1: "11",
 		2: "12"
+	},
+	NPC = {
+		1: "13",
+		2: "14",
+		3: "15",
 	}
 }
 
@@ -77,6 +82,11 @@ const PTBR = {
 		0: "morte1",
 		1: "morte2",
 		2: "morte3"
+	},
+	NPC = {
+		1: "Fantasma 1",
+		2: "Fantasma 2",
+		3: "Fantasma 3",
 	}
 }
 
@@ -101,6 +111,11 @@ const ENUS = {
 		0: "morte1en",
 		1: "morte2en",
 		2: "morte3en"
+	},
+	NPC = {
+		1: "Ghost 1",
+		2: "Ghost 2",
+		3: "Ghost 3",
 	}
 }
 
