@@ -1,48 +1,15 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Script's/Gui and Stuff/Tile00.tres" type="TileSet" id=1]
 [ext_resource path="res://Script's/Cenas/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Script's/Cenas/T.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Script's/Fases.gd" type="Script" id=4]
-[ext_resource path="res://Images/Parallax/Fase02/Fundo02.png" type="Texture" id=6]
 [ext_resource path="res://Script's/Cenas/EspelhoLado.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Script's/Cenas/Vidro.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Script's/Cenas/Portal.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Script's/Cenas/Checkpoint.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Script's/Cenas/Key.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Script's/Cenas/Lampiao.tscn" type="PackedScene" id=12]
-
-[sub_resource type="Animation" id=1]
-resource_name = "IdleBackColor"
-length = 30.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("ParallaxBackground/Sprite:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 10, 20.1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0.733333, 0.988235, 0.588235, 1 ), Color( 0.827451, 0.988235, 0.588235, 1 ), Color( 0.917647, 0.988235, 0.588235, 1 ) ]
-}
-
-[sub_resource type="Animation" id=2]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("ParallaxBackground/Sprite:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 0.980392, 0.733333, 0.733333, 1 ) ]
-}
 
 [sub_resource type="CanvasItemMaterial" id=3]
 light_mode = 2
@@ -54,19 +21,6 @@ __meta__ = {
 "_edit_vertical_guides_": [ 3122.0 ]
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "IdleBackColor"
-anims/IdleBackColor = SubResource( 1 )
-anims/RESET = SubResource( 2 )
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
-modulate = Color( 0.980392, 0.733333, 0.733333, 1 )
-position = Vector2( 628, 277 )
-scale = Vector2( 2.5, 1.5 )
-texture = ExtResource( 6 )
-
 [node name="T" parent="." instance=ExtResource( 3 )]
 position = Vector2( 104, 152 )
 
@@ -75,7 +29,6 @@ position = Vector2( 3169, 584 )
 
 [node name="EspelhoLado" parent="." instance=ExtResource( 7 )]
 position = Vector2( -280, -249 )
-rotation = -1.50996e-07
 destino = NodePath("../EspelhoLado2")
 
 [node name="EspelhoLado2" parent="." instance=ExtResource( 7 )]
