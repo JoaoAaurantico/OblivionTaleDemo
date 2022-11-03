@@ -16,20 +16,40 @@ light_mode = 2
 [node name="Fase01" type="Node"]
 script = ExtResource( 1 )
 
+<<<<<<< Updated upstream
+=======
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "IdleBackColor"
+anims/IdleBackColor = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
+
+[node name="Fundo01" type="Sprite" parent="ParallaxBackground"]
+modulate = Color( 0.839216, 0.952941, 0.862745, 1 )
+position = Vector2( 628, 277 )
+scale = Vector2( 2.5, 1.5 )
+texture = ExtResource( 7 )
+
+>>>>>>> Stashed changes
 [node name="EspelhoLado" parent="." instance=ExtResource( 8 )]
-position = Vector2( 5770, -657 )
+position = Vector2( 5794, -649 )
 destino = NodePath("../EspelhoLado2")
+cadeadonome = "Fase01"
 
 [node name="EspelhoLado2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 5415, -682 )
+position = Vector2( 5439, -674 )
 rotation = -3.14159
 scale = Vector2( 1, -1 )
 destino = NodePath("../EspelhoLado")
+cadeadonome = "Fase01"
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 530, 258 )
+position = Vector2( 438, 295 )
 
 [node name="Mapa" type="Node2D" parent="."]
+position = Vector2( 24, 8 )
 
 [node name="Tiles" type="Node2D" parent="Mapa"]
 position = Vector2( -1, 0 )
@@ -118,6 +138,7 @@ position = Vector2( 5295, -682 )
 
 [node name="Key" parent="Mapa/Itens" instance=ExtResource( 9 )]
 position = Vector2( 2816, -425 )
+chavenome = "Fase01"
 
 [node name="Checkpoint2" parent="Mapa/Itens" instance=ExtResource( 4 )]
 position = Vector2( 5024, -50 )

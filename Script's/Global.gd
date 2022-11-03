@@ -1,5 +1,6 @@
 extends Node
 
+var chavenome = ""
 var linguagemAtual: int = 0
 var chao = false
 var portal = false
