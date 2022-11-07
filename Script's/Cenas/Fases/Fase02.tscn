@@ -75,14 +75,15 @@ position = Vector2( 3169, 584 )
 
 [node name="EspelhoLado" parent="." instance=ExtResource( 7 )]
 position = Vector2( -280, -249 )
-rotation = -1.50996e-07
 destino = NodePath("../EspelhoLado2")
+cadeadonome = "Fase02"
 
 [node name="EspelhoLado2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 4792, 1191 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 destino = NodePath("../EspelhoLado")
+cadeadonome = "Fase02"
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 62, 175 )
@@ -184,6 +185,7 @@ position = Vector2( 3301, 389 )
 
 [node name="Key" parent="Mapa/Itens" instance=ExtResource( 11 )]
 position = Vector2( 2542, -60 )
+chavenome = "Fase02"
 
 [node name="Portal" parent="Mapa" instance=ExtResource( 9 )]
 position = Vector2( -83, 254 )

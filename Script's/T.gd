@@ -18,5 +18,5 @@ func _on_Area2D_area_exited(_area):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Fade":
 		get_parent().get_node("Mapa").scale.y *= -1
-		get_parent().get_node("ParallaxBackground/Sprite").scale.y *= -1
+		#get_parent().get_node("ParallaxBackground/Sprite").scale.y *= -1
 		$AnimationPlayer.play("Fade2")

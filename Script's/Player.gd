@@ -6,9 +6,7 @@ var Gravidade = 30
 var Pulo = -600
 var impulso = 25
 var MaxVelocidade = 300
-var MinVelocidade = 180
 var Velocidade = 180
-var Escorregar = 250
 
 var state = 0
 
@@ -29,6 +27,9 @@ func altergravity():
 	if have_wall() && motion.y > 0 && Input.is_action_pressed("ui_right") or have_wall() && motion.y > 0 && Input.is_action_pressed("ui_left") :
 		Gravidade = 100
 		motion.y = Gravidade
+	if !have_wall() && !is_on_floor() && Input.is_action_pressed("ui_down"):
+		Gravidade = 80
+		motion.y += Gravidade
 	else:
 		Gravidade = 30
 		motion.y += Gravidade
@@ -39,6 +40,7 @@ func is_floor():
 		Global.chao = false
 
 func states():
+	print(state)
 	if motion.x == 0 && is_on_floor():
 		state = 0 #parado
 	if motion.x >= impulso && is_on_floor():
@@ -51,7 +53,7 @@ func states():
 		state = 3 #deslizando 
 	if  is_on_wall() && is_on_floor() && motion.x == 0 && !$TimerSlide.time_left:
 		state = 4 #empurrando
-	if !is_on_floor() && have_wall() && Gravidade == 100:
+	if !is_on_floor() && have_wall() && Gravidade >= 30:
 		state = 5 #deslizando na parede
 func animations():
 	if state == 0:
@@ -80,36 +82,41 @@ func animations():
 		$SpritePlayer/AnimatedSprite.play("Parede")
 
 func _listener(_delta):
-	if Input.is_action_pressed("ui_right") && !$TimerSlide.time_left:
-		move("right")
-		$SpritePlayer/AnimatedSprite.flip_h = false
-	elif Input.is_action_pressed("ui_left") && !$TimerSlide.time_left:
-		move("left")
-		$SpritePlayer/AnimatedSprite.flip_h = true
-	else:
-		move("null")
+	if Global.portal == false:
+		if Input.is_action_pressed("ui_right") && !$TimerSlide.time_left:
+			move("right")
+			$SpritePlayer/AnimatedSprite.flip_h = false
+		elif Input.is_action_pressed("ui_left") && !$TimerSlide.time_left:
+			move("left")
+			$SpritePlayer/AnimatedSprite.flip_h = true
+		else:
+			move("null")
 
-	if Input.is_action_just_pressed("ui_up") && !state == 3:
-		if is_on_floor():
-			move("up")
-		elif have_wall():
-			walltimer()
-	elif Input.is_action_just_released("ui_up") && !have_wall():
-		move("jumpcut")
-	if $TimerWallJump.time_left:
-		move("walljump")
+		if Input.is_action_just_pressed("ui_up") && !state == 3:
+			if is_on_floor():
+				move("up")
+			elif have_wall():
+				walltimer()
+		elif Input.is_action_just_released("ui_up") && !have_wall():
+			move("jumpcut")
+		if $TimerWallJump.time_left:
+			move("walljump")
 
-	if Input.is_action_just_pressed("ui_down") && is_on_floor() && !$TimerSlide.time_left:
-		slidetimer()
-	if $TimerSlide.time_left && $SpritePlayer/AnimatedSprite.flip_h == false:
-		motion.x = Escorregar
-	elif $TimerSlide.time_left && $SpritePlayer/AnimatedSprite.flip_h == true:
-		motion.x = -Escorregar
+		if Input.is_action_just_pressed("ui_down") && is_on_floor() && !$TimerSlide.time_left:
+			slidetimer()
+		if $TimerSlide.time_left && $SpritePlayer/AnimatedSprite.flip_h == false:
+			if motion.x != 0:
+				Velocidade = Velocidade + impulso
+			motion.x = Velocidade
+		elif $TimerSlide.time_left && $SpritePlayer/AnimatedSprite.flip_h == true:
+			if motion.x != 0:
+				Velocidade = Velocidade + impulso
+			motion.x = -Velocidade
 
-	if Input.is_action_just_released("ui_right") or Input.is_action_just_released("ui_left"):
-		move("drop")
+		if motion.x == 0:
+			move("drop")
 	
-	motion = move_and_slide(motion, NORMAL)
+		motion = move_and_slide(motion, NORMAL)
 func move(direcao):
 	if direcao == "right":
 		motion.x = min(motion.x + impulso, Velocidade)
@@ -126,7 +133,7 @@ func move(direcao):
 	elif direcao == "null":
 		motion.x = 0
 	elif direcao == "drop":
-		Velocidade = MinVelocidade
+		Velocidade = 180
 
 
 func have_wall():
@@ -147,6 +154,9 @@ func jump_cut():
 		motion.y = -50
 func slide():
 	motion.x = Velocidade + impulso
+	if motion.x != 0:
+		Velocidade = Velocidade + impulso
+	
 func slidetimer():
 	$TimerSlide.start()
 func walltimer():
@@ -160,9 +170,7 @@ func _on_Area2D_area_entered(area):
 		Global.morto()
 	
 	if area.is_in_group("Portal"):
-		Escorregar = 0
-		Velocidade = 0
-		Pulo = 0
+		motion.x = 0
 func _on_VisibilityNotifier2D_screen_exited():
 	if Global.portal == false && Global.teleporte == false:
 		avisar_morte()
