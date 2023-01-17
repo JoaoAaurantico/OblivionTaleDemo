@@ -55,6 +55,7 @@ anims/IdleBackColor = SubResource( 5 )
 anims/RESET = SubResource( 6 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 
 [node name="Fundo01" type="Sprite" parent="ParallaxBackground"]
 modulate = Color( 0.839216, 0.952941, 0.862745, 1 )

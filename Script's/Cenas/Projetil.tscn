@@ -46,7 +46,6 @@ dir = "+"
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( 10, 0.333333 )
-rotation = -1.74846e-07
 scale = Vector2( 2, 2 )
 emitting = false
 amount = 15

@@ -40,7 +40,6 @@ func is_floor():
 		Global.chao = false
 
 func states():
-	print(state)
 	if motion.x == 0 && is_on_floor():
 		state = 0 #parado
 	if motion.x >= impulso && is_on_floor():
