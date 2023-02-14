@@ -13,4 +13,4 @@ func _unhandled_input(event):
 		iniciado -= 1
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
-	SceneChanger.change_scene("res://Script's/Gui and Stuff/Shi Animação.tscn")
+	SceneChanger.change_scene("res://Gui and Stuff/Shi Animação.tscn")

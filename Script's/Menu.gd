@@ -10,7 +10,7 @@ func _on_Play_pressed():
 	$FadeM.play("FadeMenu")
 	newgame()
 # warning-ignore:return_value_discarded
-	SceneChanger.change_scene("res://Script's/Gui and Stuff/Telamorte.tscn")
+	SceneChanger.change_scene("res://Gui and Stuff/Telamorte.tscn")
 
 func _on_Quit_pressed():
 	get_tree().quit()
@@ -18,7 +18,7 @@ func _on_Quit_pressed():
 func _on_Continue_pressed():
 # warning-ignore:return_value_discarded
 	$FadeM.play("FadeMenu")
-	SceneChanger.change_scene("res://Script's/Cenas/Main.tscn")
+	SceneChanger.change_scene("res://Cenas/Fases/Main.tscn")
 
 func _on_mouse_entered():
 	pass

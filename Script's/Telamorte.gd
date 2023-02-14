@@ -6,8 +6,7 @@ var iniciado = 1
 
 func _ready():
 	randomize()
-	if Global.mortes > 0:
-		alterarTexto()
+	alterarTexto()
 	$AnimationPlayer.play("Texto")
 
 func alterarTexto():
@@ -19,4 +18,4 @@ func _unhandled_input(event):
 		iniciado -= 1
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
-	SceneChanger.change_scene("res://Script's/Cenas/Main.tscn")
+	SceneChanger.change_scene("res://Cenas/Fases/Main.tscn")

@@ -163,18 +163,18 @@ func walltimer():
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Dano"):
-		Global.morto()
+		avisar_morte()
 	
 	if area.is_in_group("Desce_dano"):
-		Global.morto()
+		avisar_morte()
 	
 	if area.is_in_group("Portal"):
 		motion.x = 0
 func _on_VisibilityNotifier2D_screen_exited():
 	if Global.portal == false && Global.teleporte == false:
+		Global.add_morte()
 		avisar_morte()
 func avisar_morte():
-	Global.add_morte()
 	Global.morto()
 
 func aumentosalto():
@@ -189,7 +189,7 @@ func damage():
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.is_in_group("Dano"):
-			Global.morto()
+			avisar_morte()
 
 func _on_TimerSlide_timeout():
 	if $RayCima.is_colliding():

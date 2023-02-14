@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 const NORMAL = Vector2(0,-1)
+export var velocity = 20
 var GRAVITY = 0
 var motion = Vector2()
 
@@ -13,8 +14,9 @@ func _move(_delta):
 
 func _on_Deteco_area_entered(area):
 	if area.is_in_group("Player"):
-		GRAVITY = 20
+		GRAVITY = velocity
 
 func _on_VisibilityNotifier2D_screen_exited():
 	if GRAVITY == 20:
 		queue_free()
+
