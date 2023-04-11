@@ -5,20 +5,24 @@ onready var node
 
 var proximoportal = true
 export var cadeadonome = ""
+var ativo = false
 
 func _ready():
 	if (destino): node = get_node(destino)
 
-
+func atividade():
+	if Global.chavenome == cadeadonome:
+		ativo = true
 
 func _process(_delta):
-	if Global.chave == true && Global.chavenome == cadeadonome:
+	atividade()
+	if Global.chave == true && ativo == true:
 		$AnimationPlayer.play("Ativado")
 	else:
 		$AnimationPlayer.play("Idle")
 
 func tp ():
-	if Global.chave == true && proximoportal == true && Global.chavenome == cadeadonome:
+	if Global.chave == true && proximoportal == true && ativo == true:
 		get_parent().get_node("Player").global_position = Vector2(node.global_position) 
 		proximoportal = false
 		Global.teleporte = true
@@ -26,7 +30,7 @@ func tp ():
 		
 
 func _on_Area2D_area_entered(_area):
-	if Global.chave == true && proximoportal == true && Global.chavenome == cadeadonome:
+	if Global.chave == true && proximoportal == true && ativo == true:
 		$Fades.play("Fade in")
 
 func _on_TimerPortal_timeout():

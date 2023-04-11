@@ -53,9 +53,6 @@ margin_right = 1720.0
 margin_bottom = 1946.0
 rect_min_size = Vector2( 1280, 720 )
 rect_scale = Vector2( 0.2, 0.2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer/CenterContainer"]
 margin_left = 1500.0

@@ -84,8 +84,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 484.0
 margin_top = 74.0
-margin_right = 484.0
-margin_bottom = 74.0
+margin_right = 1764.0
+margin_bottom = 794.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="Mask" type="Sprite" parent="CanvasLayer"]

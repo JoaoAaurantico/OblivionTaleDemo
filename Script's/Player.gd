@@ -101,7 +101,7 @@ func _listener(_delta):
 		if $TimerWallJump.time_left:
 			move("walljump")
 
-		if Input.is_action_just_pressed("ui_down") && is_on_floor() && !$TimerSlide.time_left:
+		if Input.is_action_just_pressed("ui_down") && is_on_floor() && !$TimerSlide.time_left && motion.x !=0:
 			slidetimer()
 		if $TimerSlide.time_left && $SpritePlayer/AnimatedSprite.flip_h == false:
 			if motion.x != 0:
