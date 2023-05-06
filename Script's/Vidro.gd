@@ -1,6 +1,10 @@
 extends Node2D
 
+export var espelhonum = 0
+
 func _ready():
+	if Global.espelho >= espelhonum:
+		queue_free()
 	$Area2D/Vidro.frame = Global.espelho
 
 func _on_Area2D_area_entered(area):
