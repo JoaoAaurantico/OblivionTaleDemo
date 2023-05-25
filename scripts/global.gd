@@ -96,11 +96,11 @@ const PTBR = {
 		6: "Aquele quarto agora é só uma memória."
 	},
 	Notes = {
-		1: "Os lampiões vão iluminar a parte escura das suas memorias, os pedaços do espelho irão te guiar até a verdade.",
-		2: "",
-		3: "",
-		4: "",
-		5: ""
+		1: "Obrigado por jogar, a demo para por aqui",
+		2: "Olha só, já conseguiu apertar um botão, até que você tem jeito (kkkk sacanagem). De toda maneira obrigado por testar o jogo, as coisas tão meio mal acabadas por aqui mas acho que dá pra ter uma ideia de como vai ser a versão final. Seu objetivo é chegar até o final da fase com 10 lampiões, teste a jogabilidade do jogo e depois me faça um comentario do que você achou de toda a experiência",
+		3: "Explorador você em? Bom, não temos nada terminado aqui, lamento te decepcionar, mas fica a vontade para explorar.",
+		4: "espero que pelo menos tenha te assustado, se não o esforço foi inutil",
+		5: "agora sim não tem mais conteudo, agradeço demais que tenha vindo até aqui, mesmo que não tenha nada demais, mostrou que a demo te divertiu um pouco, fico feliz em saber disso!"
 	}
 }
 
@@ -127,11 +127,11 @@ const ENUS = {
 		2: "morte3en"
 	},
 	Notes = {
-		1: "Ghost 1",
+		1: "Obrigado por jogar, a demo para por aqui",
 		2: "Ghost 2",
 		3: "Ghost 3",
 		4: "Ghost 4",
-		5: "Ghost 5"
+		5: "ghost 5"
 	}
 }
 
