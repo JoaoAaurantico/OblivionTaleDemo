@@ -299,7 +299,6 @@ custom_fonts/font = SubResource( 7 )
 text = "Alpha 1.0"
 
 [node name="Creditos" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -495, 24 )
@@ -314,38 +313,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Creditos/CenterContainer"]
-margin_left = 370.0
-margin_top = 104.0
-margin_right = 910.0
-margin_bottom = 616.0
+margin_left = 445.0
+margin_top = 233.0
+margin_right = 835.0
+margin_bottom = 486.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Creditos/CenterContainer/HBoxContainer"]
-margin_right = 540.0
-margin_bottom = 470.0
+margin_right = 390.0
+margin_bottom = 253.0
 
 [node name="Titulo" type="Label" parent="Creditos/CenterContainer/HBoxContainer/VBoxContainer"]
-margin_right = 540.0
-margin_bottom = 61.0
+margin_right = 390.0
+margin_bottom = 67.0
 custom_fonts/font = SubResource( 12 )
-text = "Creditos"
+text = "Créditos"
 
 [node name="Pessoas" type="Label" parent="Creditos/CenterContainer/HBoxContainer/VBoxContainer"]
-margin_top = 65.0
-margin_right = 540.0
-margin_bottom = 470.0
+margin_top = 71.0
+margin_right = 390.0
+margin_bottom = 253.0
 custom_fonts/font = SubResource( 13 )
 text = "Criado por:
-João Pedro F L Deus (VirusAurantico)
+João Pedro F. Leão de Deus
 
-Auxilio de:
-Kayki Frota Vale
-
-Musica por:
-
-Beta Testing: 
-Dérick Mira (DrekDesu)
-Lucas Souza Silva (Sr.Lu)
-Marcos Vinicius Ribeiro de Matos"
+Com auxilio de:
+Kayki Frota Vale"
 
 [node name="Idioma" type="Button" parent="."]
 margin_left = 25.0
