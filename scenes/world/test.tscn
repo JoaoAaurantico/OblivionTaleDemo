@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/note.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/mirror_side.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/key.tscn" type="PackedScene" id=5]
+[ext_resource path="res://other/tiles/main_tile.tres" type="TileSet" id=6]
+
+[node name="Testes" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -1, 0 )
+scale = Vector2( 1.5, 1.5 )
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -393252, 0, 0, -393251, 0, 0, -393250, 0, 0, -393247, 0, 0, -393246, 0, 0, -393245, 0, 0, -393244, 0, 0, -393243, 0, 0, -393242, 0, 0, -393241, 0, 0, -393240, 0, 0, -393239, 0, 0, -393238, 0, 0, -393237, 0, 0, -393236, 0, 0, -393235, 0, 0, -393232, 0, 0, -393231, 0, 0, -393230, 0, 0, -131108, 0, 0, -131107, 0, 0, -131106, 0, 0, -131105, 0, 0, -131104, 0, 0, -131103, 0, 0, -131102, 0, 0, -131101, 0, 0, -131100, 0, 0, -131095, 0, 0, -131094, 0, 0, -131093, 0, 0, -131092, 0, 0, -131091, 0, 0, -131090, 0, 0, -131089, 0, 0, -131088, 0, 0, -131087, 0, 0, -131086, 0, 0, 65500, 0, 0, 65501, 0, 0, 65502, 0, 0, 65503, 0, 0, 65504, 0, 0, 65505, 0, 0, 65506, 0, 0, 65507, 0, 0, 65508, 0, 0, 65509, 0, 0, 65510, 0, 0, 65511, 0, 0, 65512, 0, 0, 65513, 0, 0, 65514, 0, 0, 65515, 0, 0, 65516, 0, 0, 65517, 0, 0, 65518, 0, 0, 65519, 0, 0, 65520, 0, 0, 65521, 0, 0, 65522, 0, 0, 65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0 )
+__meta__ = {
+"_editor_description_": "Tiles bases do jogo, andando"
+}
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( -36, 0 )
+
+[node name="Notes" parent="." instance=ExtResource( 3 )]
+position = Vector2( 138, -27 )
+
+[node name="EspelhoLado" parent="." instance=ExtResource( 4 )]
+position = Vector2( -833, -104 )
+destino = NodePath("../EspelhoLado2")
+cadeadonome = "12"
+
+[node name="EspelhoLado2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -345, -104 )
+scale = Vector2( -1, 1 )
+destino = NodePath("../EspelhoLado")
+cadeadonome = "12"
+
+[node name="EspelhoLado3" parent="." instance=ExtResource( 4 )]
+position = Vector2( -833, -200 )
+destino = NodePath("../EspelhoLado4")
+cadeadonome = "34"
+
+[node name="EspelhoLado4" parent="." instance=ExtResource( 4 )]
+position = Vector2( -345, -200 )
+scale = Vector2( -1, 1 )
+destino = NodePath("../EspelhoLado3")
+cadeadonome = "34"
+
+[node name="Key" parent="." instance=ExtResource( 5 )]
+position = Vector2( -679, -95 )
+chavenome = "12"
+
+[node name="Key2" parent="." instance=ExtResource( 5 )]
+position = Vector2( -600, -186 )
+chavenome = "34"

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cleiton.png-b74916ae2e5fa3ab85038dc602f597e6.stex"
+path="res://.import/cleiton.png-5aed0af85e176b6a0ac018e57ab7544c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cleiton.png"
-dest_files=[ "res://.import/Cleiton.png-b74916ae2e5fa3ab85038dc602f597e6.stex" ]
+source_file="res://cleiton.png"
+dest_files=[ "res://.import/cleiton.png-5aed0af85e176b6a0ac018e57ab7544c.stex" ]
 
 [params]
 
