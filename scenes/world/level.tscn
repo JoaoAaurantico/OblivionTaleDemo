@@ -120,7 +120,7 @@ destino = NodePath("../mirror_side")
 cadeadonome = "Fase01"
 
 [node name="player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 401, 279 )
+position = Vector2( 406, 248 )
 
 [node name="map" type="Node2D" parent="."]
 
