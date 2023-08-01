@@ -5,8 +5,6 @@
 [ext_resource path="res://scripts/lamp.gd" type="Script" id=3]
 [ext_resource path="res://other/gui/light_2.png" type="Texture" id=4]
 
-
-
 [sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0, 0.170455, 0.517045, 0.778409, 1 )
 colors = PoolColorArray( 0.0705882, 0.25098, 0, 0, 0.327873, 0.932617, 0.440082, 0.776471, 0.283203, 1, 0, 1, 0.611328, 1, 0, 0.458824, 1, 1, 1, 0 )
@@ -236,7 +234,7 @@ tracks/5/keys = {
 [sub_resource type="CircleShape2D" id=9]
 radius = 7.36357
 
-[node name="Lampiao" type="Node2D"]
+[node name="lamp" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Node2D" type="Node2D" parent="."]

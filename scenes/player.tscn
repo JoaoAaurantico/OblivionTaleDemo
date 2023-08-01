@@ -1081,9 +1081,8 @@ mode = 2
 range_item_cull_mask = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( -238.667, -166 )
+position = Vector2( 40, -28.6667 )
 scale = Vector2( 0.391696, 0.391696 )
-anchor_mode = 0
 current = true
 zoom = Vector2( 0.6, 0.6 )
 process_mode = 0
