@@ -993,6 +993,7 @@ scale = Vector2( 1, 0.8 )
 position = Vector2( 0, -16 )
 frames = SubResource( 27 )
 animation = "Andando"
+frame = 1
 playing = true
 
 [node name="Petalas" type="Particles2D" parent="SpritePlayer/AnimatedSprite"]
@@ -1084,7 +1085,7 @@ range_item_cull_mask = 2
 position = Vector2( 40, -28.6667 )
 scale = Vector2( 0.391696, 0.391696 )
 current = true
-zoom = Vector2( 0.6, 0.6 )
+zoom = Vector2( 0.9, 0.9 )
 process_mode = 0
 smoothing_enabled = true
 smoothing_speed = 3.0
