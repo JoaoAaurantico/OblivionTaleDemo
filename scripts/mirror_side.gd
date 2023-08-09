@@ -24,25 +24,14 @@ func _process(_delta):
 func tp ():
 	if Global.chave == true && proximoportal == true && ativo == true:
 		get_parent().get_node("player").global_position = Vector2(node.global_position) 
-		proximoportal = false
-		Global.teleporte = true
-		$TimerPortal.start()
+		$fade.play("fadeout")
 		
 
 func _on_Area2D_area_entered(_area):
 	if Global.chave == true && proximoportal == true && ativo == true:
-		$Fades.play("Fade in")
+		$fade.play("fadein")
 
-func _on_TimerPortal_timeout():
-	$Fades.play("Fade out")
-	Global.teleporte = false
-	proximoportal = true
 
-func _on_Fades_animation_finished(anim_name):
-	if anim_name == "Fade in":
+func _on_fade_animation_finished(anim_name):
+	if anim_name == "fadein":
 		tp()
-
-
-func _on_Area2D_area_exited(_area):
-	if $Fades.is_playing():
-		$Fades.play("RESET")

@@ -24,19 +24,19 @@ scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 10 )
 
 [node name="mirror_side" parent="." instance=ExtResource( 4 )]
-position = Vector2( 5770, -657 )
+position = Vector2( 5769, -628 )
 destino = NodePath("../mirror_side2")
 cadeadonome = "Fase01"
 
 [node name="mirror_side2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 5415, -682 )
+position = Vector2( 1356, 284 )
 rotation = -3.14159
 scale = Vector2( 1, -1 )
 destino = NodePath("../mirror_side")
 cadeadonome = "Fase01"
 
 [node name="player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 440, 266 )
+position = Vector2( 5874, -644 )
 
 [node name="map" type="Node2D" parent="."]
 
@@ -137,16 +137,12 @@ position = Vector2( 5024, -50 )
 [node name="notes" type="Node2D" parent="map/itens"]
 
 [node name="notes" parent="map/itens/notes" instance=ExtResource( 7 )]
-position = Vector2( 5378, -678 )
-
-[node name="notes2" parent="map/itens/notes" instance=ExtResource( 7 )]
-position = Vector2( 885, 264 )
-numero = 2
+position = Vector2( 5197, -673 )
 
 [node name="keys" type="Node2D" parent="map/itens"]
 
 [node name="key" parent="map/itens/keys" instance=ExtResource( 5 )]
-position = Vector2( 2816, -425 )
+position = Vector2( 6049, -646 )
 chavenome = "Fase01"
 
 [node name="Portal" parent="." instance=ExtResource( 11 )]

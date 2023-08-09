@@ -5,7 +5,6 @@
 [ext_resource path="res://other/fonts/roboto_mono_italic.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://scripts/shi_animation.gd" type="Script" id=4]
 
-
 [sub_resource type="DynamicFont" id=3]
 size = 30
 font_data = ExtResource( 3 )
@@ -161,16 +160,13 @@ anchor_bottom = 1.0
 margin_right = 1280.0
 margin_bottom = 720.0
 color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ShiText" type="Label" parent="CanvasLayer"]
 visible = false
 margin_left = 552.0
 margin_top = 225.0
 margin_right = 1110.0
-margin_bottom = 422.0
+margin_bottom = 653.0
 custom_fonts/font = SubResource( 3 )
 text = "Isso é outro placeholder, placeholder é uma palavra usada para quando algo não está verdadeiramente pronto.
 

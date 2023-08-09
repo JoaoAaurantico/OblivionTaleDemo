@@ -993,7 +993,7 @@ scale = Vector2( 1, 0.8 )
 position = Vector2( 0, -16 )
 frames = SubResource( 27 )
 animation = "Andando"
-frame = 1
+frame = 3
 playing = true
 
 [node name="Petalas" type="Particles2D" parent="SpritePlayer/AnimatedSprite"]
@@ -1058,13 +1058,6 @@ cast_to = Vector2( -6, 0 )
 
 [node name="Gui" parent="." instance=ExtResource( 2 )]
 
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 0.666656, -31.3333 )
-scale = Vector2( 1, 4 )
-__meta__ = {
-"_edit_lock_": true
-}
-
 [node name="Shadow" type="Light2D" parent="."]
 position = Vector2( -3.05176e-05, -12.6667 )
 texture = ExtResource( 6 )
@@ -1115,4 +1108,3 @@ texture = ExtResource( 10 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="TimerSlide" to="." method="_on_TimerSlide_timeout"]
-[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

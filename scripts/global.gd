@@ -17,6 +17,8 @@ var espelho: int = 0
 var mortes: int = 0
 var checkpoint = Vector2(0,0)
 var dict_lamp = {}
+var dict_mirror = {}
+var dict_teleport = {}
 
 func add_lampiao():
 	lampiao += 1 
@@ -62,10 +64,7 @@ var idioma = {
 	},
 	Notes = {
 		1: "Texto bem estar de roberto",
-		2: "14",
-		3: "15",
-		4: "16",
-		5: "17"
+		2: "14"
 	}
 }
 
@@ -84,23 +83,14 @@ const PTBR = {
 		"exit": "Sair" 
 	},
 	ShiAnimacao = {
-		"animacao": "Eu prometo a você que após tudo isso, você será a melhor versão de você mesmo."
+		"animacao": "Isso é uma demo de um jogo atualmente em produção, quaisquer bugs encontrados nessa build atual devem ser informadas diretamente ao seu criador original. Dito isso, obrigado por jogar!"
 	},
 	TelaMorte = {
-		0: "Tenho expectativas em você.",
-		1: "Você não pode desistir.",
-		2: "A culpa não era sua.",
-		3: "Nós vamos te dar oque você precisa.",
-		4: "Não vamos te dar oque você quer.",
-		5: "Só mais um pouco.",
-		6: "Aquele quarto agora é só uma memória."
+		0: "Tela de morte atualmente em produção.",
+		1: "Tela de morte atualmente em produção."
 	},
 	Notes = {
-		1: "Obrigado por jogar, a demo para por aqui",
-		2: "Olha só, já conseguiu apertar um botão, até que você tem jeito (kkkk sacanagem). De toda maneira obrigado por testar o jogo, as coisas tão meio mal acabadas por aqui mas acho que dá pra ter uma ideia de como vai ser a versão final. Seu objetivo é chegar até o final da fase com 10 lampiões, teste a jogabilidade do jogo e depois me faça um comentario do que você achou de toda a experiência",
-		3: "Explorador você em? Bom, não temos nada terminado aqui, lamento te decepcionar, mas fica a vontade para explorar.",
-		4: "espero que pelo menos tenha te assustado, se não o esforço foi inutil",
-		5: "agora sim não tem mais conteudo, agradeço demais que tenha vindo até aqui, mesmo que não tenha nada demais, mostrou que a demo te divertiu um pouco, fico feliz em saber disso!"
+		1: "Obrigado por jogar, a demo para por aqui"
 	}
 }
 
@@ -119,19 +109,14 @@ const ENUS = {
 		"exit": "Quit" 
 	},
 	ShiAnimacao = {
-		"animacao": "Tradução Inglês"
+		"animacao": "This is a demo of a game currently in production, any bugs found in this current build should be reported directly to its original developer. That said, thanks for playing!"
 	},
 	TelaMorte = {
-		0: "morte1en",
-		1: "morte2en",
-		2: "morte3en"
+		0: "Screen of Death currently in production.",
+		1: "Screen of Death currently in production."
 	},
 	Notes = {
-		1: "Obrigado por jogar, a demo para por aqui",
-		2: "Ghost 2",
-		3: "Ghost 3",
-		4: "Ghost 4",
-		5: "ghost 5"
+		1: "Thanks for playing, the demo stops here."
 	}
 }
 

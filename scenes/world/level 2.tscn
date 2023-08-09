@@ -13,7 +13,7 @@ light_mode = 2
 script = ExtResource( 9 )
 
 [node name="player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2706, 184 )
+position = Vector2( 2770, -716 )
 
 [node name="map" type="Node2D" parent="."]
 
