@@ -176,6 +176,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 		avisar_morte()
 func avisar_morte():
 	Global.morto()
+	Global.add_morte()
 
 func aumentosalto():
 	for i in get_slide_count():

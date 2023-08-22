@@ -27,6 +27,7 @@ SceneChanger="*res://other/scene_changer.tscn"
 [debug]
 
 settings/fps/force_fps=60
+settings/stdout/print_fps=true
 
 [display]
 
