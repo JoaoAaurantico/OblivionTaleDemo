@@ -993,7 +993,7 @@ scale = Vector2( 1, 0.8 )
 position = Vector2( 0, -16 )
 frames = SubResource( 27 )
 animation = "Andando"
-frame = 3
+frame = 1
 playing = true
 
 [node name="Petalas" type="Particles2D" parent="SpritePlayer/AnimatedSprite"]

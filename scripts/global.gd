@@ -63,8 +63,8 @@ var idioma = {
 		2: "12"
 	},
 	Notes = {
-		1: "Texto bem estar de roberto",
-		2: "14"
+		1: "[center] Curioso. [/center] [center] [color=red]Ela[/color] era muito importante para você não é? [/center]",
+		2: "[center] Oque aconteceu para ela sumir de sua mente? [/center]"
 	}
 }
 

@@ -7,6 +7,7 @@
 
 [sub_resource type="Animation" id=14]
 resource_name = "Idle"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Control:modulate")
 tracks/0/interp = 1
@@ -43,8 +44,33 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 416, 500 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/Control:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer/Control/RichTextLabel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=10]
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Control:visible")
 tracks/0/interp = 1
@@ -52,37 +78,37 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CanvasLayer/Control/RichTextLabel:visible")
+tracks/1/path = NodePath("CanvasLayer/Control:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1.1 ),
+"times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ true, false ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CanvasLayer/Control:modulate")
+tracks/2/path = NodePath("CanvasLayer/Control:rect_position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Vector2( 737, 103 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("CanvasLayer/Control:rect_position")
+tracks/3/path = NodePath("CanvasLayer/Control:rect_size")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -91,23 +117,24 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 737, 103 ) ]
+"values": [ Vector2( 416, 500 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("CanvasLayer/Control:rect_size")
+tracks/4/path = NodePath("CanvasLayer/Control/RichTextLabel:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 416, 500 ) ]
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=11]
 resource_name = "Text"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Control:visible")
 tracks/0/interp = 1
@@ -121,34 +148,35 @@ tracks/0/keys = {
 "values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CanvasLayer/Control/RichTextLabel:visible")
+tracks/1/path = NodePath("CanvasLayer/Control:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CanvasLayer/Control:modulate")
+tracks/2/path = NodePath("CanvasLayer/Control/RichTextLabel:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="CircleShape2D" id=12]
 radius = 13.4825
 
 [sub_resource type="DynamicFont" id=15]
+size = 20
 font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=16]
@@ -184,30 +212,42 @@ anims/Text = SubResource( 11 )
 shape = SubResource( 12 )
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+visible = false
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 737.0
 margin_top = 103.0
-margin_right = -127.0
-margin_bottom = -117.0
+margin_right = 1153.0
+margin_bottom = 603.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 1.0
-margin_bottom = 1.0
+visible = false
+margin_left = -129.0
+margin_top = 70.0
+margin_right = 221.0
+margin_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 350, 0 )
+rect_clip_content = false
+input_pass_on_modal_close_click = false
 custom_fonts/normal_font = SubResource( 15 )
 custom_styles/normal = SubResource( 16 )
-text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-__meta__ = {
-"_edit_lock_": true
-}
+bbcode_enabled = true
+bbcode_text = "[center]Example[/center]
+ carlos alberto"
+text = "Example
+ carlos alberto"
+fit_content_height = true
+scroll_active = false
+scroll_following = true
+deselect_on_focus_loss_enabled = false
 
+[connection signal="animation_finished" from="Text" to="." method="_on_Text_animation_finished"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

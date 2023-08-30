@@ -1,6 +1,7 @@
 extends Node2D
 
-export var numero = 1
+export var inicio = 1
+export var final = 2
 var estado: int = 3
 var proximo = false
 
@@ -13,7 +14,7 @@ func _process(_delta):
 func _ready():
 	$CanvasLayer.visible = true
 	$Select.visible = false
-	$CanvasLayer/Control/RichTextLabel.text = Global.idioma.Notes[numero]
+	$CanvasLayer/Control/RichTextLabel.bbcode_text = Global.idioma.Notes[inicio]
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("ui_interaction"):
@@ -21,11 +22,14 @@ func _unhandled_input(_event):
 
 func ativo():
 	if proximo == true:
-		if estado == 1:
+		if estado == 1 && $CanvasLayer/Control/RichTextLabel.bbcode_text == Global.idioma.Notes[final]:
 			estado = 0
+			animacao()
+		elif estado == 1 && !$CanvasLayer/Control/RichTextLabel.bbcode_text == Global.idioma.Notes[final]:
+			$CanvasLayer/Control/RichTextLabel.bbcode_text = Global.idioma.Notes[inicio+1]
 		else:
 			estado = 1
-	animacao()
+			animacao()
 
 
 func animacao():
@@ -48,3 +52,8 @@ func _on_Area2D_area_exited(area):
 	if area.is_in_group("Player"):
 		proximo = false
 
+
+
+func _on_Text_animation_finished(anim_name):
+	if anim_name == "RESET":
+		$CanvasLayer/Control/RichTextLabel.bbcode_text = Global.idioma.Notes[inicio]

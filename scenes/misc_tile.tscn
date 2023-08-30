@@ -75,3 +75,9 @@ position = Vector2( 88, 8 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 80, 0, 16, 16 )
+
+[node name="Tile12" type="Sprite" parent="."]
+position = Vector2( 104, 8 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 0, 16, 16 )
