@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://other/fonts/roboto_mono_italic.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/menu.gd" type="Script" id=2]
@@ -75,11 +75,11 @@ size = 55
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 55
+size = 35
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 55
+size = 35
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=7]
@@ -96,6 +96,10 @@ size = 25
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=8]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=22]
 size = 40
 font_data = ExtResource( 1 )
 
@@ -218,31 +222,28 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Control" type="Control" parent="Menu/HBoxContainer"]
-margin_right = 200.0
+margin_right = 100.0
 margin_bottom = 720.0
-rect_min_size = Vector2( 200, 0 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+rect_min_size = Vector2( 100, 0 )
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/HBoxContainer"]
-margin_left = 204.0
-margin_right = 588.0
+margin_left = 104.0
+margin_right = 488.0
 margin_bottom = 720.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/HBoxContainer/CenterContainer"]
-margin_top = 102.0
+margin_top = 122.0
 margin_right = 384.0
-margin_bottom = 617.0
+margin_bottom = 597.0
 grow_horizontal = 0
 grow_vertical = 0
 rect_min_size = Vector2( 350, 0 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
-custom_constants/separation = 30
+custom_constants/separation = 20
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -254,49 +255,66 @@ margin_bottom = 73.0
 custom_fonts/font = SubResource( 1 )
 text = "OblivionTale"
 
-[node name="Control" type="Control" parent="Menu/HBoxContainer/CenterContainer/VBoxContainer"]
-margin_top = 103.0
+[node name="play" type="Button" parent="Menu/HBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 93.0
 margin_right = 384.0
-margin_bottom = 103.0
-
-[node name="Play" type="Button" parent="Menu/HBoxContainer/CenterContainer/VBoxContainer"]
-margin_top = 133.0
-margin_right = 384.0
-margin_bottom = 206.0
+margin_bottom = 140.0
+theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 2 )
 text = "Iniciar"
+align = 0
 
-[node name="Continue" type="Button" parent="Menu/HBoxContainer/CenterContainer/VBoxContainer"]
-margin_top = 236.0
+[node name="continue" type="Button" parent="Menu/HBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 160.0
 margin_right = 384.0
-margin_bottom = 309.0
+margin_bottom = 207.0
 custom_fonts/font = SubResource( 2 )
 text = "Continuar"
+align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Credits" type="Button" parent="Menu/HBoxContainer/CenterContainer/VBoxContainer"]
-margin_top = 339.0
+[node name="credits" type="Button" parent="Menu/HBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 227.0
 margin_right = 384.0
-margin_bottom = 412.0
+margin_bottom = 274.0
 custom_fonts/font = SubResource( 3 )
 text = "Creditos"
+align = 0
 
-[node name="Quit" type="Button" parent="Menu/HBoxContainer/CenterContainer/VBoxContainer"]
-margin_top = 442.0
+[node name="options" type="Button" parent="Menu/HBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 294.0
 margin_right = 384.0
-margin_bottom = 515.0
+margin_bottom = 341.0
+custom_fonts/font = SubResource( 3 )
+text = "Opções"
+align = 0
+
+[node name="extras" type="Button" parent="Menu/HBoxContainer/CenterContainer/VBoxContainer"]
+visible = false
+margin_top = 361.0
+margin_right = 384.0
+margin_bottom = 408.0
+custom_fonts/font = SubResource( 3 )
+text = "Extras"
+align = 0
+
+[node name="quit" type="Button" parent="Menu/HBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 361.0
+margin_right = 384.0
+margin_bottom = 408.0
 custom_fonts/font = SubResource( 3 )
 text = "Sair"
+align = 0
 
-[node name="Label" type="Label" parent="."]
-margin_left = 302.0
-margin_top = 626.0
-margin_right = 512.0
-margin_bottom = 687.0
+[node name="Label2" type="Label" parent="Menu/HBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 428.0
+margin_right = 384.0
+margin_bottom = 475.0
 custom_fonts/font = SubResource( 7 )
-text = "Alpha 5.0"
+text = "Beta 1.0"
+align = 1
 
 [node name="Creditos" type="Control" parent="."]
 visible = false
@@ -314,28 +332,28 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Creditos/CenterContainer"]
-margin_left = 370.0
-margin_top = 104.0
-margin_right = 910.0
-margin_bottom = 616.0
+margin_left = 362.0
+margin_top = 122.0
+margin_right = 917.0
+margin_bottom = 597.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Creditos/CenterContainer/HBoxContainer"]
-margin_right = 540.0
-margin_bottom = 470.0
+margin_right = 555.0
+margin_bottom = 475.0
 
 [node name="Titulo" type="Label" parent="Creditos/CenterContainer/HBoxContainer/VBoxContainer"]
-margin_right = 540.0
-margin_bottom = 61.0
+margin_right = 555.0
+margin_bottom = 67.0
 custom_fonts/font = SubResource( 12 )
 text = "Creditos"
 
 [node name="Pessoas" type="Label" parent="Creditos/CenterContainer/HBoxContainer/VBoxContainer"]
-margin_top = 65.0
-margin_right = 540.0
-margin_bottom = 470.0
+margin_top = 71.0
+margin_right = 555.0
+margin_bottom = 475.0
 custom_fonts/font = SubResource( 13 )
 text = "Criado por:
-João Pedro F L Deus (VirusAurantico)
+João Pedro Leão Deus (VirusAurantico)
 
 Auxilio de:
 Kayki Frota Vale
@@ -344,17 +362,95 @@ Musica por:
 
 Beta Testing: 
 Dérick Mira (DrekDesu)
-Lucas Souza Silva (Sr.Lu)
-Marcos Vinicius Ribeiro de Matos"
+Lucas Souza Silva (Sr.Lu)"
 
-[node name="Idioma" type="Button" parent="."]
+[node name="Opções" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -495, 24 )
+
+[node name="ColorRect" type="ColorRect" parent="Opções"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.392157 )
+
+[node name="CenterContainer" type="CenterContainer" parent="Opções"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Opções/CenterContainer"]
+margin_left = 532.0
+margin_top = 269.0
+margin_right = 747.0
+margin_bottom = 450.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Opções/CenterContainer/HBoxContainer"]
+margin_right = 203.0
+margin_bottom = 181.0
+
+[node name="IdiomaDesc" type="Label" parent="Opções/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_right = 203.0
+margin_bottom = 67.0
+custom_fonts/font = SubResource( 12 )
+text = "Idioma1"
+
+[node name="Idioma" type="Button" parent="Opções/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_top = 71.0
+margin_right = 203.0
+margin_bottom = 124.0
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 8 )
+text = "Idioma"
+
+[node name="CheckButton" type="CheckButton" parent="Opções/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_top = 128.0
+margin_right = 203.0
+margin_bottom = 181.0
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 22 )
+text = "Timer"
+
+[node name="Extras" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -495, 24 )
+
+[node name="ColorRect" type="ColorRect" parent="Extras"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.392157 )
+
+[node name="CenterContainer" type="CenterContainer" parent="Extras"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Extras/CenterContainer"]
+margin_left = 538.0
+margin_top = 326.0
+margin_right = 741.0
+margin_bottom = 393.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Extras/CenterContainer/HBoxContainer"]
+margin_right = 203.0
+margin_bottom = 67.0
+
+[node name="ExtraDesc" type="Label" parent="Extras/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_right = 203.0
+margin_bottom = 67.0
+custom_fonts/font = SubResource( 12 )
+text = "Extras1"
+
+[node name="Back" type="Button" parent="."]
+visible = false
 margin_left = 25.0
 margin_top = 24.0
 margin_right = 185.0
 margin_bottom = 73.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 8 )
-text = "PT-BR"
+text = "<--"
 
 [node name="Fade" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -366,13 +462,12 @@ color = Color( 0, 0, 0, 0 )
 anims/FadeMenu = SubResource( 10 )
 anims/RESET = SubResource( 11 )
 
-[connection signal="mouse_entered" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/Play" to="." method="_on_mouse_entered"]
-[connection signal="pressed" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]
-[connection signal="mouse_entered" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/Continue" to="." method="_on_mouse_entered"]
-[connection signal="pressed" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
-[connection signal="mouse_entered" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/Credits" to="." method="_on_mouse_entered"]
-[connection signal="pressed" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
-[connection signal="mouse_entered" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/Quit" to="." method="_on_mouse_entered"]
-[connection signal="pressed" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
-[connection signal="mouse_entered" from="Idioma" to="." method="_on_mouse_entered"]
-[connection signal="pressed" from="Idioma" to="." method="_on_Idioma_pressed"]
+[connection signal="pressed" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/credits" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/extras" to="." method="_on_extras_pressed"]
+[connection signal="pressed" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="Opções/CenterContainer/HBoxContainer/VBoxContainer/Idioma" to="." method="_on_Idioma_pressed"]
+[connection signal="toggled" from="Opções/CenterContainer/HBoxContainer/VBoxContainer/CheckButton" to="." method="_on_CheckButton_toggled"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

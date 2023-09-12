@@ -11,7 +11,11 @@ func save_game():
 	"chave": Global.chave,
 	"lampiao": Global.lampiao,
 	"dictlamp": Global.dict_lamp,
-	"lingua": Global.linguagemAtual
+	"lingua": Global.linguagemAtual,
+	"milissegundos": GlobalTimer.ms,
+	"segundos": GlobalTimer.s,
+	"minutos": GlobalTimer.m,
+	"timer": GlobalTimer.timerInit
 
 }
 	var dir = Directory.new()
@@ -37,3 +41,7 @@ func load_game():
 			Global.lampiao = player_data.lampiao
 			Global.dict_lamp = player_data.dictlamp
 			Global.linguagemAtual = player_data.lingua
+			GlobalTimer.ms = player_data.milissegundos
+			GlobalTimer.s = player_data.segundos
+			GlobalTimer.m = player_data.minutos
+			GlobalTimer.timerInit = player_data.timer

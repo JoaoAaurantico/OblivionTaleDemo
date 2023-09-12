@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://other/fonts/solitreo_regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/notes.gd" type="Script" id=2]
 [ext_resource path="res://images/mainsprites/miscellaneous/sheet.png" type="Texture" id=3]
 [ext_resource path="res://other/gui/select.png" type="Texture" id=4]
+[ext_resource path="res://images/mainsprites/miscellaneous/particle.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=14]
 resource_name = "Idle"
@@ -191,6 +192,27 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color( 1, 1, 1, 1 )
 
+[sub_resource type="Gradient" id=18]
+offsets = PoolRealArray( 0.0127389, 0.152866, 0.528662, 0.828025, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 0.222656, 0.801868, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=19]
+gradient = SubResource( 18 )
+
+[sub_resource type="ParticlesMaterial" id=17]
+emission_shape = 1
+emission_sphere_radius = 7.0
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 20.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.5
+orbit_velocity_random = 0.2
+scale = 0.02
+scale_random = 0.4
+color_ramp = SubResource( 19 )
+
 [node name="Notes" type="Node2D"]
 scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 2 )
@@ -218,15 +240,12 @@ texture = ExtResource( 3 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
 margin_left = 737.0
 margin_top = 103.0
 margin_right = 1153.0
 margin_bottom = 603.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
-visible = false
 margin_left = -129.0
 margin_top = 70.0
 margin_right = 221.0
@@ -247,6 +266,11 @@ fit_content_height = true
 scroll_active = false
 scroll_following = true
 deselect_on_focus_loss_enabled = false
+
+[node name="Particles2D" type="Particles2D" parent="."]
+amount = 25
+process_material = SubResource( 17 )
+texture = ExtResource( 5 )
 
 [connection signal="animation_finished" from="Text" to="." method="_on_Text_animation_finished"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

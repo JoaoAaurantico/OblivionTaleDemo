@@ -24,7 +24,7 @@ func _on_Resume_pressed():
 	self.pausado = false
 
 func _on_Quit_pressed():
-	get_tree().quit()
+	SceneChanger.change_scene("res://other/menu.tscn")
 
 func _on_Save_pressed():
 	SaveLoader.save_game()

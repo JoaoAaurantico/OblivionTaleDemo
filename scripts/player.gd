@@ -170,10 +170,7 @@ func _on_Area2D_area_entered(area):
 	
 	if area.is_in_group("Portal"):
 		motion.x = 0
-func _on_VisibilityNotifier2D_screen_exited():
-	if Global.portal == false && Global.teleporte == false:
-		Global.add_morte()
-		avisar_morte()
+
 func avisar_morte():
 	Global.morto()
 	Global.add_morte()

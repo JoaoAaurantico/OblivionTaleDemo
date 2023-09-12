@@ -13,12 +13,13 @@ config_version=4
 config/name="OblivionTale"
 run/main_scene="res://other/opening.tscn"
 config/use_custom_user_dir=true
-config/custom_user_dir_name="DataInfinityVoid"
+config/custom_user_dir_name="InfinityVoidData"
 config/icon="res://icon.png"
 config/windows_native_icon="res://Francisco.ico"
 
 [autoload]
 
+GlobalTimer="*res://other/Timer.tscn"
 Global="*res://scripts/global.gd"
 SaveLoader="*res://scripts/save_loader.gd"
 Config="*res://scripts/config.gd"
@@ -27,7 +28,6 @@ SceneChanger="*res://other/scene_changer.tscn"
 [debug]
 
 settings/fps/force_fps=60
-settings/stdout/print_fps=true
 
 [display]
 

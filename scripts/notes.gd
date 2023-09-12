@@ -1,7 +1,8 @@
 extends Node2D
 
-export var inicio = 1
-export var final = 2
+export var inicio = 0
+export var final = 0
+var next = inicio
 var estado: int = 3
 var proximo = false
 
@@ -23,10 +24,12 @@ func _unhandled_input(_event):
 func ativo():
 	if proximo == true:
 		if estado == 1 && $CanvasLayer/Control/RichTextLabel.bbcode_text == Global.idioma.Notes[final]:
+			next = inicio
 			estado = 0
 			animacao()
 		elif estado == 1 && !$CanvasLayer/Control/RichTextLabel.bbcode_text == Global.idioma.Notes[final]:
-			$CanvasLayer/Control/RichTextLabel.bbcode_text = Global.idioma.Notes[inicio+1]
+			next += 1
+			$CanvasLayer/Control/RichTextLabel.bbcode_text = Global.idioma.Notes[next]
 		else:
 			estado = 1
 			animacao()

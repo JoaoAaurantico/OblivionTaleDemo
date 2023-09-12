@@ -42,12 +42,20 @@ func morto():
 
 var idioma = {
 	Menu = {
-		"language": "0",
-		"play": "1",
-		"continue": "2",
-		"credits": "3",
-		"exit": "4"
+		"language": "PT-BR1",
+		"play": "Iniciar1",
+		"continue": "Continuar1",
+		"credits": "Creditos1",
+		"options": "Opções1",
+		"extra": "Extras1",
+		"exit": "Sair1"
 	},
+	
+	Desc = {
+		"idiom": "Idioma1",
+		"extra": "Extras1"
+	},
+	
 	Pause = {
 		"resume": "5",
 		"save": "6",
@@ -63,8 +71,9 @@ var idioma = {
 		2: "12"
 	},
 	Notes = {
-		1: "[center] Curioso. [/center] [center] [color=red]Ela[/color] era muito importante para você não é? [/center]",
-		2: "[center] Oque aconteceu para ela sumir de sua mente? [/center]"
+		0: "Onde você morava era bem agradavel.",
+		1: "Então nós vamos começar daqui, a paisagem desse lugar é bem diferente da minha antiga casa.",
+		2: "Você tem memórias ruins desse lugar?"
 	}
 }
 
@@ -74,7 +83,13 @@ const PTBR = {
 		"play": "Iniciar",
 		"continue": "Continuar",
 		"credits": "Creditos",
+		"options": "Opções",
+		"extra": "Extras",
 		"exit": "Sair"
+	},
+	Desc = {
+		"idiom": "Idioma",
+		"extra": "Extras"
 	},
 	Pause = {
 		"resume": "Resumir",
@@ -90,7 +105,9 @@ const PTBR = {
 		1: "Tela de morte atualmente em produção."
 	},
 	Notes = {
-		1: "Obrigado por jogar, a demo para por aqui"
+		0: "Onde você morava era bem agradavel.",
+		1: "Então nós vamos começar daqui, a paisagem desse lugar é bem diferente da minha antiga casa.",
+		2: "Você tem memórias ruins desse lugar?"
 	}
 }
 
@@ -100,7 +117,13 @@ const ENUS = {
 		"play": "Play",
 		"continue": "Continue",
 		"credits": "Credits",
-		"exit": "Quit"
+		"options": "Options",
+		"extra": "Extra",
+		"exit": "Exit"
+	},
+	Desc = {
+		"idiom": "Language",
+		"extra": "Extras"
 	},
 	Pause = {
 		"resume": "Resume",
@@ -116,7 +139,9 @@ const ENUS = {
 		1: "Screen of Death currently in production."
 	},
 	Notes = {
-		1: "Thanks for playing, the demo stops here."
+		0: "Curioso.",
+		1: "[color=red]Ela[/color] era muito importante para você, não é?",
+		2: "Oque aconteceu para ela sumir de sua mente?"
 	}
 }
 
