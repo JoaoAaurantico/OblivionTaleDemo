@@ -3,7 +3,11 @@
 [ext_resource path="res://images/GUI/toggle/toggle_on.png" type="Texture" id=1]
 [ext_resource path="res://images/GUI/toggle/toggle_off.png" type="Texture" id=2]
 
-[sub_resource type="StyleBoxEmpty" id=5]
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_bottom = 5
+border_color = Color( 1, 1, 1, 1 )
+expand_margin_left = 20.0
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.235294 )
@@ -49,7 +53,7 @@ Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
 Button/constants/hseparation = 0
 Button/fonts/font = null
 Button/styles/disabled = null
-Button/styles/focus = SubResource( 5 )
+Button/styles/focus = SubResource( 11 )
 Button/styles/hover = SubResource( 1 )
 Button/styles/normal = SubResource( 2 )
 Button/styles/pressed = SubResource( 3 )

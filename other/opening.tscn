@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://other/gui/auranticsky_logo.png" type="Texture" id=1]
+[ext_resource path="res://images/GUI/auranticsky_logo.png" type="Texture" id=1]
 [ext_resource path="res://scripts/opening.gd" type="Script" id=2]
-[ext_resource path="res://other/gui/godot_logo.png" type="Texture" id=3]
+[ext_resource path="res://images/GUI/godot_logo.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Logo"

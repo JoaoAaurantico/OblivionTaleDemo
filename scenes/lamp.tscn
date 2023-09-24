@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://images/mainsprites/miscellaneous/lamp.png" type="Texture" id=1]
-[ext_resource path="res://other/gui/fire.png" type="Texture" id=2]
+[ext_resource path="res://images/GUI/fire.png" type="Texture" id=2]
 [ext_resource path="res://scripts/lamp.gd" type="Script" id=3]
-[ext_resource path="res://other/gui/light_2.png" type="Texture" id=4]
+[ext_resource path="res://images/GUI/light_2.png" type="Texture" id=4]
 
 [sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0, 0.170455, 0.517045, 0.778409, 1 )

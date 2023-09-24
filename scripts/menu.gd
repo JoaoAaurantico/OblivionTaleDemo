@@ -1,7 +1,10 @@
 extends CanvasLayer
 
 func _ready():
+	$Menu/HBoxContainer/CenterContainer/VBoxContainer/play.grab_focus()
 	idiomaAtualMenu()
+	if GlobalTimer.timervisible == true:
+		$"Opções/CenterContainer/HBoxContainer/VBoxContainer/CheckButton".pressed = true
 
 func idiomaSelec():
 	print(Global.linguagemAtual)
@@ -23,6 +26,17 @@ func idiomaAtualMenu():
 	idiomaMenu()
 	Global.idiomaAtual()
 
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_end") && $Creditos.visible == true:
+		$Creditos.visible = false
+		$Menu/HBoxContainer/CenterContainer/VBoxContainer/credits.grab_focus()
+	elif event.is_action_pressed("ui_end") && $"Opções".visible == true:
+		$"Opções".visible = false
+		$Menu/HBoxContainer/CenterContainer/VBoxContainer/options.grab_focus()
+
+
+
+
 func idiomaMenu():
 	$"Opções/CenterContainer/HBoxContainer/VBoxContainer/Idioma".text = Global.idioma.Menu["language"]
 	$Menu/HBoxContainer/CenterContainer/VBoxContainer/play.text = Global.idioma.Menu["play"]
@@ -33,6 +47,10 @@ func idiomaMenu():
 	#$Extras/CenterContainer/HBoxContainer/VBoxContainer/ExtraDesc.text =
 	$Menu/HBoxContainer/CenterContainer/VBoxContainer/extras.text = Global.idioma.Menu["extra"]
 	$Menu/HBoxContainer/CenterContainer/VBoxContainer/quit.text = Global.idioma.Menu["exit"]
+	$Rank/CenterContainer/VBoxContainer/LastTime.text = Global.idioma.Menu["lastime"]
+	$Rank/CenterContainer/VBoxContainer/HBoxContainer/Deaths.text = String(Global.hiMortes)
+	$Rank/CenterContainer/VBoxContainer/HBoxContainer2/Lamps.text = String(Global.hiLampiao)
+	$Rank/CenterContainer/VBoxContainer/HBoxContainer3/Time.text = String(str(Global.hiM) + ":" + str(Global.hiS) + ":" + str(Global.hiMS))
 
 func _on_Play_pressed():
 	$FadeM.play("FadeMenu")
@@ -49,8 +67,8 @@ func _on_Continue_pressed():
 	SceneChanger.change_scene("res://scenes/world/level.tscn")
 
 func _on_Credits_pressed():
-	$Back.visible = true
 	$Creditos.visible = true
+	$Creditos/CenterContainer/HBoxContainer/VBoxContainer/Back1.grab_focus()
 
 func _on_Idioma_pressed():
 	idiomaSelec()
@@ -58,25 +76,19 @@ func _on_Idioma_pressed():
 
 func _on_options_pressed():
 	$"Opções".visible = true
-	$Back.visible = true
+	$"Opções"/CenterContainer/HBoxContainer/VBoxContainer/Idioma.grab_focus()
 
 func _on_extras_pressed():
 	$Extras.visible = true
 	$Back.visible = true
 
-
-func _on_Back_pressed():
-	if $Extras.visible == true:
-		$Extras.visible = false
-		$Back.visible = false
-	if $"Opções".visible == true:
-		$"Opções".visible = false
-		$Back.visible = false
-	if $Creditos.visible == true:
-		$Creditos.visible = false
-		$Back.visible = false
-
-
 func _on_CheckButton_toggled(button_pressed):
 	GlobalTimer.visibleTimer(button_pressed)
-	print(GlobalTimer.timervisible)
+
+func _on_Back1_pressed():
+	$Creditos.visible = false
+	$Menu/HBoxContainer/CenterContainer/VBoxContainer/credits.grab_focus()
+
+func _on_Back2_pressed():
+	$"Opções".visible = false
+	$Menu/HBoxContainer/CenterContainer/VBoxContainer/options.grab_focus()

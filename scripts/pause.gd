@@ -5,9 +5,10 @@ extends Control
 var pausado = false setget esta_pausado
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_end") && Global.chao == true:
+	if event.is_action_pressed("ui_start") && Global.chao == true:
 		self.pausado = !pausado
 		move_to_previous_menu()
+		$MenuPause/VBoxContainer/Resume.grab_focus()
 	else:
 		self.pausado = pausado
 		move_to_previous_menu()
@@ -22,9 +23,22 @@ func _process(_delta):
 
 func _on_Resume_pressed():
 	self.pausado = false
+	
+func _on_Restart_pressed():
+	Global.mortes = 0
+	Global.espelho = 0
+	Global.lampiao = 0
+	Global.checkpoint = Vector2(0,0)
+	Global.chave = false
+	Global.dict_lamp = {}
+	GlobalTimer.timerInit = false
+	SceneChanger.change_scene("res://scenes/world/level.tscn")
+	self.pausado = false
 
 func _on_Quit_pressed():
+	self.pausado = false
 	SceneChanger.change_scene("res://other/menu.tscn")
+	GlobalTimer.stopTimer()
 
 func _on_Save_pressed():
 	SaveLoader.save_game()
@@ -106,5 +120,6 @@ func _on_memories_mouse_entered():
 func IdiomaPause():
 	$MenuPause/VBoxContainer/Resume.text = Global.idioma.Pause["resume"]
 	$MenuPause/VBoxContainer/Save.text = Global.idioma.Pause["save"]
+	$MenuPause/VBoxContainer/Restart.text = Global.idioma.Pause["restart"]
 	$MenuPause/VBoxContainer/Memories.text = Global.idioma.Pause["memory"]
 	$MenuPause/VBoxContainer/Quit.text = Global.idioma.Pause["exit"]

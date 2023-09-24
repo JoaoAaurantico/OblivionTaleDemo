@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/note.tscn" type="PackedScene" id=7]
 [ext_resource path="res://other/tiles/main_tile.tres" type="TileSet" id=8]
 [ext_resource path="res://scripts/level.gd" type="Script" id=9]
-[ext_resource path="res://other/gui/tutorial.png" type="Texture" id=10]
+[ext_resource path="res://images/GUI/tutorial.png" type="Texture" id=10]
 [ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=11]
 [ext_resource path="res://other/tiles/misc_tile.tres" type="TileSet" id=12]
 [ext_resource path="res://images/parallax/layer3/mountain01.png" type="Texture" id=13]
@@ -508,81 +508,6 @@ cadeadonome = "Fase01"
 
 [node name="itens" type="Node2D" parent="."]
 
-[node name="lamp" type="Node2D" parent="itens"]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="lamp" parent="itens/lamp" instance=ExtResource( 1 )]
-position = Vector2( 563, -619 )
-__meta__ = {
-"_edit_lock_": true
-}
-lampiaonumero = 1
-
-[node name="lamp2" parent="itens/lamp" instance=ExtResource( 1 )]
-position = Vector2( 4235, 29 )
-__meta__ = {
-"_edit_lock_": true
-}
-lampiaonumero = 2
-
-[node name="lamp3" parent="itens/lamp" instance=ExtResource( 1 )]
-position = Vector2( 4307, -547 )
-__meta__ = {
-"_edit_lock_": true
-}
-lampiaonumero = 3
-
-[node name="lamp4" parent="itens/lamp" instance=ExtResource( 1 )]
-position = Vector2( 5915, -643 )
-__meta__ = {
-"_edit_lock_": true
-}
-lampiaonumero = 4
-
-[node name="lamp5" parent="itens/lamp" instance=ExtResource( 1 )]
-position = Vector2( 5723, 365 )
-__meta__ = {
-"_edit_lock_": true
-}
-lampiaonumero = 5
-
-[node name="lamp6" parent="itens/lamp" instance=ExtResource( 1 )]
-position = Vector2( 1883, -619 )
-__meta__ = {
-"_edit_lock_": true
-}
-lampiaonumero = 6
-
-[node name="lamp7" parent="itens/lamp" instance=ExtResource( 1 )]
-position = Vector2( 2291, -211 )
-__meta__ = {
-"_edit_lock_": true
-}
-lampiaonumero = 7
-
-[node name="lamp8" parent="itens/lamp" instance=ExtResource( 1 )]
-position = Vector2( 3011, -619 )
-__meta__ = {
-"_edit_lock_": true
-}
-lampiaonumero = 8
-
-[node name="lamp9" parent="itens/lamp" instance=ExtResource( 1 )]
-position = Vector2( 2603, 509 )
-__meta__ = {
-"_edit_lock_": true
-}
-lampiaonumero = 9
-
-[node name="lamp10" parent="itens/lamp" instance=ExtResource( 1 )]
-position = Vector2( 995, 605 )
-__meta__ = {
-"_edit_lock_": true
-}
-lampiaonumero = 10
-
 [node name="mirros_piece" parent="itens" instance=ExtResource( 6 )]
 position = Vector2( 5302, -684 )
 espelhonum = 1
@@ -642,6 +567,97 @@ __meta__ = {
 
 [node name="player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 480, 285 )
+
+[node name="commentary" type="Node2D" parent="."]
+
+[node name="commentary" parent="commentary" instance=ExtResource( 7 )]
+position = Vector2( 561, 263 )
+final = 2
+
+[node name="commentary2" parent="commentary" instance=ExtResource( 7 )]
+position = Vector2( 4216, 233 )
+inicio = 3
+final = 6
+
+[node name="commentary3" parent="commentary" instance=ExtResource( 7 )]
+position = Vector2( 3095, -317 )
+inicio = 7
+final = 8
+
+[node name="lamp" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="lamp" parent="lamp" instance=ExtResource( 1 )]
+position = Vector2( 563, -619 )
+__meta__ = {
+"_edit_lock_": true
+}
+lampiaonumero = 1
+
+[node name="lamp2" parent="lamp" instance=ExtResource( 1 )]
+position = Vector2( 4235, 29 )
+__meta__ = {
+"_edit_lock_": true
+}
+lampiaonumero = 2
+
+[node name="lamp3" parent="lamp" instance=ExtResource( 1 )]
+position = Vector2( 4307, -547 )
+__meta__ = {
+"_edit_lock_": true
+}
+lampiaonumero = 3
+
+[node name="lamp4" parent="lamp" instance=ExtResource( 1 )]
+position = Vector2( 5915, -643 )
+__meta__ = {
+"_edit_lock_": true
+}
+lampiaonumero = 4
+
+[node name="lamp5" parent="lamp" instance=ExtResource( 1 )]
+position = Vector2( 5723, 365 )
+__meta__ = {
+"_edit_lock_": true
+}
+lampiaonumero = 5
+
+[node name="lamp6" parent="lamp" instance=ExtResource( 1 )]
+position = Vector2( 1883, -619 )
+__meta__ = {
+"_edit_lock_": true
+}
+lampiaonumero = 6
+
+[node name="lamp7" parent="lamp" instance=ExtResource( 1 )]
+position = Vector2( 2291, -211 )
+__meta__ = {
+"_edit_lock_": true
+}
+lampiaonumero = 7
+
+[node name="lamp8" parent="lamp" instance=ExtResource( 1 )]
+position = Vector2( 3011, -619 )
+__meta__ = {
+"_edit_lock_": true
+}
+lampiaonumero = 8
+
+[node name="lamp9" parent="lamp" instance=ExtResource( 1 )]
+position = Vector2( 2603, 509 )
+__meta__ = {
+"_edit_lock_": true
+}
+lampiaonumero = 9
+
+[node name="lamp10" parent="lamp" instance=ExtResource( 1 )]
+position = Vector2( 995, 605 )
+__meta__ = {
+"_edit_lock_": true
+}
+lampiaonumero = 10
 
 [node name="tiles_phisics" type="Node2D" parent="."]
 position = Vector2( -1, 0 )
@@ -704,12 +720,6 @@ __meta__ = {
 
 [node name="Portal" parent="." instance=ExtResource( 11 )]
 position = Vector2( -519, 1782 )
-
-[node name="commentary" type="Node2D" parent="."]
-
-[node name="commentary" parent="commentary" instance=ExtResource( 7 )]
-position = Vector2( 561, 263 )
-final = 2
 
 [node name="anim" type="Node2D" parent="."]
 

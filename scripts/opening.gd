@@ -8,4 +8,4 @@ func _ready():
 
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
-	SceneChanger.change_scene("res://other/shi_animation.tscn")
+	SceneChanger.change_scene("res://other/menu.tscn")

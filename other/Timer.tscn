@@ -15,7 +15,6 @@ script = ExtResource( 1 )
 wait_time = 0.1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
 visible = false

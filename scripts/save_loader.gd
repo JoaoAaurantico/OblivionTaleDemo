@@ -15,8 +15,12 @@ func save_game():
 	"milissegundos": GlobalTimer.ms,
 	"segundos": GlobalTimer.s,
 	"minutos": GlobalTimer.m,
-	"timer": GlobalTimer.timerInit
-
+	"timer": GlobalTimer.timerInit,
+	"RecoLamp": Global.hiLampiao,
+	"RecoMortes": Global.hiMortes,
+	"RecoMS": Global.hiMS,
+	"RecoS": Global.hiS,
+	"RecoM": Global.hiM
 }
 	var dir = Directory.new()
 	if !dir.dir_exists(SAVE_DIR):
@@ -45,3 +49,8 @@ func load_game():
 			GlobalTimer.s = player_data.segundos
 			GlobalTimer.m = player_data.minutos
 			GlobalTimer.timerInit = player_data.timer
+			Global.hiLampiao = player_data.RecoLamp
+			Global.hiMortes = player_data.RecoMortes
+			Global.hiMS = player_data.RecoMS
+			Global.hiS = player_data.RecoS
+			Global.hiM = player_data.RecoM

@@ -4,6 +4,7 @@ var pegado = false
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Player") && pegado == false:
+		GlobalTimer.timerInit = true
 		$AnimationPlayer.play("Collected")
 		Global.checkpoint = $Check.global_position
 	

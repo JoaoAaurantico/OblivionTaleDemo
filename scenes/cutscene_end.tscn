@@ -7,7 +7,7 @@
 [ext_resource path="res://images/real_world/montains_2.png" type="Texture" id=5]
 [ext_resource path="res://images/real_world/montains.png" type="Texture" id=6]
 [ext_resource path="res://other/tiles/end_tile.tres" type="TileSet" id=7]
-[ext_resource path="res://other/gui/light_2.png" type="Texture" id=8]
+[ext_resource path="res://images/GUI/light_2.png" type="Texture" id=8]
 
 [node name="Node2D" type="Node2D"]
 

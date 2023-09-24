@@ -1,15 +1,16 @@
 extends KinematicBody2D
 
-const NORMAL = Vector2(0,-1)
+const NORMAL = Vector2(0, -1)
 var motion = Vector2()
-var Gravidade = 30
-var Pulo = -600
+export var GravidadePadrao = 27
+var Gravidade = GravidadePadrao
+export var Pulo = -600
 var impulso = 25
 var MaxVelocidade = 300
 var Velocidade = 180
 
 var state = 0
-
+var is_sliding = false
 
 func _process(delta):
 	states()
@@ -20,19 +21,20 @@ func _process(delta):
 
 func _physics_process(_delta):
 	altergravity()
-	aumentosalto()
+
 func altergravity():
 	if Velocidade >= MaxVelocidade:
 		Velocidade = MaxVelocidade
-	if have_wall() && motion.y > 0 && Input.is_action_pressed("ui_right") or have_wall() && motion.y > 0 && Input.is_action_pressed("ui_left") :
+	if have_wall() && motion.y > 0 && (Input.is_action_pressed("ui_right") || Input.is_action_pressed("ui_left")):
 		Gravidade = 100
 		motion.y = Gravidade
 	if !have_wall() && !is_on_floor() && Input.is_action_pressed("ui_down"):
-		Gravidade = 80
+		Gravidade = GravidadePadrao*5
 		motion.y += Gravidade
 	else:
-		Gravidade = 30
+		Gravidade = GravidadePadrao
 		motion.y += Gravidade
+
 func is_floor():
 	if is_on_floor():
 		Global.chao = true
@@ -41,19 +43,22 @@ func is_floor():
 
 func states():
 	if motion.x == 0 && is_on_floor():
-		state = 0 #parado
+		state = 0 # parado
 	if motion.x >= impulso && is_on_floor():
-		state = 1 #andando
+		state = 1 # andando
 	elif motion.x <= -impulso && is_on_floor():
-		state = 1 #andando 
+		state = 1 # andando
 	if !is_on_floor():
-		state = 2 #pulou 
+		state = 2 # pulou
 	if $TimerSlide.time_left or $RayCima.is_colliding():
-		state = 3 #deslizando 
-	if  is_on_wall() && is_on_floor() && motion.x == 0 && !$TimerSlide.time_left:
-		state = 4 #empurrando
-	if !is_on_floor() && have_wall() && Gravidade >= 30:
-		state = 5 #deslizando na parede
+		state = 3 # deslizando
+	if is_on_wall() && is_on_floor() && motion.x == 0 && !$TimerSlide.time_left:
+		state = 4 # empurrando
+	if !is_on_floor() && have_wall() && Gravidade >= GravidadePadrao:
+		state = 5 # deslizando na parede
+	if is_on_floor() && motion.x == 0 && Input.is_action_pressed("ui_down"):
+		state = 6 # agachando
+
 func animations():
 	if state == 0:
 		$AniPlayer.play("Respirando")
@@ -79,6 +84,10 @@ func animations():
 		$AniPlayer.play("Parede")
 		$AnimationPlayer.play("CaixaPulo")
 		$SpritePlayer/AnimatedSprite.play("Parede")
+	elif state == 6:
+		$AniPlayer.play("Respirando")
+		$SpritePlayer/AnimatedSprite.play("Agachado")
+		$AnimationPlayer.play("CaixaPadrão")
 
 func _listener(_delta):
 	if Global.portal == false:
@@ -91,17 +100,17 @@ func _listener(_delta):
 		else:
 			move("null")
 
-		if Input.is_action_just_pressed("ui_up") && !state == 3:
+		if Input.is_action_just_pressed("ui_jump"):
 			if is_on_floor():
 				move("up")
 			elif have_wall():
 				walltimer()
-		elif Input.is_action_just_released("ui_up") && !have_wall():
+		elif Input.is_action_just_released("ui_jump") && !have_wall():
 			move("jumpcut")
 		if $TimerWallJump.time_left:
 			move("walljump")
 
-		if Input.is_action_just_pressed("ui_down") && is_on_floor() && !$TimerSlide.time_left && motion.x !=0:
+		if Input.is_action_just_pressed("ui_down") && is_on_floor() && !$TimerSlide.time_left && motion.x != 0:
 			slidetimer()
 		if $TimerSlide.time_left && $SpritePlayer/AnimatedSprite.flip_h == false:
 			if motion.x != 0:
@@ -114,8 +123,12 @@ func _listener(_delta):
 
 		if motion.x == 0:
 			move("drop")
-	
+
+		if is_sliding && Input.is_action_just_pressed("ui_jump"):
+			cancel_slide_and_jump()
+
 		motion = move_and_slide(motion, NORMAL)
+
 func move(direcao):
 	if direcao == "right":
 		motion.x = min(motion.x + impulso, Velocidade)
@@ -134,40 +147,51 @@ func move(direcao):
 	elif direcao == "drop":
 		Velocidade = 180
 
-
 func have_wall():
 	return $RayDireita.is_colliding() or $RayDireita2.is_colliding() or $RayEsquerda.is_colliding() or $RayEsquerda2.is_colliding()
+
 func wall_jump():
-	if $RayDireita.is_colliding() && $TimerWallJump.time_left or $RayDireita2.is_colliding() && $TimerWallJump.time_left:
+	if ($RayDireita.is_colliding() && $TimerWallJump.time_left) or ($RayDireita2.is_colliding() && $TimerWallJump.time_left):
 		motion.y = Pulo
-		motion.x = -Velocidade 
-	elif $RayEsquerda.is_colliding() && $TimerWallJump.time_left or $RayEsquerda2.is_colliding() && $TimerWallJump.time_left:
+		motion.x = -Velocidade
+	elif ($RayEsquerda.is_colliding() && $TimerWallJump.time_left) or ($RayEsquerda2.is_colliding() && $TimerWallJump.time_left):
 		motion.y = Pulo
-		motion.x = Velocidade 
+		motion.x = Velocidade
+
 func jump():
 	motion.y = Pulo
 	if motion.x != 0:
 		Velocidade = Velocidade + impulso
+
 func jump_cut():
 	if motion.y < -100:
 		motion.y = -50
+
 func slide():
+	is_sliding = true
 	motion.x = Velocidade + impulso
 	if motion.x != 0:
 		Velocidade = Velocidade + impulso
-	
+
 func slidetimer():
+	is_sliding = true
 	$TimerSlide.start()
+
+func cancel_slide_and_jump():
+	is_sliding = false
+	jump()
+	$TimerSlide.stop()
+
 func walltimer():
 	$TimerWallJump.start()
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Dano"):
 		avisar_morte()
-	
+
 	if area.is_in_group("Desce_dano"):
 		avisar_morte()
-	
+
 	if area.is_in_group("Portal"):
 		motion.x = 0
 

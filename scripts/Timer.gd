@@ -16,7 +16,6 @@ func visibleTimer(button_pressed):
 		$CanvasLayer/RichTextLabel.visible = false
 
 func resetTimer():
-	print("Tempo Antigo: ", m, ":", s, ":", ms)
 	ms = 0
 	s = 0
 	m = 0
@@ -27,7 +26,6 @@ func continueTimer():
 
 func stopTimer():
 	$Timer.stop()
-	print("Novo Tempo: ", m, ":", s, ":", ms)
 
 func _on_Timer_timeout():
 	ms += 1

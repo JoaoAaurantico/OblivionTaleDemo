@@ -1,8 +1,9 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://other/gui/petals.png" type="Texture" id=1]
-[ext_resource path="res://other/gui/portal.png" type="Texture" id=2]
+[ext_resource path="res://images/GUI/petals.png" type="Texture" id=1]
+[ext_resource path="res://images/GUI/portal.png" type="Texture" id=2]
 [ext_resource path="res://scripts/portal.gd" type="Script" id=3]
+
 
 
 [sub_resource type="Gradient" id=9]

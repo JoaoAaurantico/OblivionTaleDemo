@@ -20,6 +20,19 @@ var dict_lamp = {}
 var dict_mirror = {}
 var dict_teleport = {}
 
+var hiLampiao: int
+var hiMortes: int
+var hiMS: int
+var hiS: int
+var hiM: int
+
+func save_record():
+	hiLampiao = lampiao
+	hiMortes = mortes
+	hiMS = GlobalTimer.ms
+	hiS = GlobalTimer.s
+	hiM = GlobalTimer.m
+
 func add_lampiao():
 	lampiao += 1 
 
@@ -48,7 +61,8 @@ var idioma = {
 		"credits": "Creditos1",
 		"options": "Opções1",
 		"extra": "Extras1",
-		"exit": "Sair1"
+		"exit": "Sair1",
+		"lastime": "Ultimo Tempo"
 	},
 	
 	Desc = {
@@ -57,23 +71,34 @@ var idioma = {
 	},
 	
 	Pause = {
-		"resume": "5",
-		"save": "6",
-		"memory": "7",
-		"exit": "8" 
+		"resume": "Resumir1",
+		"save": "Salvar1",
+		"restart": "Reiniciar1",
+		"memory": "Memorias1",
+		"exit": "Sair1" 
 	},
 	ShiAnimacao = {
 		"animacao": "9"
 	},
 	TelaMorte = {
-		0: "10",
-		1: "11",
-		2: "12"
+		0: "Estamos a um passo de terminar tudo, não devemos parar agora.",
+		1: "Cento e cinquenta, cento e cinquenta e um... isso não para de subir, encontramos!",
+		2: "Eu disse que era possível, os recursos não foram desperdiçados.",
+		3: "Espera... isso não deveria acontecer! Algo deu errado!",
+		4: "O que é você?!",
+		5: "Eu sou você, você é eu.",
+		6: "Sua dor, minha dor."
 	},
 	Notes = {
-		0: "Onde você morava era bem agradavel.",
+		0: "Onde você morava era bem agradável.",
 		1: "Então nós vamos começar daqui, a paisagem desse lugar é bem diferente da minha antiga casa.",
-		2: "Você tem memórias ruins desse lugar?"
+		2: "Você tem memórias ruins desse lugar?",
+		3: "Eu também tenho memórias ruins de onde eu nasci.",
+		4: "Não havia luz.",
+		5: "Não havia som.",
+		6: "Não havia nada.",
+		7: "Mas ela me encontrou.",
+		8: "E ela também estava sozinha."
 	}
 }
 
@@ -85,7 +110,8 @@ const PTBR = {
 		"credits": "Creditos",
 		"options": "Opções",
 		"extra": "Extras",
-		"exit": "Sair"
+		"exit": "Sair",
+		"lastime": "Ultimo Tempo"
 	},
 	Desc = {
 		"idiom": "Idioma",
@@ -94,6 +120,7 @@ const PTBR = {
 	Pause = {
 		"resume": "Resumir",
 		"save": "Salvar",
+		"restart": "Reiniciar",
 		"memory": "Memorias",
 		"exit": "Sair" 
 	},
@@ -101,14 +128,26 @@ const PTBR = {
 		"animacao": "Isso é uma demo de um jogo atualmente em produção, quaisquer bugs encontrados nessa build atual devem ser informadas diretamente ao seu criador original. Dito isso, obrigado por jogar!"
 	},
 	TelaMorte = {
-		0: "Tela de morte atualmente em produção.",
-		1: "Tela de morte atualmente em produção."
+		0: "Estamos a um passo de terminar tudo, não devemos parar agora.",
+		1: "Cento e cinquenta, cento e cinquenta e um... isso não para de subir, encontramos!",
+		2: "Eu disse que era possível, os recursos não foram desperdiçados.",
+		3: "Espera... isso não deveria acontecer! Algo deu errado!",
+		4: "O que é você?!",
+		5: "Eu sou você, você é eu.",
+		6: "Sua dor, minha dor."
 	},
 	Notes = {
-		0: "Onde você morava era bem agradavel.",
+		0: "Onde você morava era bem agradável.",
 		1: "Então nós vamos começar daqui, a paisagem desse lugar é bem diferente da minha antiga casa.",
-		2: "Você tem memórias ruins desse lugar?"
+		2: "Você tem memórias ruins desse lugar?",
+		3: "Eu também tenho memórias ruins de onde eu nasci.",
+		4: "Não havia luz.",
+		5: "Não havia som.",
+		6: "Não havia nada.",
+		7: "Mas ela me encontrou.",
+		8: "E ela também estava sozinha."
 	}
+
 }
 
 const ENUS = {
@@ -119,7 +158,8 @@ const ENUS = {
 		"credits": "Credits",
 		"options": "Options",
 		"extra": "Extra",
-		"exit": "Exit"
+		"exit": "Exit",
+		"lastime": "Last Run"
 	},
 	Desc = {
 		"idiom": "Language",
@@ -128,6 +168,7 @@ const ENUS = {
 	Pause = {
 		"resume": "Resume",
 		"save": "Save",
+		"restart": "Restart",
 		"memory": "Memories",
 		"exit": "Quit" 
 	},
@@ -135,14 +176,25 @@ const ENUS = {
 		"animacao": "This is a demo of a game currently in production, any bugs found in this current build should be reported directly to its original developer. That said, thanks for playing!"
 	},
 	TelaMorte = {
-		0: "Screen of Death currently in production.",
-		1: "Screen of Death currently in production."
+		0: "We are one step away from ending it all; we should not stop now.",
+		1: "One hundred fifty, one hundred fifty-one... this keeps going up; we've found it!",
+		2: "I said it was possible; the resources were not wasted.",
+		3: "Wait... this shouldn't be happening! Something went wrong!",
+		4: "What are you?!", 
+		5: "I am you, you are me.",
+		6: "Your pain, my pain."
 	},
 	Notes = {
-		0: "Curioso.",
-		1: "[color=red]Ela[/color] era muito importante para você, não é?",
-		2: "Oque aconteceu para ela sumir de sua mente?"
-	}
+		 0: "Where you lived was quite pleasant.",
+		1: "So we will start from here; the landscape of this place is quite different from my old house.",
+		2: "Do you have bad memories of this place?",
+		3: "I also have bad memories of where I was born.",
+		4: "There was no light.",
+		5: "There was no sound.",
+		6: "There was nothing.",
+		7: "But she found me.",
+		8: "And she was also alone."
+	},
 }
 
 func idiomaAtual():

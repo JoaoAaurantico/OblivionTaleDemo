@@ -1,18 +1,19 @@
 extends Node2D
 
-export var inicio = 0
-export var final = 0
-var next = inicio
+export var inicio: int
+export var final: int
+var next: int
 var estado: int = 3
 var proximo = false
 
 func _process(_delta):
 	if proximo == false && estado == 1:
-		$Text.play("RESET")
+		$Text.play("Finish")
 		estado = 3
 		
 
 func _ready():
+	next = inicio
 	$CanvasLayer.visible = true
 	$Select.visible = false
 	$CanvasLayer/Control/RichTextLabel.bbcode_text = Global.idioma.Notes[inicio]
@@ -38,9 +39,9 @@ func ativo():
 func animacao():
 	match estado:
 		1:
-			$Text.play("Text")
+			$Text.play("Start")
 		0:
-			$Text.play("RESET")
+			$Text.play("Finish")
 		3:
 			$Text.play("Idle")
 
@@ -58,5 +59,5 @@ func _on_Area2D_area_exited(area):
 
 
 func _on_Text_animation_finished(anim_name):
-	if anim_name == "RESET":
+	if anim_name == "Finish":
 		$CanvasLayer/Control/RichTextLabel.bbcode_text = Global.idioma.Notes[inicio]
