@@ -12,6 +12,24 @@ var Velocidade = 180
 var state = 0
 var is_sliding = false
 
+func _ready():
+	# Configurar a câmera do jogador para suavidade
+	if $Camera2D:
+		$Camera2D.smoothing_enabled = true
+		$Camera2D.smoothing_speed = 3  # Ajuste a velocidade de suavização conforme necessário
+
+# Função para desativar a suavidade da câmera
+func desativar_suavidade_camera():
+	if $Camera2D:
+		$Camera2D.smoothing_enabled = false
+
+# Função para ativar a suavidade da câmera
+func ativar_suavidade_camera():
+	if $Camera2D:
+		$Camera2D.smoothing_enabled = true
+		$Camera2D.smoothing_speed = 3  # Ajuste a velocidade de suavização conforme necessário
+
+
 func _process(delta):
 	states()
 	animations()
@@ -25,10 +43,10 @@ func _physics_process(_delta):
 func altergravity():
 	if Velocidade >= MaxVelocidade:
 		Velocidade = MaxVelocidade
-	if have_wall() && motion.y > 0 && (Input.is_action_pressed("ui_right") || Input.is_action_pressed("ui_left")):
+	if have_wall() && motion.y > 0 && (Input.is_action_pressed("right") || Input.is_action_pressed("left")):
 		Gravidade = 100
 		motion.y = Gravidade
-	if !have_wall() && !is_on_floor() && Input.is_action_pressed("ui_down"):
+	if !have_wall() && !is_on_floor() && Input.is_action_pressed("down"):
 		Gravidade = GravidadePadrao*5
 		motion.y += Gravidade
 	else:
@@ -56,7 +74,7 @@ func states():
 		state = 4 # empurrando
 	if !is_on_floor() && have_wall() && Gravidade >= GravidadePadrao:
 		state = 5 # deslizando na parede
-	if is_on_floor() && motion.x == 0 && Input.is_action_pressed("ui_down"):
+	if is_on_floor() && motion.x == 0 && Input.is_action_pressed("down"):
 		state = 6 # agachando
 
 func animations():
@@ -91,26 +109,26 @@ func animations():
 
 func _listener(_delta):
 	if Global.portal == false:
-		if Input.is_action_pressed("ui_right") && !$TimerSlide.time_left:
+		if Input.is_action_pressed("right") && !$TimerSlide.time_left:
 			move("right")
 			$SpritePlayer/AnimatedSprite.flip_h = false
-		elif Input.is_action_pressed("ui_left") && !$TimerSlide.time_left:
+		elif Input.is_action_pressed("left") && !$TimerSlide.time_left:
 			move("left")
 			$SpritePlayer/AnimatedSprite.flip_h = true
 		else:
 			move("null")
 
-		if Input.is_action_just_pressed("ui_jump"):
+		if Input.is_action_just_pressed("jump"):
 			if is_on_floor():
 				move("up")
 			elif have_wall():
 				walltimer()
-		elif Input.is_action_just_released("ui_jump") && !have_wall():
+		elif Input.is_action_just_released("jump") && !have_wall():
 			move("jumpcut")
 		if $TimerWallJump.time_left:
 			move("walljump")
 
-		if Input.is_action_just_pressed("ui_down") && is_on_floor() && !$TimerSlide.time_left && motion.x != 0:
+		if Input.is_action_just_pressed("down") && is_on_floor() && !$TimerSlide.time_left && motion.x != 0:
 			slidetimer()
 		if $TimerSlide.time_left && $SpritePlayer/AnimatedSprite.flip_h == false:
 			if motion.x != 0:
@@ -124,7 +142,7 @@ func _listener(_delta):
 		if motion.x == 0:
 			move("drop")
 
-		if is_sliding && Input.is_action_just_pressed("ui_jump"):
+		if is_sliding && Input.is_action_just_pressed("jump"):
 			cancel_slide_and_jump()
 
 		motion = move_and_slide(motion, NORMAL)
