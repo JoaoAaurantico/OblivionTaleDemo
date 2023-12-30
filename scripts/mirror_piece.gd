@@ -9,6 +9,7 @@ func _ready():
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Player"):
+		AudioSFX.Item("glass")
 		Global.chave = false
 		Global.add_espelho()
 		$AnimationPlayer.play("VidroPego")

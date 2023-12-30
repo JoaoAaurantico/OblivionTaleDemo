@@ -26,6 +26,8 @@ var hiMS: int
 var hiS: int
 var hiM: int
 
+var mouseLock = true
+
 func save_record():
 	hiLampiao = lampiao
 	hiMortes = mortes
@@ -50,6 +52,17 @@ func morto():
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://other/death_screen.tscn")
 
+
+func _unhandled_input(_event):
+	if Input.is_action_just_pressed("ui_end"):
+		 get_tree().quit()
+
+func toggleCapturarMouse():
+	mouseLock = not mouseLock
+	if mouseLock:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 # ========================= Idiomas ========================= #
 
@@ -99,6 +112,11 @@ var idioma = {
 		6: "Não havia nada.",
 		7: "Mas ela me encontrou.",
 		8: "E ela também estava sozinha."
+	},
+	Achievements = {
+		1: "Conclua a fase em 45 segundos ou menos.",
+		2: "Colete todos os 10 Lampiões e conclua a primeira fase.",
+		3: "Conclua a primeira fase desde o inicio sem morrer."
 	}
 }
 
@@ -146,6 +164,11 @@ const PTBR = {
 		6: "Não havia nada.",
 		7: "Mas ela me encontrou.",
 		8: "E ela também estava sozinha."
+	},
+	Achievements = {
+		1: "Conclua a fase em 45 segundos ou menos.",
+		2: "Colete todos os 10 Lampiões e conclua a primeira fase.",
+		3: "Conclua a primeira fase desde o inicio sem morrer."
 	}
 
 }
@@ -157,7 +180,7 @@ const ENUS = {
 		"continue": "Continue",
 		"credits": "Credits",
 		"options": "Options",
-		"extra": "Extra",
+		"extra": "Extras",
 		"exit": "Exit",
 		"lastime": "Last Run"
 	},
@@ -185,8 +208,8 @@ const ENUS = {
 		6: "Your pain, my pain."
 	},
 	Notes = {
-		 0: "Where you lived was quite pleasant.",
-		1: "So we will start from here; the landscape of this place is quite different from my old house.",
+		0: "You lived in a quite pleasant place.",
+		1: "So we will start from here; the landscape of this place is quite different from my previous house.",
 		2: "Do you have bad memories of this place?",
 		3: "I also have bad memories of where I was born.",
 		4: "There was no light.",
@@ -195,6 +218,11 @@ const ENUS = {
 		7: "But she found me.",
 		8: "And she was also alone."
 	},
+	Achievements = {
+		1: "Finish the first level within 45 seconds or less.",
+		2: "Get all 10 Lamps and finish the first level.",
+		3: "Finish the first level from the beggining without dying once."
+	}
 }
 
 func idiomaAtual():

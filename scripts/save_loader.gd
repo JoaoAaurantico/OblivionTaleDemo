@@ -20,7 +20,10 @@ func save_game():
 	"RecoMortes": Global.hiMortes,
 	"RecoMS": Global.hiMS,
 	"RecoS": Global.hiS,
-	"RecoM": Global.hiM
+	"RecoM": Global.hiM,
+	"Achievement1": Achievement.LampAchievement,
+	"Achievement2": Achievement.TimeAchievement,
+	"Achievement3": Achievement.DeathAchievement
 }
 	var dir = Directory.new()
 	if !dir.dir_exists(SAVE_DIR):
@@ -54,3 +57,6 @@ func load_game():
 			Global.hiMS = player_data.RecoMS
 			Global.hiS = player_data.RecoS
 			Global.hiM = player_data.RecoM
+			Achievement.LampAchievement = player_data.Achievement1
+			Achievement.TimeAchievement = player_data.Achievement2
+			Achievement.DeathAchievement = player_data.Achievement3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://other/fonts/roboto_mono_italic.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://theme.tres" type="Theme" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://images/mainsprites/mirror/mirror.png" type="Texture" id=6]
 [ext_resource path="res://images/memories/memories2.png" type="Texture" id=7]
 [ext_resource path="res://images/memories/memories5.png" type="Texture" id=8]
+[ext_resource path="res://images/GUI/star.png" type="Texture" id=9]
 [ext_resource path="res://images/memories/memories8.png" type="Texture" id=10]
 [ext_resource path="res://images/GUI/pressure.png" type="Texture" id=16]
 [ext_resource path="res://images/GUI/particle.png" type="Texture" id=17]
@@ -21,6 +22,28 @@
 [ext_resource path="res://images/GUI/Lampiões.png" type="Texture" id=26]
 [ext_resource path="res://scripts/gui.gd" type="Script" id=29]
 [ext_resource path="res://scripts/pause.gd" type="Script" id=30]
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=26]
+animations = [ {
+"frames": [ SubResource( 24 ), SubResource( 25 ) ],
+"loop": false,
+"name": "Star",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=27]
+size = 21
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 55
@@ -192,6 +215,71 @@ color = Color( 0.172549, 0.172549, 0.172549, 0.662745 )
 margin_right = 40.0
 margin_bottom = 40.0
 
+[node name="achievement" type="Control" parent="Pause/MenuPause"]
+margin_left = 690.0
+margin_top = 75.0
+margin_right = 730.0
+margin_bottom = 115.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause/MenuPause/achievement"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -40.0
+margin_bottom = 104.0
+custom_constants/separation = 100
+
+[node name="achievement1" type="Control" parent="Pause/MenuPause/achievement/VBoxContainer"]
+
+[node name="starFinish" type="AnimatedSprite" parent="Pause/MenuPause/achievement/VBoxContainer/achievement1"]
+position = Vector2( 31, 32 )
+frames = SubResource( 26 )
+animation = "Star"
+
+[node name="Label" type="Label" parent="Pause/MenuPause/achievement/VBoxContainer/achievement1"]
+margin_left = 72.0
+margin_top = 21.0
+margin_right = 477.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 27 )
+text = "Termine a fase com menos em menos de 50 segundos"
+autowrap = true
+
+[node name="achievement2" type="Control" parent="Pause/MenuPause/achievement/VBoxContainer"]
+margin_top = 100.0
+margin_bottom = 100.0
+
+[node name="starLamp" type="AnimatedSprite" parent="Pause/MenuPause/achievement/VBoxContainer/achievement2"]
+position = Vector2( 31, 32 )
+frames = SubResource( 26 )
+animation = "Star"
+
+[node name="Label" type="Label" parent="Pause/MenuPause/achievement/VBoxContainer/achievement2"]
+margin_left = 72.0
+margin_top = 21.0
+margin_right = 477.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 27 )
+text = "Colete todos os 10 lampiões"
+autowrap = true
+
+[node name="achievement3" type="Control" parent="Pause/MenuPause/achievement/VBoxContainer"]
+margin_top = 200.0
+margin_bottom = 200.0
+
+[node name="starDeath" type="AnimatedSprite" parent="Pause/MenuPause/achievement/VBoxContainer/achievement3"]
+position = Vector2( 31, 32 )
+frames = SubResource( 26 )
+animation = "Star"
+
+[node name="Label" type="Label" parent="Pause/MenuPause/achievement/VBoxContainer/achievement3"]
+margin_left = 72.0
+margin_top = 21.0
+margin_right = 477.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 27 )
+text = "Não morra nenhuma vez"
+autowrap = true
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Pause/MenuPause"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -317,6 +405,7 @@ __meta__ = {
 }
 
 [node name="Espelho" type="AnimatedSprite" parent="Pause/MenuPause"]
+visible = false
 position = Vector2( 953, 352 )
 scale = Vector2( 9, 9 )
 frames = SubResource( 10 )
@@ -387,19 +476,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="mouse_entered" from="Pause/MenuPause/VBoxContainer/Resume" to="Pause" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="Pause/MenuPause/VBoxContainer/Resume" to="Pause" method="_on_focus_entered"]
+[connection signal="mouse_entered" from="Pause/MenuPause/VBoxContainer/Resume" to="Pause" method="_on_focus_entered"]
 [connection signal="pressed" from="Pause/MenuPause/VBoxContainer/Resume" to="Pause" method="_on_Resume_pressed"]
-[connection signal="mouse_entered" from="Pause/MenuPause/VBoxContainer/Restart" to="Pause" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="Pause/MenuPause/VBoxContainer/Restart" to="Pause" method="_on_focus_entered"]
+[connection signal="mouse_entered" from="Pause/MenuPause/VBoxContainer/Restart" to="Pause" method="_on_focus_entered"]
 [connection signal="pressed" from="Pause/MenuPause/VBoxContainer/Restart" to="Pause" method="_on_Restart_pressed"]
-[connection signal="mouse_entered" from="Pause/MenuPause/VBoxContainer/Save" to="Pause" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="Pause/MenuPause/VBoxContainer/Save" to="Pause" method="_on_focus_entered"]
+[connection signal="mouse_entered" from="Pause/MenuPause/VBoxContainer/Save" to="Pause" method="_on_focus_entered"]
 [connection signal="pressed" from="Pause/MenuPause/VBoxContainer/Save" to="Pause" method="_on_Save_pressed"]
-[connection signal="mouse_entered" from="Pause/MenuPause/VBoxContainer/Memories" to="Pause" method="_on_mouse_entered"]
-[connection signal="pressed" from="Pause/MenuPause/VBoxContainer/Memories" to="Pause" method="_on_Memories_pressed"]
-[connection signal="mouse_entered" from="Pause/MenuPause/VBoxContainer/Quit" to="Pause" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="Pause/MenuPause/VBoxContainer/Quit" to="Pause" method="_on_focus_entered"]
+[connection signal="mouse_entered" from="Pause/MenuPause/VBoxContainer/Quit" to="Pause" method="_on_focus_entered"]
 [connection signal="pressed" from="Pause/MenuPause/VBoxContainer/Quit" to="Pause" method="_on_Quit_pressed"]
-[connection signal="mouse_entered" from="Pause/MenuMemorias/Voltar" to="Pause" method="_on_memories_mouse_entered"]
-[connection signal="pressed" from="Pause/MenuMemorias/Voltar" to="Pause" method="_on_Voltar_pressed"]
-[connection signal="mouse_entered" from="Pause/MenuMemorias/Tras" to="Pause" method="_on_memories_mouse_entered"]
-[connection signal="pressed" from="Pause/MenuMemorias/Tras" to="Pause" method="_on_Tras_pressed"]
-[connection signal="mouse_entered" from="Pause/MenuMemorias/Frente" to="Pause" method="_on_memories_mouse_entered"]
-[connection signal="pressed" from="Pause/MenuMemorias/Frente" to="Pause" method="_on_Frente_pressed"]

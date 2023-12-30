@@ -102,16 +102,15 @@ size = 35
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=12]
-size = 50
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=13]
-size = 25
+[sub_resource type="DynamicFont" id=27]
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 50
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=22]
@@ -437,7 +436,7 @@ margin_top = 428.0
 margin_right = 384.0
 margin_bottom = 475.0
 custom_fonts/font = SubResource( 7 )
-text = "Beta 1.0"
+text = "1.0"
 align = 1
 
 [node name="Creditos" type="Control" parent="."]
@@ -456,42 +455,52 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Creditos/CenterContainer"]
-margin_left = 362.0
-margin_top = 94.0
-margin_right = 917.0
-margin_bottom = 626.0
+margin_left = 50.0
+margin_top = 70.0
+margin_right = 1229.0
+margin_bottom = 650.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Creditos/CenterContainer/HBoxContainer"]
-margin_right = 555.0
-margin_bottom = 532.0
+margin_right = 1179.0
+margin_bottom = 580.0
 
-[node name="Titulo" type="Label" parent="Creditos/CenterContainer/HBoxContainer/VBoxContainer"]
-margin_right = 555.0
-margin_bottom = 67.0
-custom_fonts/font = SubResource( 12 )
-text = "Creditos"
-
-[node name="Pessoas" type="Label" parent="Creditos/CenterContainer/HBoxContainer/VBoxContainer"]
-margin_top = 71.0
-margin_right = 555.0
-margin_bottom = 475.0
-custom_fonts/font = SubResource( 13 )
-text = "Criado por:
-João Pedro Leão Deus (VirusAurantico)
-
-Auxilio de:
-Kayki Frota Vale
-
-Musica por:
+[node name="Label" type="Label" parent="Creditos/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_right = 1179.0
+margin_bottom = 247.0
+custom_fonts/font = SubResource( 27 )
+text = "Developer:
+VirusAurantico
 
 Beta Testing: 
-Dérick Mira (DrekDesu)
-Lucas Souza Silva (Sr.Lu)"
+DrekDesu
+Sr.Lu
+GBM
+Pablopel
+
+Audio:"
+align = 1
+
+[node name="Label2" type="Label" parent="Creditos/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_top = 251.0
+margin_right = 1179.0
+margin_bottom = 523.0
+custom_fonts/font = SubResource( 27 )
+text = "S: TV Static Looping by dotY21 | License: Creative Commons 0 | Timestamp: 2023-12-30 21:22:59.498229
+S: Mozar21stPC41.mp3 by Teo4 | License: Attribution NonCommercial 3.0 | Timestamp: 2023-12-30 21:10:22.870980
+S: Menu Select Tick by el_boss | License: Creative Commons 0 | Timestamp: 2023-12-30 20:16:28.326759
+S: HorrorSting3.mp3 by shelbyshark | License: Creative Commons 0 | Timestamp: 2023-12-30 20:08:54.447250
+S: Fire - Effects - Swooshes - Bursts, evolving by GregorQuendel | License: Attribution 4.0 | Timestamp: 2023-12-30 19:40:10.285628
+S: finger hit high glass bowl 7.mp3 by ascap | License: Attribution NonCommercial 4.0 | Timestamp: 2023-12-30 19:34:15.268050
+S: Deslizamiento de espada.wav by Josethehedgehog | License: Creative Commons 0 | Timestamp: 2023-12-30 19:23:28.980522
+S: Jumping on grass 3.wav by Coolshows101sound | License: Attribution 4.0 | Timestamp: 2023-12-30 18:56:28.890345
+Dark Ambiences Pad Showdown | Sonniss.com - GDC 2023 - Game Audio Bundle
+Forest, Daytime, Birds, Outdoors, Nature, Spring | Sonniss.com - GDC 2023 - Game Audio Bundle
+grass 3 single step 3 | Sonniss.com - GDC 2023 - Game Audio Bundle"
 
 [node name="Back1" type="Button" parent="Creditos/CenterContainer/HBoxContainer/VBoxContainer"]
-margin_top = 479.0
-margin_right = 555.0
-margin_bottom = 532.0
+margin_top = 527.0
+margin_right = 1179.0
+margin_bottom = 580.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 8 )
 text = "<--"
@@ -593,13 +602,31 @@ color = Color( 0, 0, 0, 0 )
 anims/FadeMenu = SubResource( 10 )
 anims/RESET = SubResource( 11 )
 
+[connection signal="focus_entered" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/play" to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/play" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/play" to="." method="_on_Play_pressed"]
+[connection signal="focus_entered" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/continue" to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/continue" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/continue" to="." method="_on_Continue_pressed"]
+[connection signal="focus_entered" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/credits" to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/credits" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/credits" to="." method="_on_Credits_pressed"]
+[connection signal="focus_entered" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/options" to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/options" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/extras" to="." method="_on_extras_pressed"]
+[connection signal="focus_entered" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/quit" to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/quit" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/quit" to="." method="_on_Quit_pressed"]
+[connection signal="focus_entered" from="Creditos/CenterContainer/HBoxContainer/VBoxContainer/Back1" to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="Creditos/CenterContainer/HBoxContainer/VBoxContainer/Back1" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="Creditos/CenterContainer/HBoxContainer/VBoxContainer/Back1" to="." method="_on_Back1_pressed"]
+[connection signal="focus_entered" from="Opções/CenterContainer/HBoxContainer/VBoxContainer/Idioma" to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="Opções/CenterContainer/HBoxContainer/VBoxContainer/Idioma" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="Opções/CenterContainer/HBoxContainer/VBoxContainer/Idioma" to="." method="_on_Idioma_pressed"]
+[connection signal="focus_entered" from="Opções/CenterContainer/HBoxContainer/VBoxContainer/CheckButton" to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="Opções/CenterContainer/HBoxContainer/VBoxContainer/CheckButton" to="." method="_on_focus_entered"]
 [connection signal="toggled" from="Opções/CenterContainer/HBoxContainer/VBoxContainer/CheckButton" to="." method="_on_CheckButton_toggled"]
+[connection signal="focus_entered" from="Opções/CenterContainer/HBoxContainer/VBoxContainer/Back2" to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="Opções/CenterContainer/HBoxContainer/VBoxContainer/Back2" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="Opções/CenterContainer/HBoxContainer/VBoxContainer/Back2" to="." method="_on_Back2_pressed"]

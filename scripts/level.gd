@@ -1,8 +1,7 @@
 extends Node
 
-
-
 func _ready():
+	AudioSFX.level1("play")
 	if GlobalTimer.timerInit == false:
 		GlobalTimer.resetTimer()
 		GlobalTimer.timerInit = true
@@ -13,9 +12,11 @@ func _ready():
 				#Globaltimer init dentro do checkpoint
 				$player.global_position = Global.checkpoint
 
-
 func _on_Area2D_area_entered(area):
-	if area.is_in_group("Player"): 
+	if area.is_in_group("Player"):
+		AudioSFX.level1("stop")
+		Global.toggleCapturarMouse()
+		Achievement.registerAch() 
 		GlobalTimer.stopTimer()
 		Global.save_record()
 		SaveLoader.save_game()

@@ -13,6 +13,9 @@ var state = 0
 var is_sliding = false
 
 func _ready():
+	Achievement.secretHat()
+	if Achievement.secret == true:
+		$SpritePlayer/AnimatedSprite/Hatoid.visible = true
 	# Configurar a câmera do jogador para suavidade
 	if $Camera2D:
 		$Camera2D.smoothing_enabled = true
@@ -77,7 +80,34 @@ func states():
 	if is_on_floor() && motion.x == 0 && Input.is_action_pressed("down"):
 		state = 6 # agachando
 
+onready var hat = $SpritePlayer/AnimatedSprite/Hatoid
+
+func secheat():
+	if state == 0 or state == 1:
+		hat.position = Vector2(0,-9)
+	if state == 2 and $SpritePlayer/AnimatedSprite.flip_h == true:
+		hat.position = Vector2(-2,-7)
+	if state == 2 and $SpritePlayer/AnimatedSprite.flip_h == false:
+		hat.position = Vector2(2,-6)
+	if state == 3 and $SpritePlayer/AnimatedSprite.flip_h == false:
+		hat.position = Vector2(-6,0)
+	if state == 3 and $SpritePlayer/AnimatedSprite.flip_h == true:
+		hat.position = Vector2(6,0)
+	if state == 4 and $SpritePlayer/AnimatedSprite.flip_h == false:
+		hat.position = Vector2(6,-7)
+	if state == 4 and $SpritePlayer/AnimatedSprite.flip_h == true:
+		hat.position = Vector2(-6,-7)
+	if state == 5 and $SpritePlayer/AnimatedSprite.flip_h == false:
+		hat.position = Vector2(0,-7)
+	if state == 5 and $SpritePlayer/AnimatedSprite.flip_h == true:
+		hat.position = Vector2(0,-7)
+	if state == 6:
+		hat.position = Vector2(0,-6)
+
+
 func animations():
+	secheat()
+	audio()
 	if state == 0:
 		$AniPlayer.play("Respirando")
 		$SpritePlayer/AnimatedSprite.play("Parado")
@@ -107,6 +137,17 @@ func animations():
 		$SpritePlayer/AnimatedSprite.play("Agachado")
 		$AnimationPlayer.play("CaixaPadrão")
 
+
+func audio():
+	if state == 1 and Velocidade < 200 and invisible == false:
+		AudioSFX.Player("grassLow")
+	if state == 1 and Velocidade > 200 and invisible == false:
+		AudioSFX.Player("grassHigh")
+	if Input.is_action_just_pressed("jump") and is_on_floor() or  Input.is_action_just_pressed("jump") and is_on_wall():
+		AudioSFX.Player("jump")
+	if Input.is_action_just_pressed("down") and is_on_floor():
+		AudioSFX.Player("slide")
+
 func _listener(_delta):
 	if Global.portal == false:
 		if Input.is_action_pressed("right") && !$TimerSlide.time_left:
@@ -128,7 +169,7 @@ func _listener(_delta):
 		if $TimerWallJump.time_left:
 			move("walljump")
 
-		if Input.is_action_just_pressed("down") && is_on_floor() && !$TimerSlide.time_left && motion.x != 0:
+		if Input.is_action_just_pressed("down") && is_on_floor() && !$TimerSlide.time_left && motion.x != 0 :
 			slidetimer()
 		if $TimerSlide.time_left && $SpritePlayer/AnimatedSprite.flip_h == false:
 			if motion.x != 0:
@@ -142,7 +183,7 @@ func _listener(_delta):
 		if motion.x == 0:
 			move("drop")
 
-		if is_sliding && Input.is_action_just_pressed("jump"):
+		if is_sliding && Input.is_action_just_pressed("jump") && !$RayCima.is_colliding():
 			cancel_slide_and_jump()
 
 		motion = move_and_slide(motion, NORMAL)
@@ -203,17 +244,14 @@ func cancel_slide_and_jump():
 func walltimer():
 	$TimerWallJump.start()
 
+var invisible = false
+
 func _on_Area2D_area_entered(area):
-	if area.is_in_group("Dano"):
-		avisar_morte()
-
-	if area.is_in_group("Desce_dano"):
-		avisar_morte()
-
 	if area.is_in_group("Portal"):
 		motion.x = 0
 
 func avisar_morte():
+	AudioSFX.GUI("death")
 	Global.morto()
 	Global.add_morte()
 

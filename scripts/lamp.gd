@@ -8,6 +8,7 @@ func _ready():
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Player"):
+		AudioSFX.Item("lamp")
 		$Area2D.queue_free()
 		Global.add_lampiao()
 		Global.dict_lamp[lampiaonumero] = lampiaonumero

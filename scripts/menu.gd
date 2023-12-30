@@ -1,13 +1,13 @@
 extends CanvasLayer
 
 func _ready():
+	AudioSFX.GUI("menuplay")
 	$Menu/HBoxContainer/CenterContainer/VBoxContainer/play.grab_focus()
 	idiomaAtualMenu()
 	if GlobalTimer.timervisible == true:
 		$"Opções/CenterContainer/HBoxContainer/VBoxContainer/CheckButton".pressed = true
 
 func idiomaSelec():
-	print(Global.linguagemAtual)
 	Global.linguagemAtual += 1
 	if Global.linguagemAtual > 1:
 		Global.linguagemAtual = 0
@@ -53,28 +53,36 @@ func idiomaMenu():
 	$Rank/CenterContainer/VBoxContainer/HBoxContainer3/Time.text = String(str(Global.hiM) + ":" + str(Global.hiS) + ":" + str(Global.hiMS))
 
 func _on_Play_pressed():
+	AudioSFX.GUI("press")
+	AudioSFX.GUI("menustop")
 	$FadeM.play("FadeMenu")
 	newgame()
 # warning-ignore:return_value_discarded
 	SceneChanger.change_scene("res://other/death_screen.tscn")
 
 func _on_Quit_pressed():
+	AudioSFX.GUI("press")
 	get_tree().quit()
 
 func _on_Continue_pressed():
+	AudioSFX.GUI("press")
+	AudioSFX.GUI("menustop")
 # warning-ignore:return_value_discarded
 	$FadeM.play("FadeMenu")
 	SceneChanger.change_scene("res://scenes/world/level.tscn")
 
 func _on_Credits_pressed():
+	AudioSFX.GUI("press")
 	$Creditos.visible = true
 	$Creditos/CenterContainer/HBoxContainer/VBoxContainer/Back1.grab_focus()
 
 func _on_Idioma_pressed():
+	AudioSFX.GUI("press")
 	idiomaSelec()
 	idiomaMenu()
 
 func _on_options_pressed():
+	AudioSFX.GUI("press")
 	$"Opções".visible = true
 	$"Opções"/CenterContainer/HBoxContainer/VBoxContainer/Idioma.grab_focus()
 
@@ -83,12 +91,19 @@ func _on_extras_pressed():
 	$Back.visible = true
 
 func _on_CheckButton_toggled(button_pressed):
+	AudioSFX.GUI("press")
 	GlobalTimer.visibleTimer(button_pressed)
 
 func _on_Back1_pressed():
+	AudioSFX.GUI("press")
 	$Creditos.visible = false
 	$Menu/HBoxContainer/CenterContainer/VBoxContainer/credits.grab_focus()
 
 func _on_Back2_pressed():
+	AudioSFX.GUI("press")
 	$"Opções".visible = false
 	$Menu/HBoxContainer/CenterContainer/VBoxContainer/options.grab_focus()
+
+
+func _on_focus_entered():
+	AudioSFX.GUI("select")
