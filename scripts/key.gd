@@ -8,6 +8,7 @@ func _ready():
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Player"):
+		AudioSFX.Item("key")
 		Global.chave = true
 		$AnimationPlayer.play("Coletado")
 		Global.chavenome = chavenome

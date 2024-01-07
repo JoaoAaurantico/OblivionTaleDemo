@@ -6,7 +6,7 @@ func _process(_delta):
 		idiomaAtual()
 
 var chavenome = ""
-var linguagemAtual: int = 0
+var linguagemAtual: int = 1
 var chao = false
 var portal = false
 var inverse = false
@@ -56,6 +56,10 @@ func morto():
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("ui_end"):
 		 get_tree().quit()
+	if Input.is_action_pressed("ui_home"):
+		OS.window_fullscreen = not OS.window_fullscreen
+
+
 
 func toggleCapturarMouse():
 	mouseLock = not mouseLock
@@ -99,7 +103,7 @@ var idioma = {
 		2: "Eu disse que era possível, os recursos não foram desperdiçados.",
 		3: "Espera... isso não deveria acontecer! Algo deu errado!",
 		4: "O que é você?!",
-		5: "Eu sou você, você é eu.",
+		5: "Eu sou você, você sou eu.",
 		6: "Sua dor, minha dor."
 	},
 	Notes = {

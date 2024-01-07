@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://other/fonts/roboto_mono_italic.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/menu.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://images/GUI/Mortes.png" type="Texture" id=6]
 [ext_resource path="res://images/GUI/Lampiões.png" type="Texture" id=7]
 [ext_resource path="res://images/GUI/relogio.png" type="Texture" id=8]
+[ext_resource path="res://images/mainsprites/void/hatoid.png" type="Texture" id=9]
 
 [sub_resource type="Gradient" id=5]
 offsets = PoolRealArray( 0.0350877, 0.245614, 0.675439, 1 )
@@ -469,7 +470,7 @@ margin_right = 1179.0
 margin_bottom = 247.0
 custom_fonts/font = SubResource( 27 )
 text = "Developer:
-VirusAurantico
+Jonapii
 
 Beta Testing: 
 DrekDesu
@@ -601,6 +602,12 @@ color = Color( 0, 0, 0, 0 )
 [node name="FadeM" type="AnimationPlayer" parent="."]
 anims/FadeMenu = SubResource( 10 )
 anims/RESET = SubResource( 11 )
+
+[node name="Hatoid" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1290, 78 )
+scale = Vector2( 70, 70 )
+texture = ExtResource( 9 )
 
 [connection signal="focus_entered" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/play" to="." method="_on_focus_entered"]
 [connection signal="mouse_entered" from="Menu/HBoxContainer/CenterContainer/VBoxContainer/play" to="." method="_on_focus_entered"]

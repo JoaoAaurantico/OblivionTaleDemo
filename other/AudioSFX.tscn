@@ -82,6 +82,10 @@ volume_db = -15.0
 stream = ExtResource( 9 )
 volume_db = -5.0
 
+[node name="key" type="AudioStreamPlayer" parent="itens"]
+stream = ExtResource( 9 )
+volume_db = -25.0
+
 [node name="levels" type="Node2D" parent="."]
 
 [node name="Level1" type="Node2D" parent="levels"]

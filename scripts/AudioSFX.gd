@@ -12,7 +12,11 @@ func Item(type):
 	if type == "lamp" and !$itens/lamp.playing:
 		$itens/lamp.play()
 	if type == "glass" and !$itens/glass.playing:
+		$itens/glass.pitch_scale = 1
 		$itens/glass.play()
+	if type == "key" and !$itens/key.playing:
+		$itens/key.pitch_scale = 0.5
+		$itens/key.play()
 
 func Player(type):
 	if type == "grassLow" and !$player/WalkGrass.playing:

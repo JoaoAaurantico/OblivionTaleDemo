@@ -1,6 +1,9 @@
 extends CanvasLayer
 
 func _ready():
+	Achievement.secretHat()
+	if Achievement.secret == true:
+		$Hatoid.visible = true
 	AudioSFX.GUI("menuplay")
 	$Menu/HBoxContainer/CenterContainer/VBoxContainer/play.grab_focus()
 	idiomaAtualMenu()

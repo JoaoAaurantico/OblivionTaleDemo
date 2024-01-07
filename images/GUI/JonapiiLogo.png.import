@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/auranticsky_logo.png-f43e4a364c8fa03b1a02c7544086c9ee.stex"
+path="res://.import/JonapiiLogo.png-e7ddfeebc3977d9c3d67fced1836fd8e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/GUI/auranticsky_logo.png"
-dest_files=[ "res://.import/auranticsky_logo.png-f43e4a364c8fa03b1a02c7544086c9ee.stex" ]
+source_file="res://images/GUI/JonapiiLogo.png"
+dest_files=[ "res://.import/JonapiiLogo.png-e7ddfeebc3977d9c3d67fced1836fd8e.stex" ]
 
 [params]
 
