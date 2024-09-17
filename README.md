@@ -1,1 +1,1 @@
-
+Projeto pessoal de desenvolvimento de um jogo de plataforma 2D dentro da Game Engine Godot 3.5. O projeto foi descontinuado por complicações com a versão da engine, mas existe uma versão jogável da demonstração no GameJolt (https://gamejolt.com/games/OblivionTaleFirststage/866897)
